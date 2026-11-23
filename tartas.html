@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/svg+xml" href="img/icono-red-velvet.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================================
+         MARTARTA — Catálogo de tartas (tartas.html)
+         ------------------------------------------------------------
+         * Aquí viven TODAS las tartas: foto, nombre, comentario
+           y precio. La portada solo enseña un anticipo y enlaza aquí.
+         * CÓMO AÑADIR UNA TARTA: copia un bloque <article class="tarjeta-producto">
+           y cambia data-id (único), data-nombre, data-precio, foto y textos.
+         * CÓMO PONER FOTO: sustituye el div "prod-placeholder" por
+           <img src="img/nombre-foto.jpg" alt="Nombre de la tarta">
+         * El botón «✨ Extras» abre la ventana de extras (al final del
+           archivo, dentro del modal #extras). Los extras también van
+           al carrito. Edita la lista en el modal.
+    ================================================================= -->
+    <title>Tartas | Martarta</title>
+    <meta name="description" content="Catálogo de tartas artesanales Martarta: fotos, precios y comentarios. Pedidos por WhatsApp.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css?v=21">
+</head>
+<body>
+
+    <!-- ================== BARRA DE ANUNCIOS ================== -->
+    <div class="barra-anuncios">
+        <span>🎂 Solo online · Blanes — <strong>pedidos por WhatsApp</strong> (recogida mié–dom, 9:00–17:00)</span>
+    </div>
+
+    <!-- ================== CABECERA / NAVEGACIÓN ================== -->
+    <header class="cabecera">
+        <a href="index.html" class="logo"><img class="logo-tarta" src="img/icono-cheesecake.svg" alt=""><span class="logo-linea">Mar<em>tarta</em></span></a>
+        <nav class="nav-principal">
+            <a href="index.html">Inicio</a>
+            <a href="tartas.html" style="color: var(--rojo); font-weight: 700;">Tartas</a>
+            <a href="index.html#comic">La obradora</a>
+            <a href="index.html#pagar">Cómo pagar</a>
+            <a href="index.html#sobre-mi">Sobre mí</a>
+            <a href="index.html#opiniones">Opiniones</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+
+        <button class="boton-carrito" id="abrir-carrito" aria-label="Abrir carrito">
+            <img class="icono-cesta" src="img/icono-cesta.svg" alt="Carrito"> <span class="contador" id="contador-carrito">0</span>
+        </button>
+    </header>
+
+    <!-- ================== CABECERA DEL CATÁLOGO ================== -->
+    <section class="hero-mini">
+        <h1>Nuestras tartas <img class="icono-titulo" src="img/icono-red-velvet.svg" alt=""></h1>
+        <p>Fotos, precios y comentarios — tal cual salen del horno</p>
+        <!-- Filtros del catálogo (los tres primeros filtran, los dos últimos enlazan) -->
+        <div class="fichas-cat filtros-cat">
+            <button class="ficha-cat activa" data-f="todas">🍰 Todas</button>
+            <button class="ficha-cat" data-f="gluten">🌾 Sin gluten</button>
+            <button class="ficha-cat" data-f="lactosa">🥛 Sin lactosa</button>
+            <a class="ficha-cat" href="#personalizada">✨ Personalizada</a>
+            <a class="ficha-cat" href="#extras">➕ Extras</a>
+        </div>
+    </section>
+
+    <!-- ================== CATÁLOGO (lista compacta, la ficha grande se abre al hacer clic) ================== -->
+    <section class="seccion" id="catalogo">
+        <div class="lista-productos">
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-queso" data-nombre="Tarta de queso clásica" data-precio="22">
+                <div class="cat-foto"><img src="img/tarta-queso.jpg" alt="Tarta de queso clásica"></div>
+                <div class="lista-info">
+                    <h3>Tarta de queso clásica</h3>
+                    <p class="cat-desc">La de toda la vida: cremosa y al horno.</p>
+                </div>
+                <span class="prod-precio">22 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-choco" data-nombre="Tarta de chocolate y avellana" data-precio="26">
+                <div class="cat-foto"><img src="img/tarta-choco.jpg" alt="Tarta de chocolate y avellana"></div>
+                <div class="lista-info">
+                    <h3>Chocolate y avellana</h3>
+                    <p class="cat-desc">Ganache de chocolate y avellana crujiente.</p>
+                </div>
+                <span class="prod-precio">26 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="cookies-pack" data-nombre="Pack de cookies surtidas" data-precio="12">
+                <div class="cat-foto"><img src="img/cookies.jpg" alt="Pack de cookies surtidas"></div>
+                <div class="lista-info">
+                    <h3>Pack de cookies</h3>
+                    <p class="cat-desc">6 unidades surtidas de la semana.</p>
+                </div>
+                <span class="prod-precio">12 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="queso-sin-lactosa" data-nombre="Tarta de queso sin lactosa" data-precio="24" data-dieta="lactosa">
+                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-queso-lactosa.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Queso sin lactosa</h3>
+                    <p class="cat-desc">La misma receta, apta para intolerantes.</p>
+                </div>
+                <span class="prod-precio">24 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="bizcocho-sin-gluten" data-nombre="Bizcocho sin gluten" data-precio="20" data-dieta="gluten">
+                <div class="cat-foto cat-icono"><span class="dieta dieta-gluten">SIN GLUTEN</span><img src="img/icono-bizcocho-gluten.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Bizcocho sin gluten</h3>
+                    <p class="cat-desc">Esponjoso y apto para celíacos.</p>
+                </div>
+                <span class="prod-precio">20 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-zanahoria" data-nombre="Tarta de zanahoria" data-precio="23">
+                <div class="cat-foto cat-icono"><img src="img/icono-zanahoria.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Tarta de zanahoria</h3>
+                    <p class="cat-desc">Nueces, canela y crema de queso.</p>
+                </div>
+                <span class="prod-precio">23 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-limon" data-nombre="Tarta de limón" data-precio="21" data-dieta="lactosa">
+                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-limon.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Tarta de limón</h3>
+                    <p class="cat-desc">Merengue tostado, fresquita.</p>
+                </div>
+                <span class="prod-precio">21 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="red-velvet" data-nombre="Red Velvet" data-precio="28">
+                <div class="cat-foto cat-icono"><img src="img/icono-red-velvet.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Red Velvet</h3>
+                    <p class="cat-desc">Terciopelo rojo con crema de queso.</p>
+                </div>
+                <span class="prod-precio">28 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-manzana" data-nombre="Tarta de manzana" data-precio="19" data-dieta="lactosa">
+                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-manzana.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Tarta de manzana</h3>
+                    <p class="cat-desc">Hojaldre, canela y manzana asada.</p>
+                </div>
+                <span class="prod-precio">19 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="vasitos-pack" data-nombre="Postres en vasito (x4)" data-precio="14" data-dieta="gluten">
+                <div class="cat-foto cat-icono"><span class="dieta dieta-gluten">SIN GLUTEN</span><img src="img/icono-vasitos.svg" alt=""></div>
+                <div class="lista-info">
+                    <h3>Postres en vasito</h3>
+                    <p class="cat-desc">Pack de 4, sabor de la semana.</p>
+                </div>
+                <span class="prod-precio">14 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
+            </article>
+
+            <!-- Personalizada: a consultar -->
+            <div class="banner-personalizada" id="personalizada">
+                <div>
+                    <h3>✨ Tú la imaginas, yo la horneo</h3>
+                    <p>Cumpleaños, aniversarios, locuras… cuéntame la idea por WhatsApp y te paso precio.</p>
+                </div>
+                <a href="https://wa.me/34614896462" class="boton boton-whatsapp sticker" target="_blank">Pedir cita 💬</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== EXTRAS (sección + ventana) ==================
+         Los extras también se pueden añadir al carrito. Para añadir
+         o quitar extras: edita los bloques <div class="extra-item">
+         del final (los data-id no se deben repetir). -->
+    <section class="seccion seccion-oscura" id="extras">
+        <h2 class="titulo-seccion">✨ Los extras</h2>
+        <p style="text-align:center;color:var(--blanco);max-width:520px;margin:0 auto 1.5rem">
+            Añade velas, mensajes o detalles a tu pedido desde cualquier tarta
+            (botón «✨ Extras») o desde aquí:
+        </p>
+        <div style="text-align:center">
+            <button class="boton boton-principal" id="abrir-extras">Ver extras y añadir ➕</button>
+        </div>
+    </section>
+
+    <!-- ================== PIE DE PÁGINA ================== -->
+    <footer class="pie">
+        <div class="pie-contenido">
+            <div class="pie-logo">Mar<span>tarta</span></div>
+            <nav class="pie-nav">
+                <a href="index.html">Inicio</a>
+                <a href="https://www.instagram.com/martartalatemporal" target="_blank" rel="noopener">Instagram</a>
+                <a href="#">Aviso legal</a>
+                <a href="#">Privacidad</a>
+            </nav>
+            <p class="pie-copy">© 2025 Martarta — Hecho con harina y cariño</p>
+        </div>
+    </footer>
+
+    <!-- ================== FICHA DE PRODUCTO (e-commerce: galería + compra + acordeones) ================== -->
+    <div class="detalle-fondo" id="detalle-fondo" hidden></div>
+    <div class="detalle-modal" id="detalle-modal" role="dialog" aria-modal="true" hidden>
+        <button class="detalle-cerrar" id="detalle-cerrar" aria-label="Cerrar">✕</button>
+        <div class="detalle-izq">
+            <div class="detalle-principal">
+                <img id="detalle-img" src="" alt="">
+                <span class="lupa" aria-hidden="true">🔍</span>
+            </div>
+            <div class="detalle-thumbs" id="detalle-thumbs"></div>
+        </div>
+        <div class="detalle-der">
+            <span id="detalle-chip"></span>
+            <h3 id="detalle-nombre"></h3>
+            <p class="detalle-larga" id="detalle-larga"></p>
+            <p class="detalle-precio-rango" id="detalle-precio"></p>
+            <div class="detalle-opciones">
+                <label class="detalle-campo">Tamaño
+                    <select id="detalle-tamano"></select>
+                </label>
+                <div class="detalle-cantidad">
+                    <button type="button" id="det-menos" aria-label="Menos">−</button>
+                    <span id="det-cant">1</span>
+                    <button type="button" id="det-mas" aria-label="Más">+</button>
+                </div>
+            </div>
+            <button class="boton cta-anadir" id="detalle-anadir">AÑADIR AL CARRITO</button>
+            <details class="det-acc">
+                <summary>Información del producto</summary>
+                <div id="detalle-info-producto"></div>
+            </details>
+            <details class="det-acc">
+                <summary>Información general</summary>
+                <div><strong>* Aviso del obrador:</strong> podemos contener trazas de frutos secos, gluten, soja y sésamo.<br><strong>* Imágenes ilustrativas:</strong> cada tarta se hace a mano, la tuya será única.</div>
+            </details>
+        </div>
+    </div>
+
+    <!-- ================== CARRITO (panel lateral) ================== -->
+    <div class="carrito-fondo" id="carrito-fondo" hidden></div>
+    <aside class="carrito-panel" id="carrito-panel" aria-label="Carrito de compra">
+        <header class="carrito-cabecera">
+            <h3>Tu carrito <img class="icono-titulo" src="img/icono-cesta.svg" alt=""></h3>
+            <button class="carrito-cerrar" id="cerrar-carrito" aria-label="Cerrar">✕</button>
+        </header>
+        <ul class="carrito-lista" id="carrito-lista"></ul>
+        <div class="carrito-pie">
+            <p class="carrito-total">Total: <strong id="carrito-total">0 €</strong></p>
+            <p class="carrito-ayuda">Al confirmar se abrirá WhatsApp (o tu correo) con tu pedido ya escrito ✍️</p>
+            <button class="boton boton-whatsapp boton-ancho" id="confirmar-pedido">Confirmar pedido por WhatsApp</button>
+            <button class="boton boton-email boton-ancho" id="confirmar-email">Confirmar por correo 📧</button>
+            <button class="boton boton-factura boton-ancho" id="generar-factura">Generar factura 📄</button>
+        </div>
+    </aside>
+
+    <!-- ================== VENTANA DE EXTRAS (modal) ================== -->
+    <div class="extras-fondo" id="extras-fondo">
+        <div class="extras-caja" role="dialog" aria-label="Extras del pedido">
+            <button class="extras-cerrar" id="cerrar-extras" aria-label="Cerrar extras">✕</button>
+            <h3>✨ Extras para tu pedido</h3>
+            <p class="extras-intro">Añádelos igual que una tarta: van al carrito y se envían con el pedido.</p>
+
+            <!-- ====== LISTA DE EXTRAS: edita aquí (data-id único) ====== -->
+            <div class="extra-item" data-id="extra-velas" data-nombre="Extra: velitas de cumple" data-precio="1.5">
+                <div><strong>🕯️ Velitas de cumple</strong><br><small>Pack de velitas + cerillas</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+            </div>
+            <div class="extra-item" data-id="extra-mensaje" data-nombre="Extra: mensaje personalizado" data-precio="2">
+                <div><strong>🖊️ Mensaje personalizado</strong><br><small>Escrito a mano en chocolate o fondant</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+            </div>
+            <div class="extra-item" data-id="extra-fresas" data-nombre="Extra: fresas extra" data-precio="3">
+                <div><strong>🍓 Fresas extra</strong><br><small>Más fresas frescas por encima</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+            </div>
+            <div class="extra-item" data-id="extra-caja" data-nombre="Extra: caja para regalo" data-precio="2.5">
+                <div><strong>🎁 Caja para regalo</strong><br><small>Caja bonita con lazo</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/carrito.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        /* ---------- Control de la ventana de extras ---------- */
+        const extrasFondo = document.getElementById('extras-fondo');
+
+        function abrirExtras() { extrasFondo.classList.add('abierto'); }
+        function cerrarExtras() { extrasFondo.classList.remove('abierto'); }
+
+        document.querySelectorAll('.boton-extras').forEach(b => b.addEventListener('click', abrirExtras));
+        document.getElementById('abrir-extras').addEventListener('click', abrirExtras);
+        document.getElementById('cerrar-extras').addEventListener('click', cerrarExtras);
+        extrasFondo.addEventListener('click', e => { if (e.target === extrasFondo) cerrarExtras(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarExtras(); });
+
+        /* Los extras usan el mismo carrito que las tartas (funciones de carrito.js) */
+        document.querySelectorAll('.extra-item .boton-comprar').forEach(boton => {
+            boton.addEventListener('click', () => {
+                const extra = boton.closest('.extra-item');
+                añadirAlCarrito(extra.dataset.id, extra.dataset.nombre, Number(extra.dataset.precio));
+                cerrarExtras();
+            });
+        });
+        /* Filtros del catálogo: todas / sin gluten / sin lactosa */
+        document.querySelectorAll('.filtros-cat button[data-f]').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.filtros-cat button').forEach(c => c.classList.remove('activa'));
+                chip.classList.add('activa');
+                const f = chip.dataset.f;
+                document.querySelectorAll('.tarjeta-cat').forEach(t => {
+                    t.style.display = (f === 'todas' || t.dataset.dieta === f) ? '' : 'none';
+                });
+            });
+        });
+
+        /* ================== FICHA DE PRODUCTO (galería + tamaños + cantidad + info) ================== */
+        const DETALLES = {
+            'tarta-queso': {
+                larga: 'Tarta de queso cremosa, horneada a baja temperatura con base de galleta casera. Mejor de un día para otro.',
+                galeria: ['img/tarta-queso.jpg', 'img/icono-queso-lactosa.svg', 'img/icono-cheesecake.svg'],
+                tamanos: [ { n: '8 raciones', p: 22 }, { n: '12 raciones', p: 32 } ],
+                ingredientes: 'Queso crema, huevos, nata, azúcar, galleta maría, mantequilla.',
+                alergenos: 'Leche, huevo, gluten.',
+            },
+            'tarta-choco': {
+                larga: 'Bizcocho húmedo de chocolate con ganache brillante y crujiente de avellana. Para chocoadictos.',
+                galeria: ['img/tarta-choco.jpg', 'img/icono-red-velvet.svg', 'img/icono-cheesecake.svg'],
+                tamanos: [ { n: '10 raciones', p: 26 }, { n: '14 raciones', p: 36 } ],
+                ingredientes: 'Chocolate 70%, harina de trigo, huevos, avellanas, azúcar, mantequilla.',
+                alergenos: 'Leche, huevo, gluten, frutos secos (avellana).',
+            },
+            'cookies-pack': {
+                larga: 'Galletas de mantequilla con chips y la sorpresa surtida de la semana. Crujientes fuera, tiernas dentro.',
+                galeria: ['img/cookies.jpg', 'img/icono-vasitos.svg', 'img/icono-bizcocho-gluten.svg'],
+                tamanos: [ { n: 'Pack 6 uds', p: 12 }, { n: 'Pack 12 uds', p: 22 } ],
+                ingredientes: 'Harina de trigo, mantequilla, azúcar moreno, chips de chocolate, huevo.',
+                alergenos: 'Leche, huevo, gluten, soja.',
+            },
+            'queso-sin-lactosa': {
+                larga: 'La misma receta de siempre con ingredientes sin lactosa: nadie nota la diferencia.',
+                galeria: ['img/icono-queso-lactosa.svg', 'img/icono-cheesecake.svg', 'img/icono-limon.svg'],
+                tamanos: [ { n: '8 raciones', p: 24 }, { n: '12 raciones', p: 34 } ],
+                ingredientes: 'Queso sin lactosa, huevos, nata sin lactosa, azúcar, base de galleta.',
+                alergenos: 'Huevo, gluten.',
+            },
+            'bizcocho-sin-gluten': {
+                larga: 'Elaborado con harinas sin gluten y superficie limpia. Esponjoso y apto para celíacos.',
+                galeria: ['img/icono-bizcocho-gluten.svg', 'img/icono-zanahoria.svg', 'img/icono-cheesecake.svg'],
+                tamanos: [ { n: '8 raciones', p: 20 }, { n: '12 raciones', p: 29 } ],
+                ingredientes: 'Mezcla de harinas sin gluten, huevos, azúcar, aceite de girasol.',
+                alergenos: 'Huevo. Sin gluten.',
+            },
+            'tarta-zanahoria': {
+                larga: 'Especiada a fuego lento, con nueces tostadas y cobertura de crema de queso.',
+                galeria: ['img/icono-zanahoria.svg', 'img/icono-bizcocho-gluten.svg', 'img/icono-cheesecake.svg'],
+                tamanos: [ { n: '10 raciones', p: 23 }, { n: '14 raciones', p: 32 } ],
+                ingredientes: 'Zanahoria, harina de trigo, nueces, canela, huevos, queso crema.',
+                alergenos: 'Leche, huevo, gluten, frutos secos (nueces).',
+            },
+            'tarta-limon': {
+                larga: 'Crema de limón con merengue tostado. Fresca, ligera y sin lactosa.',
+                galeria: ['img/icono-limon.svg', 'img/icono-queso-lactosa.svg', 'img/icono-vasitos.svg'],
+                tamanos: [ { n: '8 raciones', p: 21 }, { n: '12 raciones', p: 30 } ],
+                ingredientes: 'Limón, huevos, azúcar, merengue (clara de huevo).',
+                alergenos: 'Huevo. Sin lactosa.',
+            },
+            'red-velvet': {
+                larga: 'Terciopelo rojo con capas de crema de queso. La tarta de las ocasiones importantes.',
+                galeria: ['img/icono-red-velvet.svg', 'img/icono-cheesecake.svg', 'img/icono-queso-lactosa.svg'],
+                tamanos: [ { n: '10 raciones', p: 28 }, { n: '14 raciones', p: 39 } ],
+                ingredientes: 'Harina de trigo, cacao, huevos, queso crema, mantequilla, colorante.',
+                alergenos: 'Leche, huevo, gluten.',
+            },
+            'tarta-manzana': {
+                larga: 'Hojaldre casero, manzana asada con canela y toque de azúcar moreno. Sin lactosa.',
+                galeria: ['img/icono-manzana.svg', 'img/icono-limon.svg', 'img/icono-cheesecake.svg'],
+                tamanos: [ { n: '8 raciones', p: 19 }, { n: '12 raciones', p: 27 } ],
+                ingredientes: 'Manzana, hojaldre (harina de trigo, agua, aceite), canela, azúcar moreno.',
+                alergenos: 'Gluten. Sin lactosa.',
+            },
+            'vasitos-pack': {
+                larga: 'Cuatro vasitos con el postre de la semana (mus, tiramisú, crema… pregunta). Sin gluten.',
+                galeria: ['img/icono-vasitos.svg', 'img/icono-cheesecake.svg', 'img/icono-red-velvet.svg'],
+                tamanos: [ { n: 'Pack 4 vasitos', p: 14 }, { n: 'Pack 8 vasitos', p: 26 } ],
+                ingredientes: 'Según el sabor de la semana: nata, huevo, azúcar, cacao, queso.',
+                alergenos: 'Leche, huevo. Sin gluten.',
+            },
+        };
+
+        let estado = { id: null, nombre: '', dieta: null, galeria: [], tamanos: [], cant: 1 };
+        const modal = document.getElementById('detalle-modal');
+        const fondo  = document.getElementById('detalle-fondo');
+
+        function abrirDetalle(tarjeta) {
+            const { id, nombre, dieta } = tarjeta.dataset;
+            const d = DETALLES[id] || {};
+            estado = { id, nombre, dieta, galeria: d.galeria || [], tamanos: d.tamanos || [], cant: 1 };
+            document.getElementById('detalle-chip').innerHTML = dieta === 'lactosa' ? '<span class="dieta dieta-lactosa">SIN LACTOSA</span>' : dieta === 'gluten' ? '<span class="dieta dieta-gluten">SIN GLUTEN</span>' : '';
+            document.getElementById('detalle-nombre').textContent = nombre;
+            document.getElementById('detalle-larga').textContent = d.larga || '';
+            const precios = estado.tamanos.map(t => t.p);
+            document.getElementById('detalle-precio').textContent = estado.tamanos.length > 1 ? `${Math.min(...precios)} € – ${Math.max(...precios)} €` : (precios[0] ? precios[0] + ' €' : '');
+            const sel = document.getElementById('detalle-tamano');
+            sel.innerHTML = estado.tamanos.map((t, i) => `<option value="${i}">${t.n} — ${t.p} €</option>`).join('');
+            document.getElementById('det-cant').textContent = '1';
+            document.getElementById('detalle-info-producto').innerHTML =
+                `<strong>Ingredientes:</strong> ${d.ingredientes || 'Pregúntanos.'}<br>` +
+                `<strong>Alérgenos:</strong> ${d.alergenos || 'Pregúntanos.'}<br>` +
+                `<strong>Conservación:</strong> 4 °C – 8 °C en frigorífico.`;
+            pintarGaleria(0);
+            modal.hidden = false; fondo.hidden = false;
+        }
+
+        function pintarGaleria(indice) {
+            const g = estado.galeria;
+            if (!g.length) return;
+            const img = document.getElementById('detalle-img');
+            img.src = g[indice];
+            img.classList.toggle('es-svg', g[indice].endsWith('.svg'));
+            document.getElementById('detalle-thumbs').innerHTML = g.map((src, i) =>
+                `<img src="${src}" class="${i === indice ? 'activa' : ''}" data-i="${i}" alt="Vista ${i + 1}">`).join('');
+            document.querySelectorAll('#detalle-thumbs img').forEach(t => t.addEventListener('click', () => pintarGaleria(Number(t.dataset.i))));
+        }
+
+        function cerrarDetalle() { modal.hidden = true; fondo.hidden = true; }
+
+        document.querySelectorAll('.tarjeta-cat').forEach(t => {
+            t.addEventListener('click', () => abrirDetalle(t));
+            const b = t.querySelector('.boton-comprar');
+            if (b) b.addEventListener('click', e => e.stopPropagation());
+        });
+        document.getElementById('detalle-cerrar').addEventListener('click', cerrarDetalle);
+        fondo.addEventListener('click', cerrarDetalle);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
+        document.getElementById('det-menos').addEventListener('click', () => { estado.cant = Math.max(1, estado.cant - 1); document.getElementById('det-cant').textContent = estado.cant; });
+        document.getElementById('det-mas').addEventListener('click', () => { estado.cant = Math.min(20, estado.cant + 1); document.getElementById('det-cant').textContent = estado.cant; });
+        document.getElementById('detalle-anadir').addEventListener('click', () => {
+            if (!estado.id) return;
+            const t = estado.tamanos[Number(document.getElementById('detalle-tamano').value)] || { n: '', p: 0 };
+            for (let i = 0; i < estado.cant; i++) añadirAlCarrito(`${estado.id}-${t.n}`, `${estado.nombre} (${t.n})`, t.p);
+            cerrarDetalle();
+        });
+    </script>
+</body>
+</html>

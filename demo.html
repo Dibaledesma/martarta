@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulación de compra · Martarta</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-demo">
+    <main class="demo">
+        <h1>🎭 Simulación de compra</h1>
+        <p>Esto <strong>no es un pedido real</strong>: mete tres productos de ejemplo en el carrito y te lleva a la carta con el carrito abierto. Desde ahí puedes <strong>Generar factura</strong> para ver la factura que sale de ese pedido.</p>
+        <button type="button" id="empezar" class="boton boton-whatsapp">Empezar la simulación →</button>
+        <p class="demo-nota">Se guarda solo en tu navegador. Para borrarlo, vacía el carrito.</p>
+    </main>
+    <script>
+        (function () {
+            const pedidoDemo = [
+                { id: 'tarta-queso', nombre: 'Tarta de queso clásica', precio: 22, cantidad: 1 },
+                { id: 'cookies-pack', nombre: 'Pack de cookies surtidas', precio: 12, cantidad: 2 },
+                { id: 'tarta-choco', nombre: 'Tarta de chocolate y avellana', precio: 26, cantidad: 1 },
+            ];
+            document.getElementById('empezar').addEventListener('click', function () {
+                localStorage.setItem('martarta-carrito', JSON.stringify(pedidoDemo));
+                window.location.href = 'tartas.html?carrito=1';
+            });
+            // demo.html?auto=1 arranca sin pulsar (lo usa la documentacion para capturas).
+            if (new URLSearchParams(location.search).has('auto')) {
+                document.getElementById('empezar').click();
+            }
+        })();
+    </script>
+</body>
+</html>

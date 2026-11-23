@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/svg+xml" href="img/icono-red-velvet.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================================================
+         MARTARTA — Tartas artesanales
+         Esqueleto de la web. Ir rellenando por partes.
+         Cada sección está marcada con comentarios para que sepas
+         dónde tocar. Los textos marcados con [TODO] son tuyos.
+    ================================================================= -->
+    <title>Martarta | Tartas artesanales</title>
+    <meta name="description" content="Tartas artesanales hechas con cariño. Pedidos por WhatsApp.">
+
+    <!-- Tipografías: pizarra (Caveat/Patrick Hand) + cuerpo legible (Nunito) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css?v=21">
+</head>
+<body>
+
+    <!-- ================== BARRA DE ANUNCIOS ================== -->
+    <div class="barra-anuncios">
+        <span>🎂 Solo online · Blanes — <strong>pedidos por WhatsApp</strong> (recogida mié–dom, 9:00–17:00)</span>
+    </div>
+
+    <!-- ================== CABECERA / NAVEGACIÓN ================== -->
+    <header class="cabecera">
+        <a href="#inicio" class="logo"><img class="logo-tarta" src="img/icono-cheesecake.svg" alt=""><span class="logo-linea">Mar<em>tarta</em></span></a>
+        <nav class="nav-principal">
+            <a href="index.html">Inicio</a>
+            <a href="tartas.html">Tartas</a>
+            <a href="index.html#comic">La obradora</a>
+            <a href="index.html#pagar">Cómo pagar</a>
+            <a href="index.html#sobre-mi">Sobre mí</a>
+            <a href="index.html#opiniones">Opiniones</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+
+        <!-- Botón carrito (lo controla js/carrito.js) -->
+        <button class="boton-carrito" id="abrir-carrito" aria-label="Abrir carrito">
+            <img class="icono-cesta" src="img/icono-cesta.svg" alt="Carrito"> <span class="contador" id="contador-carrito">0</span>
+        </button>
+    </header>
+
+    <!-- ================== HERO (portada) ================== -->
+    <section class="hero" id="inicio">
+        <div class="hero-texto">
+            <h1>Tartas no,<br><span class="eslogan-martartas">Martartas</span></h1>
+            <p class="hero-sub">Pastelería artesanal en Blanes. Huele a recién horneado desde aquí. 🍞</p>
+            <div class="hero-botones">
+                <a href="tartas.html" class="boton boton-principal">Ver tartas</a>
+                <a href="https://wa.me/34614896462" class="boton boton-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-dibujo" aria-hidden="true">
+            <img class="tarta-grande" src="img/icono-red-velvet.svg" alt="">
+        </div>
+    </section>
+
+    <!-- ================== FAVORITAS DEL TALLER ================== -->
+    <section class="seccion" id="favoritas">
+        <h2 class="titulo-seccion">Favoritas del taller <img class="icono-titulo" src="img/icono-cheesecake.svg" alt=""></h2>
+        <p class="pagos-intro">Las tres que salen cada semana del obrador. Las que nunca fallan.</p>
+        <div class="grid-productos">
+            <article class="tarjeta-producto" data-id="tarta-queso" data-nombre="Tarta de queso clásica" data-precio="22">
+                <div class="prod-foto"><img src="img/tarta-queso.jpg" alt="Tarta de queso clásica"></div>
+                <h3>Tarta de queso clásica</h3>
+                <p class="prod-desc">Cremosa, al horno y con base de galleta casera.</p>
+                <div class="prod-pie">
+                    <span class="prod-precio">22 €</span>
+                    <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                </div>
+            </article>
+            <article class="tarjeta-producto" data-id="tarta-choco" data-nombre="Tarta de chocolate y avellana" data-precio="26">
+                <div class="prod-foto"><img src="img/tarta-choco.jpg" alt="Tarta de chocolate y avellana"></div>
+                <h3>Chocolate y avellana</h3>
+                <p class="prod-desc">Bizcocho esponjoso con ganache y crujiente de avellana.</p>
+                <div class="prod-pie">
+                    <span class="prod-precio">26 €</span>
+                    <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                </div>
+            </article>
+            <article class="tarjeta-producto" data-id="cookies-pack" data-nombre="Pack de cookies surtidas" data-precio="12">
+                <div class="prod-foto"><img src="img/cookies.jpg" alt="Pack de cookies surtidas"></div>
+                <h3>Pack de cookies</h3>
+                <p class="prod-desc">Surtidas, de chololate y mantequilla. Para compartir (o no).</p>
+                <div class="prod-pie">
+                    <span class="prod-precio">12 €</span>
+                    <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                </div>
+            </article>
+        </div>
+        <p style="margin-top:1.6rem"><a href="tartas.html" class="boton boton-principal">Ver todo el catálogo →</a></p>
+    </section>
+
+    <!-- ================== CÓMIC: LA OBRADORA Y SUS ANIMALES ==================
+         [TODO] Aquí irá la foto de los animales en estilo comic.
+         Cuando me digas dónde la tienes guardada, la integramos
+         con marcos de viñeta y bocadillos de texto. -->
+    <section class="seccion comic" id="comic">
+        <h2 class="titulo-seccion">La obradora y sus jefes 🐾</h2>
+        <div class="vinetas">
+            <!-- Viñeta 1 -->
+            <figure class="vineta">
+                <div class="vineta-marco vineta-foto">
+                    <img src="img/animales-1.jpg" alt="Los animales de la obradora">
+                </div>
+                <figcaption class="vineta-texto">Control de calidad: bizcocho aprobado ✅</figcaption>
+            </figure>
+            <!-- Viñeta 2 -->
+            <figure class="vineta">
+                <div class="vineta-marco vineta-foto">
+                    <img src="img/animal-2.jpg" alt="Animal 2">
+                </div>
+                <figcaption class="vineta-texto">¿Y mi paga por vigilar el obrador? 🦴</figcaption>
+            </figure>
+            <!-- Viñeta 3 -->
+            <figure class="vineta">
+                <div class="vineta-marco vineta-foto">
+                    <img src="img/animal-3.svg" alt="Animal 3">
+                </div>
+                <figcaption class="vineta-texto">Que sí, que las fresas extra son PARA LA TARTA 🍓</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ================== CATEGORÍAS DE TARTAS ================== -->
+    <section class="seccion" id="tartas">
+        <h2 class="titulo-seccion">¿Qué te apetece hoy?</h2>
+        <div class="grid-categorias">
+            <a href="tartas.html#cat-queso" class="tarjeta-categoria">
+                <span class="cat-icono">🧀</span>
+                <h3>Tartas de queso</h3>
+                <p>Cremosas, al horno, con base crujiente</p>
+            </a>
+            <a href="tartas.html#cat-bizcocho" class="tarjeta-categoria">
+                <span class="cat-icono">🍫</span>
+                <h3>Tartas de bizcocho</h3>
+                <p>Esponjosas y rellenas de buen humor</p>
+            </a>
+            <a href="tartas.html#cat-personalizadas" class="tarjeta-categoria">
+                <span class="cat-icono">✨</span>
+                <h3>Personalizadas</h3>
+                <p>Me cuentas tu idea y la horneamos juntos</p>
+            </a>
+            <a href="tartas.html#cat-dulces" class="tarjeta-categoria">
+                <span class="cat-icono">🍪</span>
+                <h3>Dulces y galletas</h3>
+                <p>Para picar sin culpa… o con ella</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================== ANTICIPO DEL CATÁLOGO ==================
+         Las tartas viven ahora en tartas.html (catálogo completo con
+         fotos, precios, comentarios y extras). Aquí solo el anticipo. -->
+    <section class="seccion seccion-oscura" id="destacadas">
+        <h2 class="titulo-seccion">¿Te cuento la carta? ⭐</h2>
+        <p style="text-align:center;color:var(--blanco);max-width:540px;margin:0 auto 1.5rem">
+            Fotos, precios y el comentario de cada tarta están en el catálogo completo.
+            ¡Y con extras: velitas, mensajes, fresas…!
+        </p>
+        <div style="text-align:center;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <a href="tartas.html" class="boton boton-principal">Ver el catálogo de tartas 🍰</a>
+            <a href="tartas.html#extras" class="boton boton-extras">Ver extras ✨</a>
+        </div>
+    </section>
+
+    <!-- ================== SOBRE MÍ ================== -->
+    <section class="seccion" id="sobre-mi">
+        <div class="sobre-mi-contenido">
+            <div class="sobre-mi-foto">
+                <img src="img/foto-perfil.jpg" alt="Foto de Marta">
+            </div>
+            <div class="sobre-mi-texto">
+                <h2 class="titulo-seccion">Soy Marta 👋</h2>
+                <p>Soy pastelera desde los 16 años. Hoy, con 33, llevo 17 años dedicándome a lo que más me apasiona.</p>
+                <p>Tengo titulación en pastelería y a lo largo de mi trayectoria he sido reconocida con varios premios, pero lo que de verdad me define no son los títulos: es la forma en la que trabajo.</p>
+                <p class="frase-destacada">Yo no hago tartas.<br>Hago <em>Martartas</em>.</p>
+                <p>Cada una la creo con amor, pasión e implicación, cuidando cada detalle desde el primer ingrediente hasta el último toque, para que no sea solo un dulce, sino un momento especial que se recuerde.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== OPINIONES ================== -->
+    <section class="seccion seccion-crema" id="opiniones">
+        <h2 class="titulo-seccion">Lo que dice la vecindad 💬</h2>
+        <div class="grid-opiniones">
+            <!-- [TODO] Opiniones reales de clientes (capturas o texto) -->
+            <blockquote class="opinion">
+                <p>"La tarta de queso desapareció en diez minutos. Diez."</p>
+                <footer>— Cliente contento</footer>
+            </blockquote>
+            <blockquote class="opinion">
+                <p>"Encargo fácil por WhatsApp y recogida puntual. Repetiré seguro."</p>
+                <footer>— Otra cliente igual de contenta</footer>
+            </blockquote>
+            <blockquote class="opinion">
+                <p>"Nos hizo la tarta de cumpleaños y quedó preciosa. Y buenísima."</p>
+                <footer>— Alguien que cumple años</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ================== CÓMO PAGAR ================== -->
+    <section class="seccion seccion-pagos" id="pagar">
+        <h2 class="titulo-seccion">Cómo pagar tu pedido 💳</h2>
+        <p class="pagos-intro">Fácil y como mejor te venga. Tres formas:</p>
+        <div class="grid-pagos">
+            <div class="caja-pago">
+                <span class="pago-icono">💬</span>
+                <h3>1. Por WhatsApp</h3>
+                <p>Me escribes, confirmamos la tarta y listo. El pedido va directo al chat.</p>
+                <a href="https://wa.me/34614896462" class="boton boton-whatsapp" target="_blank">Empezar chat</a>
+            </div>
+            <div class="caja-pago">
+                <span class="pago-icono">📱</span>
+                <h3>2. Bizum</h3>
+                <p>Al confirmar el pedido te paso el número de Bizum y me llegará al momento.</p>
+                <!-- [TODO] Número Bizum cuando lo decidas (o dejarlo en el chat privado) -->
+                <span class="pago-nota">Se da por WhatsApp</span>
+            </div>
+            <div class="caja-pago">
+                <span class="pago-icono">💵</span>
+                <h3>3. Efectivo al recoger</h3>
+                <p>Si prefieres lo clásico: pagas en el obrador cuando recoges tu tarta.</p>
+                <!-- [TODO] Cuando actives Stripe, sustituye esta caja por el pago con tarjeta -->
+                <span class="pago-nota">En el obrador</span>
+            </div>
+        </div>
+        <!-- 💳 Preparado para el futuro: cuando tengas cuenta de Stripe,
+             se activa el pago con tarjeta (instrucciones en js/carrito.js) -->
+    </section>
+
+    <!-- ================== PREGUNTAS FRECUENTES ================== -->
+    <section class="seccion" id="faq">
+        <h2 class="titulo-seccion">Dudas rápidas 🤔</h2>
+        <div class="faq">
+            <details class="faq-item">
+                <summary>¿Con cuánta antelación pido mi tarta?</summary>
+                <p>Para las tartas del catálogo, con 3-5 días va bien. Para personalizadas, mejor una semana: así la preparamos con calma.</p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Tenéis tartas sin gluten o sin lactosa?</summary>
+                <p>Depende de la tarta: algunas se adaptan sin problema. Cuéntame qué necesitas por WhatsApp y te digo qué opciones hay.</p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Cómo puedo pagar?</summary>
+                <p>De dos formas: <strong>Bizum</strong> al confirmar el pedido, o <strong>efectivo</strong> al recogerlo en Blanes.</p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Dónde recojo el pedido?</summary>
+                <p>En Blanes. La recogida es de <strong>miércoles a domingo, de 9:00 a 17:00</strong>. Al confirmar te digo el punto exacto.</p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Hacéis tartas de boda, comuniones o eventos?</summary>
+                <p>¡Sí! Cuéntame la ocasión, la fecha y cuántos sois, y preparamos algo a medida. Empieza por <a href="tartas.html">la tarjeta «Tú la imaginas, yo la horneo»</a>.</p>
+            </details>
+            <details class="faq-item">
+                <summary>¿Entregáis a domicilio?</summary>
+                <p>Según la zona y el tamaño del pedido se puede mirar. Consúltalo por WhatsApp y lo vemos.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ================== CONTACTO + NEWSLETTER ================== -->
+    <section class="seccion seccion-pizarra" id="contacto">
+        <h2 class="titulo-seccion">Hagamos tartas juntos</h2>
+        <div class="grid-contacto">
+            <div class="caja-contacto">
+                <h3>💬 WhatsApp</h3>
+                <p>La vía más rápida: me escribes y hablamos del pedido.</p>
+                <a href="https://wa.me/34614896462" class="boton boton-whatsapp" target="_blank">Abrir chat</a>
+            </div>
+            <div class="caja-contacto">
+                <h3>🏠 El obrador</h3>
+                <p>Solo online. Estamos en Blanes.<br>Recogida de pedidos: <strong>miércoles a domingo, de 9:00 a 17:00</strong>.</p>
+            </div>
+            <div class="caja-contacto">
+                <h3>📧 Novedades</h3>
+                <p>Déjame tu email y te aviso de novedades y tartas de temporada.</p>
+                <!-- Formulario que envía un correo real (servicio gratuito FormSubmit,
+                     sin cuentas ni servidor). El correo de destino se configura en
+                     js/carrito.js (CORREO_PEDIDOS). El PRIMER envío llega al correo
+                     de Marta pidiendo confirmar la activación: se hace UNA vez. -->
+                <form class="form-email" method="POST" action="#">
+                    <input type="email" name="email" placeholder="tu@email.com" required>
+                    <input type="text" name="_subject" value="📧 Nueva suscripción a novedades — Martarta" hidden>
+                    <input type="text" name="_captcha" value="false" hidden>
+                    <!-- Respuesta automática: la persona que deja su correo recibe esto al instante -->
+                    <input type="text" name="_autoresponse" value="¡Hola! 🧁 Gracias por tu correo: lo tomamos todo en cuenta. Te enviaremos nuestras ofertas de la semana y las novedades del obrador. ¡Que aproveche! — Martarta" hidden>
+                    <button type="submit" class="boton boton-principal">Quiero</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== PIE DE PÁGINA ================== -->
+    <footer class="pie">
+        <div class="pie-contenido">
+            <div class="pie-logo">Mar<span>tarta</span></div>
+            <nav class="pie-nav">
+                <a href="https://www.instagram.com/martartalatemporal" target="_blank" rel="noopener">Instagram</a>
+                <a href="#">Aviso legal</a>
+                <a href="#">Privacidad</a>
+            </nav>
+            <p class="pie-copy">© 2025 Martarta — Hecho con harina y cariño</p>
+        </div>
+    </footer>
+
+    <!-- ================== CARRITO (panel lateral) ================== -->
+    <div class="carrito-fondo" id="carrito-fondo" hidden></div>
+    <aside class="carrito-panel" id="carrito-panel" aria-label="Carrito de compra">
+        <header class="carrito-cabecera">
+            <h3>Tu carrito <img class="icono-titulo" src="img/icono-cesta.svg" alt=""></h3>
+            <button class="carrito-cerrar" id="cerrar-carrito" aria-label="Cerrar">✕</button>
+        </header>
+        <ul class="carrito-lista" id="carrito-lista">
+            <!-- El script rellena esta lista -->
+        </ul>
+        <div class="carrito-pie">
+            <p class="carrito-total">Total: <strong id="carrito-total">0 €</strong></p>
+            <p class="carrito-ayuda">Al confirmar se abrirá WhatsApp (o tu correo) con tu pedido ya escrito ✍️</p>
+            <button class="boton boton-whatsapp boton-ancho" id="confirmar-pedido">Confirmar pedido por WhatsApp</button>
+            <button class="boton boton-email boton-ancho" id="confirmar-email">Confirmar por correo 📧</button>
+            <button class="boton boton-factura boton-ancho" id="generar-factura">Generar factura 📄</button>
+        </div>
+    </aside>
+
+    <script src="js/carrito.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

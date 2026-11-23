@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="124" rx="66" ry="11" fill="#ffffff"/>
+    <!-- porción con capas -->
+    <path d="M64 60 L136 60 L146 120 L54 120 Z" fill="#c62828"/>
+    <!-- capas de crema -->
+    <path d="M60 78 Q100 86 140 78 L142 90 Q100 98 58 90 Z" fill="#ffffff"/>
+    <path d="M56 102 Q100 110 144 102 L145 114 Q100 122 55 114 Z" fill="#ffffff"/>
+    <!-- migas de terciopelo -->
+    <circle cx="80" cy="68" r="3" fill="#7b1c1c" stroke="none"/>
+    <circle cx="102" cy="66" r="3" fill="#7b1c1c" stroke="none"/>
+    <circle cx="122" cy="68" r="3" fill="#7b1c1c" stroke="none"/>
+    <!-- cereza -->
+    <circle cx="100" cy="48" r="10" fill="#c62828"/>
+    <path d="M100 38 Q102 28 110 26" fill="none"/>
+  </g>
+</svg>

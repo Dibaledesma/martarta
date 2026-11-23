@@ -1,0 +1,902 @@
+/* ==================================================================
+   MARTARTA — Hoja de estilos
+   Estilo: rojo y blanco, tipografía pizarra.
+   Paleta de colores (variables): si quieres cambiar el tono,
+   solo toca estas líneas de abajo.
+================================================================== */
+
+:root {
+    --rojo:        #c62828;   /* rojo principal: botones y acentos */
+    --rojo-oscuro: #8e1414;   /* rojo profundo: fondos fuertes y pie */
+    --rojo-suave:  #fbeaea;   /* blanco rosado: tarjetas y tintes */
+    --blanco:      #ffffff;   /* fondo general */
+    --texto:       #3f1d1d;   /* texto y bordes fuertes (rojo casi negro) */
+    --tiza:        #fff3f0;   /* texto claro sobre fondos rojos */
+    --borde-suave: #f0c9c9;   /* bordes suaves rosados */
+}
+
+/* ---------- Base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    background: var(--blanco);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* Tipografía pizarra: títulos escritos a mano */
+h1, h2, h3, .logo, .vineta-texto {
+    font-family: 'Caveat', 'Comic Sans MS', cursive;
+    font-weight: 700;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Barra de anuncios ---------- */
+.barra-anuncios {
+    background: var(--texto);
+    color: var(--rojo-suave);
+    text-align: center;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 5vw;
+    background: var(--blanco);
+    border-bottom: 3px dashed var(--borde-suave);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--texto);
+    text-decoration: none;
+}
+.logo span { color: var(--rojo); }
+
+.nav-principal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.nav-principal a {
+    text-decoration: none;
+    color: var(--texto);
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.15rem;
+    transition: color .2s;
+}
+.nav-principal a:hover { color: var(--rojo); }
+
+.boton-carrito {
+    position: relative;
+    background: var(--rojo-suave);
+    border: 2px solid var(--borde-suave);
+    border-radius: 12px;
+    font-size: 1.3rem;
+    padding: .4rem .7rem;
+    cursor: pointer;
+}
+.contador {
+    position: absolute;
+    top: -8px; right: -8px;
+    background: var(--rojo);
+    color: #fff;
+    border-radius: 50%;
+    font-size: .75rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 8vw;
+    background: linear-gradient(160deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+}
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--blanco);
+    line-height: 1.1;
+}
+.hero h1 .eslogan-martartas { color: #ffe4de; }
+.hero-sub {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.3rem;
+    margin: 1rem 0 2rem;
+    color: #ffe4de;
+}
+.hero-botones { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Sobre fondo rojo, el botón principal va en blanco */
+.hero .boton-principal { background: var(--blanco); color: var(--rojo); }
+
+.tarta-placeholder {
+    font-size: clamp(6rem, 14vw, 11rem);
+    text-align: center;
+    filter: drop-shadow(0 10px 12px rgba(63, 29, 29, .35));
+}
+
+/* ---------- Botones ---------- */
+.boton {
+    display: inline-block;
+    padding: .7rem 1.6rem;
+    border-radius: 999px;
+    border: none;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+}
+.boton:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(63,29,29,.25); }
+
+.boton-principal { background: var(--rojo); color: #fff; }
+.boton-whatsapp { background: #25d366; color: #fff; }
+.boton-email    { background: var(--blanco); color: var(--rojo); border: 2px solid var(--rojo); }
+.boton-comprar  { background: var(--texto); color: var(--blanco); font-size: 1rem; padding: .5rem 1.1rem; }
+.boton-ancho    { width: 100%; }
+
+/* ---------- Secciones genéricas ---------- */
+.seccion { padding: 4rem 8vw; }
+.titulo-seccion {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--texto);
+}
+
+/* ---------- Cómics / viñetas ---------- */
+.comic { background: var(--rojo-suave); }
+
+.vinetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.vineta { text-align: center; }
+
+/* Marco de viñeta estilo comic: borde grueso + sombra dura */
+.vineta-marco {
+    background: #fff;
+    border: 4px solid var(--texto);
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 var(--texto);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+}
+.vineta-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Texto de la viñeta como bocadillo */
+.vineta-texto {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    margin-top: .8rem;
+    background: #fff;
+    border: 3px solid var(--texto);
+    border-radius: 20px;
+    padding: .3rem 1rem;
+    display: inline-block;
+}
+
+/* ---------- Categorías ---------- */
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.tarjeta-categoria {
+    background: #fff;
+    border: 2px solid var(--borde-suave);
+    border-radius: 16px;
+    padding: 1.8rem 1.4rem;
+    text-decoration: none;
+    color: var(--texto);
+    text-align: center;
+    transition: transform .15s, box-shadow .15s;
+}
+.tarjeta-categoria:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(198, 40, 40, .15);
+}
+.cat-icono { font-size: 2.5rem; }
+.tarjeta-categoria h3 { font-size: 1.6rem; margin: .5rem 0; }
+
+/* ---------- Productos ---------- */
+.seccion-oscura {
+    background: var(--rojo);
+}
+.seccion-oscura .titulo-seccion { color: var(--blanco); }
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tarjeta-producto {
+    background: #fff;
+    border: 3px solid var(--texto);
+    border-radius: 14px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 0 rgba(63, 29, 29, .7);
+}
+.prod-foto { aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
+.prod-placeholder {
+    display: grid;
+    place-items: center;
+    font-size: 3.5rem;
+    background: var(--rojo-suave);
+}
+.prod-foto img { width: 100%; height: 100%; object-fit: cover; }
+.tarjeta-producto h3 { font-size: 1.5rem; }
+.prod-desc { font-size: .95rem; color: #7d5b5b; flex-grow: 1; }
+
+.prod-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+.prod-precio { font-weight: 800; font-size: 1.25rem; color: var(--rojo); }
+
+/* ---------- Sobre mí ---------- */
+.sobre-mi-contenido {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.sobre-mi-foto {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 5px dashed var(--rojo);
+    display: grid;
+    place-items: center;
+    font-size: 6rem;
+    background: var(--rojo-suave);
+    overflow: hidden;
+}
+.sobre-mi-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.sobre-mi-texto p { margin-bottom: 1rem; font-size: 1.05rem; }
+
+/* La frase estrella de la biografía */
+.frase-destacada {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+    color: var(--rojo);
+    line-height: 1.15;
+    margin: 1.4rem 0;
+}
+.frase-destacada em { font-style: italic; }
+
+/* ---------- Opiniones ---------- */
+.seccion-crema { background: var(--rojo-suave); }
+
+.grid-opiniones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.opinion {
+    background: #fff;
+    border: 2px solid var(--borde-suave);
+    border-radius: 14px;
+    padding: 1.4rem;
+    position: relative;
+}
+.opinion p { font-family: 'Patrick Hand', cursive; font-size: 1.1rem; }
+.opinion footer { margin-top: .8rem; color: var(--rojo); font-weight: 700; }
+
+/* ---------- Contacto (sección roja profunda) ---------- */
+.seccion-pizarra {
+    background: var(--rojo-oscuro);
+    /* borde superior irregular tipo tiza */
+    border-top: 6px dashed rgba(255, 243, 240, .35);
+    border-bottom: 6px dashed rgba(255, 243, 240, .35);
+}
+.seccion-pizarra .titulo-seccion { color: var(--tiza); }
+
+.grid-contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.caja-contacto {
+    background: rgba(255, 255, 255, .08);
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 14px;
+    padding: 1.5rem;
+    color: var(--tiza);
+    text-align: center;
+}
+.caja-contacto h3 {
+    font-size: 1.7rem;
+    margin-bottom: .7rem;
+    color: var(--rojo-suave);
+}
+.caja-contacto p { margin-bottom: 1rem; }
+
+.form-email { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
+.form-email input {
+    padding: .7rem 1rem;
+    border-radius: 999px;
+    border: 2px solid var(--borde-suave);
+    background: #fff;
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
+    min-width: 180px;
+}
+
+.form-email .form-ok {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.15rem;
+    color: #2e7d32;
+    margin: .5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* ---------- Página de tartas (catálogo) ---------- */
+.hero-mini {
+    background: linear-gradient(160deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+    color: var(--blanco);
+    text-align: center;
+    padding: 3.2rem 8vw 2.2rem;
+}
+.hero-mini h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0; color: var(--blanco); }
+.hero-mini p { font-family: 'Patrick Hand', cursive; font-size: 1.2rem; color: #ffe4de; margin: .4rem 0 0; }
+.fichas-cat { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
+.ficha-cat {
+    background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.45);
+    color: var(--blanco);
+    border-radius: 999px;
+    padding: .35rem 1rem;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+.ficha-cat:hover { background: var(--blanco); color: var(--rojo); }
+.subtitulo-cat {
+    font-family: 'Caveat', cursive;
+    font-size: 2.1rem;
+    color: var(--rojo-oscuro);
+    text-align: center;
+    margin: 2.4rem 0 1rem;
+    scroll-margin-top: 110px;
+}
+#cat-queso, #cat-bizcocho, #cat-personalizadas, #cat-dulces { scroll-margin-top: 110px; }
+.cat-badge {
+    display: inline-block;
+    background: var(--rojo-suave);
+    color: var(--rojo-oscuro);
+    border-radius: 999px;
+    padding: .1rem .7rem;
+    font-size: .78rem;
+    font-weight: 700;
+    align-self: flex-start;
+    margin-bottom: .4rem;
+}
+.boton-extras { background: var(--rojo-suave); color: var(--rojo-oscuro); }
+
+/* ---------- Ventana de extras ---------- */
+.extras-fondo {
+    position: fixed;
+    inset: 0;
+    background: rgba(63, 29, 29, .55);
+    z-index: 80;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.extras-fondo.abierto { display: flex; }
+.extras-caja {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 540px;
+    width: 100%;
+    max-height: 86vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    position: relative;
+    border: 3px solid var(--rojo-suave);
+}
+.extras-caja h3 { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--rojo); margin: 0 0 .3rem; }
+.extras-intro { margin: 0 0 .9rem; color: #7d5b5b; font-size: .95rem; }
+.extras-cerrar {
+    position: absolute; top: .7rem; right: .9rem;
+    background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #b0bec5;
+}
+.extras-cerrar:hover { color: var(--rojo); }
+.extra-item {
+    border: 2px dashed var(--borde);
+    border-radius: 12px;
+    padding: .8rem .9rem;
+    margin-bottom: .6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .8rem;
+}
+.extra-item small { color: #7d5b5b; }
+
+/* ---------- Pie ---------- */
+.pie {
+    background: var(--rojo-oscuro);
+    color: var(--blanco);
+    padding: 2.5rem 8vw;
+    text-align: center;
+}
+.pie-logo { font-size: 2rem; font-family: 'Caveat', cursive; }
+.pie-logo span { color: var(--rojo-suave); }
+.pie-nav { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
+.pie-nav a { color: var(--rojo-suave); text-decoration: none; font-family: 'Patrick Hand', cursive; }
+.pie-copy { font-size: .85rem; opacity: .7; }
+
+/* ---------- Preguntas frecuentes ---------- */
+.faq { max-width: 760px; margin: 0 auto; display: grid; gap: .9rem; }
+.faq-item { background: var(--blanco); border: 3px solid var(--rojo); border-radius: 12px; padding: .9rem 1.2rem; }
+.faq-item summary { cursor: pointer; font-weight: 700; font-size: 1.15rem; list-style-position: inside; }
+.faq-item summary:hover { color: var(--rojo); }
+.faq-item p { margin: .7rem 0 0; line-height: 1.55; }
+
+/* ---------- Carrito lateral ---------- */
+.carrito-fondo {
+    position: fixed;
+    inset: 0;
+    background: rgba(63, 29, 29, .5);
+    z-index: 90;
+}
+
+.carrito-panel {
+    position: fixed;
+    top: 0; right: 0;
+    height: 100vh;
+    width: min(380px, 92vw);
+    background: var(--blanco);
+    border-left: 4px solid var(--rojo);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.carrito-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.3rem;
+    border-bottom: 2px dashed var(--borde-suave);
+}
+.carrito-cabecera h3 { font-size: 1.7rem; }
+.carrito-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--texto);
+}
+
+.carrito-lista {
+    list-style: none;
+    padding: 1rem 1.3rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.carrito-lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .6rem;
+    padding: .7rem 0;
+    border-bottom: 1px dashed var(--borde-suave);
+}
+.item-info { flex-grow: 1; }
+.item-nombre { font-weight: 700; }
+.item-controles { display: flex; align-items: center; gap: .5rem; }
+.item-controles button {
+    background: var(--rojo-suave);
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: .15rem .55rem;
+    font-size: 1rem;
+}
+.carrito-vacio { text-align: center; color: #a86b6b; padding: 2rem 0; }
+
+.carrito-pie {
+    padding: 1rem 1.3rem;
+    border-top: 2px dashed var(--borde-suave);
+}
+.carrito-total { font-size: 1.25rem; margin-bottom: .4rem; }
+.carrito-ayuda { font-size: .8rem; color: #a86b6b; margin-bottom: .8rem; }
+
+/* ---------- Cómo pagar (sección con textura y tarjetas cómic) ---------- */
+
+.seccion-pagos {
+    /* Textura de "papel de obrador": rayas diagonales suaves */
+    background:
+        repeating-linear-gradient(45deg, rgba(198, 40, 40, .07) 0 14px, transparent 14px 28px),
+        var(--blanco);
+    border-top: 4px dashed var(--borde-suave);
+    border-bottom: 4px dashed var(--borde-suave);
+}
+
+.pagos-intro {
+    text-align: center;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.25rem;
+    color: #7d5b5b;
+    margin: -1.5rem 0 2.5rem;
+}
+
+.grid-pagos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.caja-pago {
+    background: #fff;
+    border: 3px solid var(--texto);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 6px 6px 0 rgba(63, 29, 29, .75);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Inclinación alternada: efecto de tarjetas "pegadas a mano" */
+.caja-pago:nth-child(2n)   { transform: rotate(1.2deg); }
+.caja-pago:nth-child(2n+1) { transform: rotate(-1.2deg); }
+.caja-pago:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 8px 10px 0 rgba(63, 29, 29, .75);
+}
+
+.pago-icono {
+    width: 66px;
+    height: 66px;
+    display: grid;
+    place-items: center;
+    font-size: 1.9rem;
+    border: 3px solid var(--texto);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    background: var(--rojo-suave);
+}
+/* Acento de color distinto por método */
+.caja-pago:nth-child(1) .pago-icono { background: #e2f6e9; }
+.caja-pago:nth-child(2) .pago-icono { background: #fdeaea; }
+.caja-pago:nth-child(3) .pago-icono { background: #fbdcdc; }
+
+.caja-pago h3 { font-size: 1.7rem; margin-bottom: .5rem; }
+
+.pago-nota {
+    display: inline-block;
+    margin-top: .8rem;
+    font-family: 'Patrick Hand', cursive;
+    background: var(--rojo-suave);
+    border: 2px dashed var(--borde-suave);
+    border-radius: 999px;
+    padding: .25rem 1rem;
+    color: #7d5b5b;
+}
+
+/* ---------- Botón pago directo en tarjetas de producto ---------- */
+.prod-botones { display: flex; gap: .5rem; align-items: center; }
+.boton-pago {
+    background: #635bff;               /* morado Stripe */
+    color: #fff;
+    padding: .5rem .8rem;
+    font-size: 1rem;
+}
+
+/* ---------- Responsive (móvil) ---------- */
+@media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 3rem 6vw; }
+    .hero-botones { justify-content: center; }
+    .sobre-mi-contenido { grid-template-columns: 1fr; }
+    .cabecera { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ================== CATÁLOGO COMPACTO (10 tarjetas) ================== */
+.grid-catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1.1rem; }
+.tarjeta-cat { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.cat-foto { position: relative; aspect-ratio: 4 / 3; overflow: hidden; margin: 0; }
+.cat-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cat-icono { display: grid; place-items: center; font-size: 3rem; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.dieta { position: absolute; top: .55rem; left: .55rem; z-index: 2; font-size: .72rem; font-weight: 700; letter-spacing: .4px; padding: .28rem .6rem; border-radius: 999px; color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+.dieta-lactosa { background: #0a8f4e; }
+.dieta-gluten { background: #b96a00; }
+.tarjeta-cat h3 { font-size: 1.1rem; margin: .7rem .85rem 0; }
+.cat-desc { font-size: .88rem; margin: .3rem .85rem .55rem; }
+.cat-pie { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .55rem .85rem .8rem; border-top: 2px dashed rgba(200, 30, 40, .25); }
+.tarjeta-cat .prod-precio { font-size: 1.05rem; }
+
+/* Botón tipo sticker (ligeramente girado, se endereza al pasar el ratón) */
+.sticker { transform: rotate(-2deg); border-radius: 999px; font-weight: 700; box-shadow: 0 3px 0 rgba(0,0,0,.14); transition: transform .12s ease; }
+.sticker:hover { transform: rotate(0deg) scale(1.07); }
+
+/* Banner personalizada (ocupa todo el ancho del grid) */
+.banner-personalizada { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .9rem; padding: 1.1rem 1.4rem; border: 3px dashed var(--rojo); border-radius: 14px; background: #fffaf7; }
+.banner-personalizada h3 { margin: 0 0 .2rem; }
+.banner-personalizada p { margin: 0; }
+
+/* Filtros tipo chip */
+.filtros-cat { margin-top: 1rem; }
+button.ficha-cat { cursor: pointer; font: inherit; }
+.ficha-cat.activa { background: var(--rojo); color: #fff; border-color: var(--rojo); }
+
+/* Ilustraciones SVG del catálogo (se ajustan dentro del marco degradado) */
+.cat-icono img { object-fit: contain; width: 86%; height: 86%; }
+
+/* ================== ILUSTRACIONES GLOBALES ================== */
+/* Banda surtido: fila de ilustraciones repartida por la web */
+.banda-surtido { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 1.1rem; padding: .8rem 0 .2rem; }
+.banda-surtido img { width: 82px; filter: drop-shadow(0 6px 8px rgba(63,29,29,.22)); transition: transform .15s ease; }
+.banda-surtido img:nth-child(odd)  { transform: rotate(-5deg); }
+.banda-surtido img:nth-child(even) { transform: rotate(4deg); }
+.banda-surtido img:hover { transform: rotate(0deg) scale(1.14); }
+
+/* Franja del surtido antes del pie de la portada */
+.franja-surtido { background: var(--rojo-suave); border-top: 3px solid var(--rojo); border-bottom: 3px solid var(--rojo); margin-top: 2.5rem; }
+
+/* Tarta grande del hero (sustituye al emoji) */
+.hero-dibujo .tarta-grande { width: clamp(220px, 26vw, 320px); filter: drop-shadow(0 12px 14px rgba(63,29,29,.35)); }
+
+/* Icono inline en títulos (sustituye al emoji del encabezado) */
+.icono-titulo { height: .8em; width: auto; vertical-align: -0.06em; filter: drop-shadow(0 2px 3px rgba(63,29,29,.25)); }
+
+/* Logo con cheesecake encima + cesta dibujada */
+.logo { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.05; }
+.logo .logo-tarta { height: 22px; width: auto; margin-bottom: 3px; }
+.boton-carrito img.icono-cesta { height: 1.5em; width: auto; vertical-align: -0.3em; }
+.icono-btn { height: 1.05em; width: auto; vertical-align: -0.16em; }
+
+/* Ajuste de visibilidad: iconos bien visibles + cabecera compacta */
+.cabecera { padding: .65rem 5vw; }
+.logo { font-size: 1.6rem; line-height: 1; }
+.logo .logo-tarta { height: 18px; margin-bottom: 2px; }
+.boton-carrito img.icono-cesta { height: 2em; vertical-align: -0.35em; }
+.icono-btn { height: 1.45em; vertical-align: -0.32em; }
+.icono-titulo { height: 1.15em; min-height: 28px; }
+
+/* Logo: la palabra en UNA sola línea bajo la tarta */
+.logo .logo-linea { white-space: nowrap; }
+.logo .logo-linea em { font-style: normal; color: var(--rojo); }
+
+/* Corrección fina: iconos de título a tamaño FIJO (no crecen con la fuente) */
+.icono-titulo { height: 32px; min-height: 0; width: auto; }
+
+/* Botón del carrito a prueba de fallos: flex + imagen en bloque */
+.boton-carrito { display: inline-flex; align-items: center; justify-content: center; }
+.boton-carrito .icono-cesta { display: block; height: 34px; width: auto; }
+
+/* ================== FICHA DE PRODUCTO (modal) ================== */
+.tarjeta-cat { cursor: pointer; transition: transform .12s ease, box-shadow .12s ease; }
+.tarjeta-cat:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(63,29,29,.16); }
+
+.detalle-fondo { position: fixed; inset: 0; background: rgba(63,29,29,.55); z-index: 90; }
+.detalle-modal {
+    position: fixed; z-index: 95; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: min(840px, 92vw); max-height: 88vh; overflow: auto;
+    background: #fffaf7; border: 3px solid var(--rojo); border-radius: 18px;
+    display: flex; gap: 1.4rem; padding: 1.5rem 1.6rem;
+    box-shadow: 0 24px 60px rgba(63,29,29,.35);
+}
+.detalle-foto { flex: 1; min-width: 0; align-self: center; }
+.detalle-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; border: 3px solid #5d3a26; display: block; }
+.detalle-foto .cat-icono { aspect-ratio: 4 / 3; border-radius: 14px; border: 3px solid #5d3a26; font-size: 4.2rem; display: grid; place-items: center; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.detalle-foto .cat-icono img { border: none; }
+.detalle-info { flex: 1.1; display: flex; flex-direction: column; padding-right: 1.4rem; }
+.detalle-info h3 { font-size: 1.7rem; margin: .3rem 0 .1rem; }
+.detalle-rax { color: var(--rojo); font-weight: 700; margin: 0 0 .6rem; }
+.detalle-larga { line-height: 1.6; margin: 0 0 1rem; }
+.detalle-pie { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-top: 2px dashed rgba(198,40,40,.3); padding-top: .9rem; }
+.detalle-pie .prod-precio { font-size: 1.5rem; }
+.detalle-cerrar {
+    position: absolute; top: .7rem; right: .9rem; z-index: 2;
+    background: var(--rojo); color: #fff; border: none; border-radius: 50%;
+    width: 34px; height: 34px; font-size: 1rem; cursor: pointer; font-family: inherit;
+}
+.detalle-info .dieta { position: static; display: inline-block; width: max-content; }
+@media (max-width: 700px) {
+    .detalle-modal { flex-direction: column; }
+    .detalle-info { padding-right: 0; }
+}
+
+/* CRÍTICO: el atributo hidden debe ganar sobre display:flex del modal */
+.detalle-modal[hidden], .detalle-fondo[hidden] { display: none; }
+
+/* Centrado de la tarta del hero */
+.hero-dibujo { display: flex; align-items: center; justify-content: center; }
+.hero-dibujo .tarta-grande { display: block; }
+
+/* Ficha: foto DOMINANTE como la referencia (pastel enorme) */
+.detalle-modal { width: min(1100px, 94vw); }
+.detalle-foto { flex: 1.35; }
+.detalle-info { flex: 1.15; }
+.detalle-foto img, .detalle-foto .cat-icono { aspect-ratio: 1 / 1; max-height: 68vh; }
+
+/* ================== PROPORCIÓN: catálogo y cabecera compactos ================== */
+/* Tarjetas más equilibradas (menos altas, texto contenido) */
+.grid-catalogo { max-width: 1320px; margin-inline: auto; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.tarjeta-cat h3 { font-size: 1.02rem; margin: .55rem .75rem 0; }
+.cat-desc { font-size: .84rem; margin: .2rem .75rem .4rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cat-pie { padding: .45rem .75rem .6rem; gap: .4rem; }
+.tarjeta-cat .prod-precio { font-size: .98rem; }
+
+/* Cabecera del catálogo más ligera */
+.hero-mini { padding: 1.6rem 8vw 1.4rem; }
+.hero-mini h1 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+.banda-surtido { gap: .8rem; padding: .4rem 0 0; }
+.banda-surtido img { width: 62px; }
+.fichas-cat { margin-top: 1rem; }
+
+/* Redondeo final de proporción: foto 3:2 y tarjetas más anchas */
+.grid-catalogo { grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); }
+.tarjeta-cat .cat-foto { aspect-ratio: 3 / 2; }
+.cat-pie { padding: .35rem .75rem .5rem; }
+
+/* ================== LISTA COMPACTA (estilo carta: fila por producto) ================== */
+.lista-productos { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: .55rem; }
+.fila-lista {
+    display: flex; align-items: center; gap: .9rem;
+    padding: .5rem .8rem; background: #fff;
+    border: 2px dashed rgba(198,40,40,.3); border-radius: 14px;
+}
+.fila-lista:hover { background: var(--rojo-suave); }
+.fila-lista .cat-foto { width: 60px; height: 60px; border-radius: 10px; overflow: hidden; flex: none; position: relative; aspect-ratio: auto; }
+.fila-lista .cat-foto img { width: 100%; height: 100%; object-fit: cover; border: none; }
+.fila-lista .cat-foto.cat-icono { display: grid; place-items: center; background: linear-gradient(135deg, #fff6f2, #ffe1dc); padding: 4px; }
+.fila-lista .cat-foto.cat-icono img { object-fit: contain; }
+.fila-lista .dieta { font-size: .5rem; padding: .12rem .35rem; top: .2rem; left: .2rem; letter-spacing: .2px; }
+.lista-info { flex: 1; min-width: 0; }
+.lista-info h3 { font-size: 1.05rem; margin: 0; }
+.fila-lista .cat-desc { font-size: .85rem; margin: .1rem 0 0; -webkit-line-clamp: 1; }
+.fila-lista .prod-precio { font-size: 1.05rem; font-weight: 700; flex: none; }
+.fila-lista .sticker { padding: .45rem .7rem; flex: none; }
+.fila-lista .icono-btn { height: 1.25em; }
+.banner-personalizada { padding: .9rem 1.2rem; }
+
+/* Las filas van en HORIZONTAL (la regla de tarjeta-cat las apilaba en columna) */
+.fila-lista { flex-direction: row; }
+
+/* ================== FICHA E-COMMERCE (galería + compra + acordeones) ================== */
+.detalle-izq { flex: 1.15; min-width: 0; }
+.detalle-der { flex: 1.25; display: flex; flex-direction: column; padding-right: 1.2rem; }
+
+/* Galería: imagen principal con zoom al pasar el ratón */
+.detalle-principal { position: relative; aspect-ratio: 1 / 1; max-height: 62vh; border: 3px solid #5d3a26; border-radius: 16px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.detalle-principal img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+.detalle-principal img.es-svg { object-fit: contain; padding: 1.2rem; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.detalle-principal:hover img { transform: scale(1.25); }
+.lupa { position: absolute; top: .7rem; right: .7rem; background: #fff; border-radius: 50%; width: 38px; height: 38px; display: grid; place-items: center; font-size: 1.1rem; box-shadow: 0 3px 8px rgba(0,0,0,.2); }
+
+/* Miniaturas */
+.detalle-thumbs { display: flex; gap: .55rem; margin-top: .7rem; }
+.detalle-thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; border: 3px solid transparent; cursor: pointer; background: #fff6f2; }
+.detalle-thumbs img.activa { border-color: var(--rojo); }
+
+/* Columna derecha */
+.detalle-der h3 { font-size: 2rem; margin: .2rem 0 .3rem; }
+.detalle-larga { line-height: 1.55; margin: 0 0 .6rem; }
+.detalle-precio-rango { font-size: 1.5rem; font-weight: 700; color: var(--rojo); margin: 0 0 .8rem; }
+
+.detalle-opciones { display: flex; align-items: flex-end; gap: 1rem; margin-bottom: .8rem; flex-wrap: wrap; }
+.detalle-campo { display: flex; flex-direction: column; gap: .3rem; font-weight: 700; font-size: .9rem; }
+.detalle-campo select { font: inherit; padding: .5rem .7rem; border: 2px solid var(--rojo); border-radius: 10px; background: #fff; min-width: 180px; }
+
+/* Cantidad */
+.detalle-cantidad { display: flex; align-items: center; gap: .6rem; border: 2px solid var(--rojo); border-radius: 999px; padding: .2rem .5rem; }
+.detalle-cantidad button { background: var(--rojo); color: #fff; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 1.1rem; cursor: pointer; font-family: inherit; line-height: 1; }
+.detalle-cantidad span { min-width: 1.6rem; text-align: center; font-weight: 700; }
+
+/* CTA grande en tono cálido pastel */
+.cta-anadir { background: linear-gradient(180deg, #ffb59e, #ff8a65); color: var(--rojo-oscuro); border: 3px solid var(--rojo-oscuro); border-radius: 999px; padding: .8rem 1.2rem; font-weight: 800; letter-spacing: 1px; box-shadow: 0 4px 0 rgba(142,20,20,.4); transition: transform .12s ease; }
+.cta-anadir:hover { transform: translateY(-2px) scale(1.02); }
+
+/* Acordeones */
+.det-acc { border: 2px dashed rgba(198,40,40,.35); border-radius: 12px; padding: .6rem .9rem; margin-top: .7rem; background: #fff; }
+.det-acc summary { cursor: pointer; font-weight: 700; }
+.det-acc div { margin-top: .5rem; line-height: 1.55; font-size: .92rem; }
+
+/* ================== FICHA COMPACTA: imágenes pequeñas ================== */
+.detalle-modal { width: min(760px, 94vw); padding: 1.1rem 1.2rem; gap: 1rem; }
+.detalle-principal { aspect-ratio: 4 / 3; max-height: 260px; border-width: 2px; border-radius: 12px; }
+.detalle-principal img.es-svg { padding: .6rem; }
+.lupa { width: 30px; height: 30px; font-size: .85rem; }
+.detalle-thumbs img { width: 46px; height: 46px; border-radius: 8px; }
+.detalle-der { padding-right: .8rem; }
+.detalle-der h3 { font-size: 1.45rem; }
+.detalle-larga { font-size: .92rem; }
+.detalle-precio-rango { font-size: 1.15rem; margin: 0 0 .6rem; }
+.cta-anadir { padding: .55rem 1rem; font-size: .95rem; }
+.det-acc { padding: .5rem .8rem; }
+.det-acc div { font-size: .85rem; }
+.detalle-campo select { min-width: 150px; padding: .4rem .6rem; }
+
+/* ===== Factura simplificada (factura.html) ===== */
+.boton-factura { background: #fff; color: #b91c1c; border: 2px solid #b91c1c; }
+.boton-factura:hover { background: #b91c1c; color: #fff; }
+.pagina-factura { background: #f5f5f5; padding: 1rem; }
+.factura-acciones { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; justify-content: center; max-width: 800px; margin: 0 auto 1rem; padding: 0.8rem 1rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-size: 0.95rem; }
+.factura-acciones label { font-size: 0.85rem; color: #555; }
+.factura-acciones input, .factura-acciones select { padding: 0.5rem 0.7rem; border: 1px solid #ccc; border-radius: 8px; font: inherit; }
+.factura { max-width: 800px; margin: 0 auto; background: #fff; padding: 2.5rem 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.12); color: #222; }
+.factura-cabecera { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-bottom: 3px solid #b91c1c; padding-bottom: 1.2rem; }
+.factura-marca { display: flex; gap: 1.2rem; align-items: flex-start; }
+.factura-logo { width: 110px; height: 110px; object-fit: contain; flex: none; }
+.factura h1 { margin: 0; color: #b91c1c; font-size: 1.9rem; }
+.factura-lema { font-family: Caveat, cursive; font-size: 1.4rem; color: #b91c1c; margin: 0 0 0.3rem; }
+.factura-marca p { margin: 0.15rem 0; font-size: 0.92rem; color: #444; }
+.factura-marca a { color: #b91c1c; }
+.factura-titulo { text-align: right; }
+.factura-titulo h2 { margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; }
+.factura-titulo p { margin: 0.2rem 0; font-size: 1rem; }
+.factura-tabla { width: 100%; border-collapse: collapse; margin: 1.5rem 0 1rem; }
+.factura-tabla th { text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; border-bottom: 2px solid #ddd; padding: 0.4rem 0.5rem; }
+.factura-tabla td { padding: 0.6rem 0.5rem; border-bottom: 1px solid #eee; }
+.factura-tabla .c, .factura-tabla .d { text-align: right; }
+.factura-totales { margin-left: auto; width: 300px; max-width: 100%; font-size: 1.05rem; }
+.factura-totales p { display: flex; justify-content: space-between; margin: 0.25rem 0; }
+.factura-total { font-size: 1.45rem; color: #b91c1c; border-top: 2px solid #b91c1c; padding-top: 0.4rem; margin-top: 0.5rem; }
+.factura-pago { margin-top: 1.5rem; }
+.factura-pie { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #ddd; text-align: center; font-size: 0.9rem; color: #555; }
+.factura-legal { font-size: 0.75rem; color: #888; }
+.aviso-factura { max-width: 600px; margin: 3rem auto; text-align: center; font-size: 1.1rem; background: #fff; padding: 1.5rem; border-radius: 12px; }
+
+@media print {
+    @page { size: A4; margin: 15mm; }
+    body.pagina-factura { background: #fff; padding: 0; }
+    .factura-acciones { display: none !important; }
+    .factura { box-shadow: none; max-width: none; padding: 0; }
+    .factura-tabla tr { break-inside: avoid; }
+    .factura-totales { break-inside: avoid; }
+}
+
+/* ===== Simulacion de compra (demo.html) ===== */
+.pagina-demo { background: #f5f5f5; }
+.demo { max-width: 560px; margin: 4rem auto; background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
+.demo h1 { color: #b91c1c; }
+.demo-nota { font-size: 0.85rem; color: #777; }

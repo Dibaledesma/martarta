@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="122" rx="66" ry="11" fill="#ffffff"/>
+    <!-- bizcocho -->
+    <rect x="56" y="58" width="88" height="60" rx="8" fill="#f2c14e"/>
+    <!-- agujeros de bizcocho -->
+    <circle cx="76" cy="98" r="4" fill="#d9a832" stroke="none"/>
+    <circle cx="100" cy="106" r="5" fill="#d9a832" stroke="none"/>
+    <circle cx="124" cy="96" r="4" fill="#d9a832" stroke="none"/>
+    <circle cx="90" cy="80" r="3.5" fill="#d9a832" stroke="none"/>
+    <circle cx="116" cy="78" r="3" fill="#d9a832" stroke="none"/>
+    <!-- glaseado -->
+    <path d="M56 66 Q64 54 74 64 Q84 52 94 62 Q104 50 114 61 Q124 51 134 63 Q140 56 144 62 L144 70 Q100 78 56 70 Z" fill="#ffffff"/>
+    <!-- hojita de menta -->
+    <path d="M42 88 Q34 80 40 72 Q50 76 48 86 Q44 90 42 88 Z" fill="#7cb342"/>
+  </g>
+</svg>

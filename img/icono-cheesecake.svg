@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="112" rx="70" ry="12" fill="#ffffff"/>
+    <!-- cuerpo de la tarta -->
+    <rect x="42" y="60" width="116" height="48" rx="10" fill="#ffe3b3"/>
+    <!-- superficie -->
+    <ellipse cx="100" cy="60" rx="58" ry="15" fill="#fff3dc"/>
+    <!-- frutos rojos -->
+    <circle cx="70" cy="56" r="7" fill="#c62828"/>
+    <circle cx="100" cy="52" r="7" fill="#c62828"/>
+    <circle cx="130" cy="56" r="7" fill="#c62828"/>
+    <!-- hojita de menta -->
+    <path d="M88 46 Q96 38 104 44 Q98 50 90 48 Z" fill="#7cb342"/>
+  </g>
+</svg>

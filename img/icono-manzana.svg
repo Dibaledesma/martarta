@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="92" cy="124" rx="62" ry="11" fill="#ffffff"/>
+    <!-- cúpula del pastel -->
+    <path d="M36 122 Q36 66 92 66 Q148 66 148 122 Z" fill="#e0a24a"/>
+    <!-- rejilla del enrejado -->
+    <path d="M60 68 L54 122 M92 66 L92 122 M124 68 L130 122" stroke="#c98a32"/>
+    <path d="M38 92 Q92 80 146 92" stroke="#c98a32"/>
+    <!-- borde del molde -->
+    <rect x="32" y="114" width="120" height="10" rx="5" fill="#c98a32"/>
+    <!-- manzana -->
+    <circle cx="164" cy="102" r="14" fill="#c62828"/>
+    <path d="M164 88 Q164 80 170 76" fill="none"/>
+    <path d="M166 84 Q176 78 180 86 Q172 92 166 88 Z" fill="#7cb342"/>
+  </g>
+</svg>

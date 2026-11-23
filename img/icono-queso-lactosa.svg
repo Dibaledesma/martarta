@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="122" rx="66" ry="11" fill="#ffffff"/>
+    <!-- base galleta -->
+    <path d="M32 112 L168 112 L168 122 Q100 128 32 122 Z" fill="#b98a5a"/>
+    <!-- cuña de tarta -->
+    <path d="M100 38 L36 114 L164 114 Z" fill="#ffe3b3"/>
+    <!-- superficie superior -->
+    <path d="M100 38 L36 114 L100 114 Z" fill="#fff3dc"/>
+    <!-- fresa -->
+    <circle cx="100" cy="34" r="11" fill="#c62828"/>
+    <path d="M95 24 Q100 18 105 24 Z" fill="#7cb342"/>
+  </g>
+</svg>

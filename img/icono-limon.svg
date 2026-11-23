@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="124" rx="66" ry="11" fill="#ffffff"/>
+    <!-- cuerpo del pastel -->
+    <path d="M46 122 Q46 84 100 84 Q154 84 154 122 Z" fill="#f9e79f"/>
+    <!-- merengue -->
+    <path d="M52 88 Q58 66 72 82 Q82 58 98 78 Q110 56 122 80 Q134 62 142 86 Q148 82 150 88 Q100 98 52 90 Z" fill="#ffffff"/>
+    <!-- rodaja de limón -->
+    <circle cx="132" cy="52" r="17" fill="#f4d03f"/>
+    <circle cx="132" cy="52" r="10" fill="#fdf6d8"/>
+    <path d="M132 42 L132 50 M132 54 L132 62 M122 52 L130 52 M134 52 L142 52" stroke-width="2.5"/>
+  </g>
+</svg>

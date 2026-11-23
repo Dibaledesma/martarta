@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#f0e2cd"/>
+  <text x="150" y="140" font-size="70" text-anchor="middle">🐾</text>
+  <text x="150" y="200" font-size="22" text-anchor="middle" fill="#8a6b52" font-family="Comic Sans MS, cursive">Foto animal 1</text>
+  <text x="150" y="230" font-size="16" text-anchor="middle" fill="#b08968" font-family="Comic Sans MS, cursive">(pendiente)</text>
+</svg>

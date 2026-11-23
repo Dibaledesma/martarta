@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <g stroke="#5d3a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- plato -->
+    <ellipse cx="100" cy="124" rx="66" ry="11" fill="#ffffff"/>
+    <!-- cuerpo de la tarta -->
+    <rect x="48" y="76" width="104" height="44" rx="10" fill="#e8a15c"/>
+    <!-- cobertura de crema -->
+    <path d="M48 80 Q60 62 76 78 Q92 58 108 76 Q124 60 140 78 Q146 72 152 78 L152 88 Q100 96 48 88 Z" fill="#ffffff"/>
+    <!-- nueces -->
+    <circle cx="76" cy="86" r="6" fill="#8a5a3b"/>
+    <circle cx="126" cy="84" r="6" fill="#8a5a3b"/>
+    <!-- zanahoria clavada -->
+    <path d="M97 34 L107 34 L104 78 L100 78 Z" fill="#ef6c00"/>
+    <path d="M94 30 Q102 22 110 30 Z" fill="#7cb342"/>
+    <path d="M96 24 Q92 14 86 14 Q90 24 96 26 Z" fill="#7cb342"/>
+    <path d="M108 24 Q112 14 118 14 Q114 24 108 26 Z" fill="#7cb342"/>
+  </g>
+</svg>
