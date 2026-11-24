@@ -1027,4 +1027,18 @@ img.icono-titulo { background: var(--rojo-suave); border-radius: 12px; padding: 
     .faq-item summary { font-size: 1rem; }
     .cajetilla-perro img { width: 96px; height: 96px; }
     .cajetilla-perro { transform: rotate(-1.5deg); }
+
+    /* Anti-diccionario: favoritas y opiniones en carrusel horizontal (desliza con el dedo) */
+    .grid-productos, .grid-opiniones {
+        display: flex; gap: 1rem;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        padding: 0 5vw 1.2rem; margin: 0 -5vw;
+        scrollbar-width: none;
+    }
+    .grid-productos::-webkit-scrollbar, .grid-opiniones::-webkit-scrollbar { display: none; }
+    .grid-productos .tarjeta-producto, .grid-opiniones .opinion {
+        flex: 0 0 78%; scroll-snap-align: center; margin: 0;
+    }
+    /* Categorías en rejilla de 2 (no en fila india) */
+    .grid-categorias { grid-template-columns: 1fr 1fr; gap: .8rem; }
 }
