@@ -21,7 +21,7 @@
 /* ---------- Base ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 17px; }  /* base general más grande */
 
 body {
     font-family: 'Dancing Script', 'Patrick Hand', cursive;
@@ -31,7 +31,7 @@ body {
 }
 
 /* Logo de Marta (imagen real) */
-.logo-img { height: 110px; width: auto; border-radius: 12px; display: block; }
+.logo-img { height: 150px; width: auto; border-radius: 14px; display: block; }
 
 /* Tipografía: títulos escritos a mano */
 h1, h2, h3, .logo, .vineta-texto {
@@ -47,7 +47,7 @@ img { max-width: 100%; display: block; }
     color: var(--rojo-suave);
     text-align: center;
     padding: .5rem 1rem;
-    font-size: .9rem;
+    font-size: 1.05rem;
 }
 
 /* ---------- Cabecera ---------- */
@@ -76,7 +76,7 @@ img { max-width: 100%; display: block; }
     text-decoration: none;
     color: var(--texto);
     font-family: 'Dancing Script', 'Patrick Hand', cursive;
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     transition: color .2s;
 }
 .nav-principal a:hover { color: var(--rojo); }
@@ -975,14 +975,14 @@ button.ficha-cat { cursor: pointer; font: inherit; }
     font-size: .75rem; font-weight: 400; color: #8a7059;
 }
 @media (max-width: 640px) {
-    html { font-size: 14px; }
+    html { font-size: 16px; }   /* móvil con cuerpo: letras grandes, no encogidas */
     body { line-height: 1.6; }
 
-    .barra-anuncios { font-size: .8rem; }
-    .logo-img { height: 56px; }
-    .logo { font-size: 1.4rem; }
-    .nav-principal { gap: .7rem; }
-    .nav-principal a { font-size: 1rem; }
+    .barra-anuncios { font-size: .95rem; }
+    .logo-img { height: 92px; }
+    .logo { font-size: 1.6rem; }
+    .nav-principal { gap: .8rem; }
+    .nav-principal a { font-size: 1.15rem; }
     .boton-carrito { font-size: 1.05rem; }
 
     .hero { padding: 2.2rem 5vw; }
