@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulación de compra · Martarta</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/estilos.css?v=28">
 </head>
 <body class="pagina-demo">
     <main class="demo">
@@ -15,9 +17,9 @@
     <script>
         (function () {
             const pedidoDemo = [
-                { id: 'tarta-queso', nombre: 'Tarta de queso clásica', precio: 22, cantidad: 1 },
-                { id: 'cookies-pack', nombre: 'Pack de cookies surtidas', precio: 12, cantidad: 2 },
-                { id: 'tarta-choco', nombre: 'Tarta de chocolate y avellana', precio: 26, cantidad: 1 },
+                { id: 'tarta-queso-grande', nombre: 'Tarta de queso', precio: 26, cantidad: 1 },
+                { id: 'tarta-queso-imagen', nombre: 'Tarta de queso con imagen comestible', precio: 36, cantidad: 1 },
+                { id: 'tarta-carrete', nombre: 'Tarta con carrete de fotos', precio: 60, cantidad: 1 },
             ];
             document.getElementById('empezar').addEventListener('click', function () {
                 localStorage.setItem('martarta-carrito', JSON.stringify(pedidoDemo));

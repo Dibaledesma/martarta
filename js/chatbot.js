@@ -150,6 +150,7 @@ estilo.textContent = `
 .chatbot-btn:hover{transform:scale(1.1)}
 .chatbot-btn .chatbot-punto{position:absolute;top:-2px;right:-2px;width:14px;height:14px;
   border-radius:50%;background:#ffd54f;border:2px solid #fff}
+.chatbot-avatar{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
 .chatbot-panel{position:fixed;bottom:calc(1.2rem + 70px);right:1.2rem;width:min(340px,calc(100vw - 2rem));
   max-height:min(520px,calc(100vh - 10rem));background:#fff;border-radius:16px;overflow:hidden;
   display:none;flex-direction:column;box-shadow:0 10px 40px rgba(63,29,29,.35);z-index:60;
@@ -186,15 +187,14 @@ document.head.appendChild(estilo);
 const btn = document.createElement('button');
 btn.className = 'chatbot-btn';
 btn.setAttribute('aria-label', 'Abrir chat de Tartabot');
-btn.innerHTML = '🧁<span class="chatbot-punto"></span>';
-
+btn.innerHTML = '<img class="chatbot-avatar" src="img/hero-temporal.jpg" alt="Tartabot"><span class="chatbot-punto"></span>';
 const panel = document.createElement('div');
 panel.className = 'chatbot-panel';
 panel.setAttribute('role', 'dialog');
 panel.setAttribute('aria-label', 'Chat con Tartabot');
 panel.innerHTML = `
     <header class="chatbot-cabecera">
-        <div><h3>Tartabot 🧁</h3><small>La ayudante de Martarta — responde al instante</small></div>
+        <div class="chatbot-cabecera-izq"><img class="chatbot-avatar-cabecera" src="img/hero-temporal.jpg" alt="Tartabot"><div><h3>Tartabot</h3><small>La ayudante de Martarta — responde al instante</small></div></div>
         <button class="chatbot-cerrar" aria-label="Cerrar chat">✕</button>
     </header>
     <div class="chatbot-cuerpo" id="chatbot-cuerpo"></div>
@@ -275,7 +275,7 @@ CHIPS.forEach(chip => {
 let saludoInicial = false;
 btn.addEventListener('click', () => {
     const abierto = panel.classList.toggle('abierto');
-    btn.innerHTML = abierto ? '✕' : '🧁<span class="chatbot-punto"></span>';
+    btn.innerHTML = abierto ? '✕' : '<img class="chatbot-avatar" src="img/hero-temporal.jpg" alt="Tartabot"><span class="chatbot-punto"></span>';
     if (abierto && !saludoInicial) {
         saludoInicial = true;
         setTimeout(() => burbuja(
@@ -286,7 +286,7 @@ btn.addEventListener('click', () => {
 });
 panel.querySelector('.chatbot-cerrar').addEventListener('click', () => {
     panel.classList.remove('abierto');
-    btn.innerHTML = '🧁<span class="chatbot-punto"></span>';
+    btn.innerHTML = '<img class="chatbot-avatar" src="img/hero-temporal.jpg" alt="Tartabot"><span class="chatbot-punto"></span>';
 });
 
 panel.querySelector('#chatbot-enviar').addEventListener('click', enviar);

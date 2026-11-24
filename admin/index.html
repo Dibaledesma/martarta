@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martarta · Panel interno</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- ============ AVISO DE CONFIGURACIÓN ============ -->
+    <div id="aviso-config" class="aviso-config oculto">
+        Falta conectar la base de datos: abre <b>config.js</b> y pega la URL
+        y la clave de tu proyecto Supabase (pasos en <b>GUÍA-SUPABASE.md</b>).
+    </div>
+
+    <!-- ============ PANTALLA DE LOGIN ============ -->
+    <section id="pantalla-login" class="pantalla-login oculto">
+        <div class="tarjeta-login">
+            <img class="login-logo" src="img/logo.png" alt="Martarta">
+            <p class="sub-login">Panel interno · pedidos y cuentas</p>
+            <form id="form-login">
+                <label>Correo
+                    <input type="email" id="login-email" autocomplete="username" required>
+                </label>
+                <label>Contraseña
+                    <input type="password" id="login-pass" autocomplete="current-password" required>
+                </label>
+                <button type="submit" class="btn btn-rojo btn-grande">Entrar</button>
+                <p id="login-error" class="login-error oculto"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ APP ============ -->
+    <div id="app" class="oculto">
+
+        <header class="cabecera">
+            <p class="logo"><img class="logo-img" src="img/logo.png" alt="Martarta"> <span class="logo-panel">· panel</span></p>
+            <button id="btn-salir" class="btn-salir" title="Cerrar sesión">Salir ⏻</button>
+        </header>
+
+        <main class="contenido">
+
+            <!-- ---------- PEDIDOS ---------- -->
+            <section id="tab-pedidos" class="tab">
+                <h2>Pedidos</h2>
+                <div class="resumen-rapido">
+                    <div><span class="cifra rojo" id="rap-pendiente">—</span><span class="etiqueta">pendiente de cobrar</span></div>
+                    <div><span class="cifra" id="rap-num">—</span><span class="etiqueta">pedidos en total</span></div>
+                </div>
+                <ul id="lista-pedidos" class="lista-pedidos"></ul>
+                <p id="pedidos-vacio" class="vacio oculto">Todavía no hay pedidos.<br>Apunta el primero con la pestaña <b>➕ Nuevo</b>.</p>
+            </section>
+
+            <!-- ---------- NUEVO PEDIDO ---------- -->
+            <section id="tab-nuevo" class="tab oculto">
+                <h2>Nuevo pedido</h2>
+                <form id="form-pedido" class="tarjeta-form">
+                    <label>Cliente *
+                        <input type="text" id="ped-cliente" required placeholder="Nombre de quien pide">
+                    </label>
+                    <label>Contacto
+                        <input type="text" id="ped-contacto" placeholder="WhatsApp o teléfono">
+                    </label>
+                    <label>Qué es * 
+                        <input type="text" id="ped-detalle" required placeholder="Tarta de queso, cookies…">
+                    </label>
+                    <div class="fila-doble">
+                        <label>Cantidad
+                            <input type="number" id="ped-cantidad" min="1" step="1" value="1" required>
+                        </label>
+                        <label>Precio por unidad (€)
+                            <input type="number" id="ped-precio" min="0" step="0.01" placeholder="0,00" required>
+                        </label>
+                    </div>
+                    <p class="total-vista">Total: <b id="ped-total-vista">0,00 €</b></p>
+                    <label>Fecha de entrega
+                        <input type="date" id="ped-entrega">
+                    </label>
+                    <label>Notas
+                        <textarea id="ped-notas" rows="2" placeholder="Sin gluten, velitas, mensaje…"></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-rojo btn-grande">Registrar pedido</button>
+                </form>
+            </section>
+
+            <!-- ---------- CUENTAS ---------- -->
+            <section id="tab-cuentas" class="tab oculto">
+                <h2>Cuentas</h2>
+                <label class="selector-mes">Mes
+                    <input type="month" id="cuentas-mes">
+                </label>
+                <div class="cuadros">
+                    <div class="cuadro"><span class="cifra" id="cu-vendido">—</span><span class="etiqueta">vendido</span></div>
+                    <div class="cuadro cu-verde"><span class="cifra" id="cu-cobrado">—</span><span class="etiqueta">cobrado</span></div>
+                    <div class="cuadro cu-rojo"><span class="cifra" id="cu-pendiente">—</span><span class="etiqueta">pendiente</span></div>
+                    <div class="cuadro"><span class="cifra" id="cu-costes">—</span><span class="etiqueta">costes</span></div>
+                    <div class="cuadro cu-verde"><span class="cifra" id="cu-beneficio">—</span><span class="etiqueta">cobrado − costes</span></div>
+                </div>
+                <h3>Costes del mes</h3>
+                <ul id="lista-costes-mes" class="lista-simple"></ul>
+                <p id="costes-mes-vacio" class="vacio oculto">Sin costes apuntados este mes.</p>
+            </section>
+
+            <!-- ---------- COSTES ---------- -->
+            <section id="tab-costes" class="tab oculto">
+                <h2>Costes</h2>
+                <form id="form-coste" class="tarjeta-form">
+                    <label>Fecha
+                        <input type="date" id="cos-fecha">
+                    </label>
+                    <label>Concepto *
+                        <input type="text" id="cos-concepto" required placeholder="Harina, nata, cajas…">
+                    </label>
+                    <label>Categoría
+                        <select id="cos-categoria">
+                            <option>Ingredientes</option>
+                            <option>Material</option>
+                            <option>Transporte</option>
+                            <option>Otros</option>
+                        </select>
+                    </label>
+                    <label>Importe (€) *
+                        <input type="number" id="cos-importe" min="0" step="0.01" placeholder="0,00" required>
+                    </label>
+                    <button type="submit" class="btn btn-rojo btn-grande">Apuntar coste</button>
+                </form>
+                <h3>Últimos costes</h3>
+                <ul id="lista-costes" class="lista-simple"></ul>
+                <p id="costes-vacio" class="vacio oculto">Sin costes todavía.</p>
+            </section>
+
+        </main>
+
+        <!-- ---------- BARRA DE PESTAÑAS ---------- -->
+        <nav class="barra-tabs">
+            <button class="tab-btn activo" data-tab="pedidos">📋<span>Pedidos</span></button>
+            <button class="tab-btn" data-tab="nuevo">➕<span>Nuevo</span></button>
+            <button class="tab-btn" data-tab="cuentas">💰<span>Cuentas</span></button>
+            <button class="tab-btn" data-tab="costes">🧺<span>Costes</span></button>
+        </nav>
+
+        <div id="toast" class="toast oculto"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

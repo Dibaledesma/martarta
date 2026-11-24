@@ -6,13 +6,16 @@
 ================================================================== */
 
 :root {
-    --rojo:        #c62828;   /* rojo principal: botones y acentos */
-    --rojo-oscuro: #8e1414;   /* rojo profundo: fondos fuertes y pie */
-    --rojo-suave:  #fbeaea;   /* blanco rosado: tarjetas y tintes */
+    --rojo:        #9C5A1E;   /* marrón La Temporá: botones y acentos */
+    --rojo-oscuro: #5E1A32;   /* burdeos principal: fondos fuertes y pie */
+    --rojo-suave:  #f6eddc;   /* crema tenue: tarjetas y tintes */
     --blanco:      #ffffff;   /* fondo general */
-    --texto:       #3f1d1d;   /* texto y bordes fuertes (rojo casi negro) */
-    --tiza:        #fff3f0;   /* texto claro sobre fondos rojos */
-    --borde-suave: #f0c9c9;   /* bordes suaves rosados */
+    --texto:       #3a1a26;   /* texto y bordes fuertes (burdeos casi negro) */
+    --tiza:        #f3e8d2;   /* crema clara sobre fondos burdeos */
+    --borde-suave: #e4cda6;   /* bordes suaves caramelo */
+    /* Paleta del logo (por si se necesitan) */
+    --caramelo: #C68A4B;  --crema: #E8D9B0;  --dorado: #D9A85C;
+    --oliva:    #6A8A5A;  --madera: #8B5A2B;
 }
 
 /* ---------- Base ---------- */
@@ -21,15 +24,18 @@
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
+    line-height: 1.75;
     background: var(--blanco);
     color: var(--texto);
-    line-height: 1.6;
 }
 
-/* Tipografía pizarra: títulos escritos a mano */
+/* Logo de Marta (imagen real) */
+.logo-img { height: 110px; width: auto; border-radius: 12px; display: block; }
+
+/* Tipografía: títulos escritos a mano */
 h1, h2, h3, .logo, .vineta-texto {
-    font-family: 'Caveat', 'Comic Sans MS', cursive;
+    font-family: 'Dancing Script', 'Comic Sans MS', cursive;
     font-weight: 700;
 }
 
@@ -69,7 +75,7 @@ img { max-width: 100%; display: block; }
 .nav-principal a {
     text-decoration: none;
     color: var(--texto);
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.15rem;
     transition: color .2s;
 }
@@ -112,12 +118,12 @@ img { max-width: 100%; display: block; }
     color: var(--blanco);
     line-height: 1.1;
 }
-.hero h1 .eslogan-martartas { color: #ffe4de; }
+.hero h1 .eslogan-martartas { color: #f3e8d2; }
 .hero-sub {
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.3rem;
     margin: 1rem 0 2rem;
-    color: #ffe4de;
+    color: #f3e8d2;
 }
 .hero-botones { display: flex; gap: 1rem; flex-wrap: wrap; }
 
@@ -136,7 +142,7 @@ img { max-width: 100%; display: block; }
     padding: .7rem 1.6rem;
     border-radius: 999px;
     border: none;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.1rem;
     text-decoration: none;
     cursor: pointer;
@@ -157,6 +163,11 @@ img { max-width: 100%; display: block; }
     text-align: center;
     margin-bottom: 2.5rem;
     color: var(--texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
 }
 
 /* ---------- Cómics / viñetas ---------- */
@@ -187,7 +198,7 @@ img { max-width: 100%; display: block; }
 
 /* Texto de la viñeta como bocadillo */
 .vineta-texto {
-    font-family: 'Caveat', cursive;
+    font-family: 'Dancing Script', cursive;
     font-size: 1.35rem;
     margin-top: .8rem;
     background: #fff;
@@ -220,6 +231,14 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 10px 20px rgba(198, 40, 40, .15);
 }
 .cat-icono { font-size: 2.5rem; }
+.cat-foto-cat {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--borde-suave);
+    display: block;
+}
 .tarjeta-categoria h3 { font-size: 1.6rem; margin: .5rem 0; }
 
 /* ---------- Productos ---------- */
@@ -254,7 +273,7 @@ img { max-width: 100%; display: block; }
 }
 .prod-foto img { width: 100%; height: 100%; object-fit: cover; }
 .tarjeta-producto h3 { font-size: 1.5rem; }
-.prod-desc { font-size: .95rem; color: #7d5b5b; flex-grow: 1; }
+.prod-desc { font-size: .95rem; color: #8a7059; flex-grow: 1; }
 
 .prod-pie {
     display: flex;
@@ -293,7 +312,7 @@ img { max-width: 100%; display: block; }
 
 /* La frase estrella de la biografía */
 .frase-destacada {
-    font-family: 'Caveat', cursive;
+    font-family: 'Dancing Script', cursive;
     font-size: clamp(1.9rem, 3.5vw, 2.6rem);
     color: var(--rojo);
     line-height: 1.15;
@@ -318,7 +337,7 @@ img { max-width: 100%; display: block; }
     padding: 1.4rem;
     position: relative;
 }
-.opinion p { font-family: 'Patrick Hand', cursive; font-size: 1.1rem; }
+.opinion p { font-family: 'Dancing Script', 'Patrick Hand', cursive; font-size: 1.1rem; }
 .opinion footer { margin-top: .8rem; color: var(--rojo); font-weight: 700; }
 
 /* ---------- Contacto (sección roja profunda) ---------- */
@@ -364,7 +383,7 @@ img { max-width: 100%; display: block; }
 }
 
 .form-email .form-ok {
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.15rem;
     color: #2e7d32;
     margin: .5rem 0;
@@ -380,7 +399,7 @@ img { max-width: 100%; display: block; }
     padding: 3.2rem 8vw 2.2rem;
 }
 .hero-mini h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0; color: var(--blanco); }
-.hero-mini p { font-family: 'Patrick Hand', cursive; font-size: 1.2rem; color: #ffe4de; margin: .4rem 0 0; }
+.hero-mini p { font-family: 'Dancing Script', 'Patrick Hand', cursive; font-size: 1.2rem; color: #f3e8d2; margin: .4rem 0 0; }
 .fichas-cat { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; margin-top: 1.6rem; }
 .ficha-cat {
     background: rgba(255,255,255,.15);
@@ -388,13 +407,13 @@ img { max-width: 100%; display: block; }
     color: var(--blanco);
     border-radius: 999px;
     padding: .35rem 1rem;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.05rem;
     text-decoration: none;
 }
 .ficha-cat:hover { background: var(--blanco); color: var(--rojo); }
 .subtitulo-cat {
-    font-family: 'Caveat', cursive;
+    font-family: 'Dancing Script', cursive;
     font-size: 2.1rem;
     color: var(--rojo-oscuro);
     text-align: center;
@@ -438,8 +457,8 @@ img { max-width: 100%; display: block; }
     position: relative;
     border: 3px solid var(--rojo-suave);
 }
-.extras-caja h3 { font-family: 'Caveat', cursive; font-size: 2rem; color: var(--rojo); margin: 0 0 .3rem; }
-.extras-intro { margin: 0 0 .9rem; color: #7d5b5b; font-size: .95rem; }
+.extras-caja h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--rojo); margin: 0 0 .3rem; }
+.extras-intro { margin: 0 0 .9rem; color: #8a7059; font-size: .95rem; }
 .extras-cerrar {
     position: absolute; top: .7rem; right: .9rem;
     background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #b0bec5;
@@ -455,7 +474,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     gap: .8rem;
 }
-.extra-item small { color: #7d5b5b; }
+.extra-item small { color: #8a7059; }
 
 /* ---------- Pie ---------- */
 .pie {
@@ -464,10 +483,10 @@ img { max-width: 100%; display: block; }
     padding: 2.5rem 8vw;
     text-align: center;
 }
-.pie-logo { font-size: 2rem; font-family: 'Caveat', cursive; }
+.pie-logo { font-size: 2rem; font-family: 'Dancing Script', cursive; }
 .pie-logo span { color: var(--rojo-suave); }
 .pie-nav { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0; }
-.pie-nav a { color: var(--rojo-suave); text-decoration: none; font-family: 'Patrick Hand', cursive; }
+.pie-nav a { color: var(--rojo-suave); text-decoration: none; font-family: 'Dancing Script', 'Patrick Hand', cursive; }
 .pie-copy { font-size: .85rem; opacity: .7; }
 
 /* ---------- Preguntas frecuentes ---------- */
@@ -538,14 +557,14 @@ img { max-width: 100%; display: block; }
     padding: .15rem .55rem;
     font-size: 1rem;
 }
-.carrito-vacio { text-align: center; color: #a86b6b; padding: 2rem 0; }
+.carrito-vacio { text-align: center; color: #C68A4B; padding: 2rem 0; }
 
 .carrito-pie {
     padding: 1rem 1.3rem;
     border-top: 2px dashed var(--borde-suave);
 }
 .carrito-total { font-size: 1.25rem; margin-bottom: .4rem; }
-.carrito-ayuda { font-size: .8rem; color: #a86b6b; margin-bottom: .8rem; }
+.carrito-ayuda { font-size: .8rem; color: #C68A4B; margin-bottom: .8rem; }
 
 /* ---------- Cómo pagar (sección con textura y tarjetas cómic) ---------- */
 
@@ -560,9 +579,9 @@ img { max-width: 100%; display: block; }
 
 .pagos-intro {
     text-align: center;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     font-size: 1.25rem;
-    color: #7d5b5b;
+    color: #8a7059;
     margin: -1.5rem 0 2.5rem;
 }
 
@@ -606,7 +625,7 @@ img { max-width: 100%; display: block; }
 }
 /* Acento de color distinto por método */
 .caja-pago:nth-child(1) .pago-icono { background: #e2f6e9; }
-.caja-pago:nth-child(2) .pago-icono { background: #fdeaea; }
+.caja-pago:nth-child(2) .pago-icono { background: #f6eddc; }
 .caja-pago:nth-child(3) .pago-icono { background: #fbdcdc; }
 
 .caja-pago h3 { font-size: 1.7rem; margin-bottom: .5rem; }
@@ -614,12 +633,12 @@ img { max-width: 100%; display: block; }
 .pago-nota {
     display: inline-block;
     margin-top: .8rem;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Dancing Script', 'Patrick Hand', cursive;
     background: var(--rojo-suave);
     border: 2px dashed var(--borde-suave);
     border-radius: 999px;
     padding: .25rem 1rem;
-    color: #7d5b5b;
+    color: #8a7059;
 }
 
 /* ---------- Botón pago directo en tarjetas de producto ---------- */
@@ -637,6 +656,7 @@ img { max-width: 100%; display: block; }
     .hero-botones { justify-content: center; }
     .sobre-mi-contenido { grid-template-columns: 1fr; }
     .cabecera { flex-wrap: wrap; justify-content: center; }
+    .logo-img { height: 84px; }
 }
 
 /* ================== CATÁLOGO COMPACTO (10 tarjetas) ================== */
@@ -644,7 +664,7 @@ img { max-width: 100%; display: block; }
 .tarjeta-cat { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .cat-foto { position: relative; aspect-ratio: 4 / 3; overflow: hidden; margin: 0; }
 .cat-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cat-icono { display: grid; place-items: center; font-size: 3rem; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.cat-icono { display: grid; place-items: center; font-size: 3rem; background: linear-gradient(135deg, #fbf6ea, #f3e8d2); }
 .dieta { position: absolute; top: .55rem; left: .55rem; z-index: 2; font-size: .72rem; font-weight: 700; letter-spacing: .4px; padding: .28rem .6rem; border-radius: 999px; color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
 .dieta-lactosa { background: #0a8f4e; }
 .dieta-gluten { background: #b96a00; }
@@ -658,7 +678,7 @@ img { max-width: 100%; display: block; }
 .sticker:hover { transform: rotate(0deg) scale(1.07); }
 
 /* Banner personalizada (ocupa todo el ancho del grid) */
-.banner-personalizada { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .9rem; padding: 1.1rem 1.4rem; border: 3px dashed var(--rojo); border-radius: 14px; background: #fffaf7; }
+.banner-personalizada { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .9rem; padding: 1.1rem 1.4rem; border: 3px dashed var(--rojo); border-radius: 14px; background: #fbf6ea; }
 .banner-personalizada h3 { margin: 0 0 .2rem; }
 .banner-personalizada p { margin: 0; }
 
@@ -683,6 +703,12 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 
 /* Tarta grande del hero (sustituye al emoji) */
 .hero-dibujo .tarta-grande { width: clamp(220px, 26vw, 320px); filter: drop-shadow(0 12px 14px rgba(63,29,29,.35)); }
+.hero-logo-grande {
+    width: clamp(320px, 40vw, 560px) !important;
+    border-radius: 20px;
+    border: 4px solid rgba(243,232,210,.9);
+    box-shadow: 0 16px 40px rgba(30,10,18,.45);
+}
 
 /* Icono inline en títulos (sustituye al emoji del encabezado) */
 .icono-titulo { height: .8em; width: auto; vertical-align: -0.06em; filter: drop-shadow(0 2px 3px rgba(63,29,29,.25)); }
@@ -706,7 +732,7 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .logo .logo-linea em { font-style: normal; color: var(--rojo); }
 
 /* Corrección fina: iconos de título a tamaño FIJO (no crecen con la fuente) */
-.icono-titulo { height: 32px; min-height: 0; width: auto; }
+.icono-titulo { height: 46px; min-height: 0; width: auto; }
 
 /* Botón del carrito a prueba de fallos: flex + imagen en bloque */
 .boton-carrito { display: inline-flex; align-items: center; justify-content: center; }
@@ -720,13 +746,13 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .detalle-modal {
     position: fixed; z-index: 95; top: 50%; left: 50%; transform: translate(-50%,-50%);
     width: min(840px, 92vw); max-height: 88vh; overflow: auto;
-    background: #fffaf7; border: 3px solid var(--rojo); border-radius: 18px;
+    background: #fbf6ea; border: 3px solid var(--rojo); border-radius: 18px;
     display: flex; gap: 1.4rem; padding: 1.5rem 1.6rem;
     box-shadow: 0 24px 60px rgba(63,29,29,.35);
 }
 .detalle-foto { flex: 1; min-width: 0; align-self: center; }
 .detalle-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; border: 3px solid #5d3a26; display: block; }
-.detalle-foto .cat-icono { aspect-ratio: 4 / 3; border-radius: 14px; border: 3px solid #5d3a26; font-size: 4.2rem; display: grid; place-items: center; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.detalle-foto .cat-icono { aspect-ratio: 4 / 3; border-radius: 14px; border: 3px solid #5d3a26; font-size: 4.2rem; display: grid; place-items: center; background: linear-gradient(135deg, #fbf6ea, #f3e8d2); }
 .detalle-foto .cat-icono img { border: none; }
 .detalle-info { flex: 1.1; display: flex; flex-direction: column; padding-right: 1.4rem; }
 .detalle-info h3 { font-size: 1.7rem; margin: .3rem 0 .1rem; }
@@ -788,7 +814,7 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .fila-lista:hover { background: var(--rojo-suave); }
 .fila-lista .cat-foto { width: 60px; height: 60px; border-radius: 10px; overflow: hidden; flex: none; position: relative; aspect-ratio: auto; }
 .fila-lista .cat-foto img { width: 100%; height: 100%; object-fit: cover; border: none; }
-.fila-lista .cat-foto.cat-icono { display: grid; place-items: center; background: linear-gradient(135deg, #fff6f2, #ffe1dc); padding: 4px; }
+.fila-lista .cat-foto.cat-icono { display: grid; place-items: center; background: linear-gradient(135deg, #fbf6ea, #f3e8d2); padding: 4px; }
 .fila-lista .cat-foto.cat-icono img { object-fit: contain; }
 .fila-lista .dieta { font-size: .5rem; padding: .12rem .35rem; top: .2rem; left: .2rem; letter-spacing: .2px; }
 .lista-info { flex: 1; min-width: 0; }
@@ -809,13 +835,13 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 /* Galería: imagen principal con zoom al pasar el ratón */
 .detalle-principal { position: relative; aspect-ratio: 1 / 1; max-height: 62vh; border: 3px solid #5d3a26; border-radius: 16px; overflow: hidden; background: #fff; cursor: zoom-in; }
 .detalle-principal img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
-.detalle-principal img.es-svg { object-fit: contain; padding: 1.2rem; background: linear-gradient(135deg, #fff6f2, #ffe1dc); }
+.detalle-principal img.es-svg { object-fit: contain; padding: 1.2rem; background: linear-gradient(135deg, #fbf6ea, #f3e8d2); }
 .detalle-principal:hover img { transform: scale(1.25); }
 .lupa { position: absolute; top: .7rem; right: .7rem; background: #fff; border-radius: 50%; width: 38px; height: 38px; display: grid; place-items: center; font-size: 1.1rem; box-shadow: 0 3px 8px rgba(0,0,0,.2); }
 
 /* Miniaturas */
 .detalle-thumbs { display: flex; gap: .55rem; margin-top: .7rem; }
-.detalle-thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; border: 3px solid transparent; cursor: pointer; background: #fff6f2; }
+.detalle-thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; border: 3px solid transparent; cursor: pointer; background: #fbf6ea; }
 .detalle-thumbs img.activa { border-color: var(--rojo); }
 
 /* Columna derecha */
@@ -833,7 +859,7 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .detalle-cantidad span { min-width: 1.6rem; text-align: center; font-weight: 700; }
 
 /* CTA grande en tono cálido pastel */
-.cta-anadir { background: linear-gradient(180deg, #ffb59e, #ff8a65); color: var(--rojo-oscuro); border: 3px solid var(--rojo-oscuro); border-radius: 999px; padding: .8rem 1.2rem; font-weight: 800; letter-spacing: 1px; box-shadow: 0 4px 0 rgba(142,20,20,.4); transition: transform .12s ease; }
+.cta-anadir { background: linear-gradient(180deg, #e9c89b, #D9A85C); color: var(--rojo-oscuro); border: 3px solid var(--rojo-oscuro); border-radius: 999px; padding: .8rem 1.2rem; font-weight: 800; letter-spacing: 1px; box-shadow: 0 4px 0 rgba(142,20,20,.4); transition: transform .12s ease; }
 .cta-anadir:hover { transform: translateY(-2px) scale(1.02); }
 
 /* Acordeones */
@@ -857,20 +883,20 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .detalle-campo select { min-width: 150px; padding: .4rem .6rem; }
 
 /* ===== Factura simplificada (factura.html) ===== */
-.boton-factura { background: #fff; color: #b91c1c; border: 2px solid #b91c1c; }
-.boton-factura:hover { background: #b91c1c; color: #fff; }
+.boton-factura { background: #fff; color: #5E1A32; border: 2px solid #5E1A32; }
+.boton-factura:hover { background: #5E1A32; color: #fff; }
 .pagina-factura { background: #f5f5f5; padding: 1rem; }
 .factura-acciones { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; justify-content: center; max-width: 800px; margin: 0 auto 1rem; padding: 0.8rem 1rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); font-size: 0.95rem; }
 .factura-acciones label { font-size: 0.85rem; color: #555; }
 .factura-acciones input, .factura-acciones select { padding: 0.5rem 0.7rem; border: 1px solid #ccc; border-radius: 8px; font: inherit; }
 .factura { max-width: 800px; margin: 0 auto; background: #fff; padding: 2.5rem 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.12); color: #222; }
-.factura-cabecera { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-bottom: 3px solid #b91c1c; padding-bottom: 1.2rem; }
+.factura-cabecera { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-bottom: 3px solid #5E1A32; padding-bottom: 1.2rem; }
 .factura-marca { display: flex; gap: 1.2rem; align-items: flex-start; }
 .factura-logo { width: 110px; height: 110px; object-fit: contain; flex: none; }
-.factura h1 { margin: 0; color: #b91c1c; font-size: 1.9rem; }
-.factura-lema { font-family: Caveat, cursive; font-size: 1.4rem; color: #b91c1c; margin: 0 0 0.3rem; }
+.factura h1 { margin: 0; color: #5E1A32; font-size: 1.9rem; }
+.factura-lema { font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #5E1A32; margin: 0 0 0.3rem; }
 .factura-marca p { margin: 0.15rem 0; font-size: 0.92rem; color: #444; }
-.factura-marca a { color: #b91c1c; }
+.factura-marca a { color: #5E1A32; }
 .factura-titulo { text-align: right; }
 .factura-titulo h2 { margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; }
 .factura-titulo p { margin: 0.2rem 0; font-size: 1rem; }
@@ -880,7 +906,7 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .factura-tabla .c, .factura-tabla .d { text-align: right; }
 .factura-totales { margin-left: auto; width: 300px; max-width: 100%; font-size: 1.05rem; }
 .factura-totales p { display: flex; justify-content: space-between; margin: 0.25rem 0; }
-.factura-total { font-size: 1.45rem; color: #b91c1c; border-top: 2px solid #b91c1c; padding-top: 0.4rem; margin-top: 0.5rem; }
+.factura-total { font-size: 1.45rem; color: #5E1A32; border-top: 2px solid #5E1A32; padding-top: 0.4rem; margin-top: 0.5rem; }
 .factura-pago { margin-top: 1.5rem; }
 .factura-pie { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #ddd; text-align: center; font-size: 0.9rem; color: #555; }
 .factura-legal { font-size: 0.75rem; color: #888; }
@@ -898,5 +924,5 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 /* ===== Simulacion de compra (demo.html) ===== */
 .pagina-demo { background: #f5f5f5; }
 .demo { max-width: 560px; margin: 4rem auto; background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
-.demo h1 { color: #b91c1c; }
+.demo h1 { color: #5E1A32; }
 .demo-nota { font-size: 0.85rem; color: #777; }

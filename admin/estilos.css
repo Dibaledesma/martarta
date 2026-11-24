@@ -1,0 +1,209 @@
+/* ==================================================================
+   MARTARTA — Panel interno · estilos
+   Mobile-first, misma paleta que la web (rojo y blanco).
+================================================================== */
+
+:root {
+    --rojo:        #9C5A1E;   /* marrón La Temporá */
+    --rojo-oscuro: #5E1A32;   /* burdeos */
+    --rojo-suave:  #f6eddc;   /* crema tenue */
+    --blanco:      #ffffff;
+    --texto:       #3a1a26;
+    --tiza:        #f3e8d2;
+    --borde-suave: #e4cda6;
+    --verde:       #2e7d32;
+    --verde-suave: #e8f4e9;
+    --gris:        #8a7a7a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Dancing Script', 'Segoe UI', cursive;
+    background: var(--blanco);
+    color: var(--texto);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Números, formularios y avisos: letra recta para leer rápido */
+input, select, textarea, .cifra, .etiqueta, .toast, .btn, .btn-salir, .btn-pago,
+.pedido-num, .fecha-categoria, .pedido-datos, .selector-mes {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    font-size: .95rem;
+}
+.cifra { font-size: 1.35rem; font-weight: 800; }
+
+h1, h2, h3, .logo { font-family: 'Dancing Script', cursive; font-weight: 700; }
+
+.oculto { display: none !important; }
+
+/* ---------- Aviso de configuración ---------- */
+.aviso-config {
+    background: #f6eddc; color: #5E1A32;
+    padding: .8rem 1rem; font-size: .9rem; text-align: center;
+}
+
+/* ---------- Login ---------- */
+.pantalla-login {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, var(--rojo-suave), var(--blanco));
+    padding: 1rem;
+}
+.tarjeta-login {
+    background: var(--blanco); border: 1px solid var(--borde-suave);
+    border-radius: 18px; padding: 2rem 1.5rem; width: 100%; max-width: 360px;
+    box-shadow: 0 8px 24px rgba(142, 20, 20, .12); text-align: center;
+}
+.tarjeta-login .logo { font-size: 3rem; color: var(--rojo); }
+.login-logo { width: 130px; max-width: 70%; border-radius: 12px; margin: 0 auto .6rem; display: block; }
+.logo-img { height: 46px; border-radius: 8px; vertical-align: middle; }
+.sub-login { color: var(--gris); margin-bottom: 1.5rem; font-size: .95rem; }
+.login-error { color: var(--rojo); margin-top: .8rem; font-size: .9rem; }
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .6rem 1rem; background: var(--rojo-oscuro); color: var(--tiza);
+    position: sticky; top: 0; z-index: 10;
+}
+.cabecera .logo { font-size: 1.7rem; color: var(--tiza); }
+.logo-panel { font-size: 1.1rem; opacity: .75; }
+.btn-salir {
+    background: transparent; border: 1px solid rgba(255, 255, 255, .4);
+    color: var(--tiza); border-radius: 999px; padding: .3rem .9rem;
+    font-family: inherit; font-size: .85rem; cursor: pointer;
+}
+
+/* ---------- Contenido y pestañas ---------- */
+.contenido { padding: 1rem 1rem 6rem; max-width: 640px; margin: 0 auto; }
+.tab h2 { font-size: 2rem; color: var(--rojo); margin-bottom: .8rem; }
+.tab h3 { font-size: 1.5rem; margin: 1.2rem 0 .5rem; }
+
+.barra-tabs {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; background: var(--rojo-oscuro); z-index: 10;
+}
+.tab-btn {
+    flex: 1; background: transparent; border: none; color: var(--tiza);
+    font-family: inherit; font-size: 1.2rem; padding: .55rem 0 .5rem; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: .1rem;
+    opacity: .65; border-top: 3px solid transparent;
+}
+.tab-btn span { font-size: .68rem; font-weight: 600; }
+.tab-btn.activo { opacity: 1; border-top-color: var(--tiza); }
+
+/* ---------- Resumen y cuadros ---------- */
+.resumen-rapido { display: flex; gap: .8rem; margin-bottom: 1rem; }
+.resumen-rapido > div {
+    flex: 1; background: var(--rojo-suave); border-radius: 14px;
+    padding: .7rem .5rem; text-align: center; display: flex;
+    flex-direction: column; justify-content: center;
+}
+.cifra { font-size: 1.45rem; font-weight: 800; }
+.cifra.rojo { color: var(--rojo); }
+.etiqueta { font-size: .72rem; color: var(--gris); }
+
+.cuadros { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+.cuadro {
+    background: var(--rojo-suave); border-radius: 14px; padding: .7rem .5rem;
+    text-align: center; display: flex; flex-direction: column;
+}
+.cu-verde { background: var(--verde-suave); }
+.cu-verde .cifra { color: var(--verde); }
+.cu-rojo .cifra { color: var(--rojo); }
+
+.selector-mes { display: block; margin-bottom: .8rem; }
+.selector-mes input { margin-left: .5rem; }
+
+/* ---------- Formularios ---------- */
+.tarjeta-form {
+    background: var(--rojo-suave); border-radius: 16px; padding: 1rem;
+}
+label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .8rem; }
+input, select, textarea {
+    display: block; width: 100%; margin-top: .25rem;
+    padding: .6rem .7rem; border: 1px solid var(--borde-suave);
+    border-radius: 10px; font-family: inherit; font-size: 1rem;
+    background: var(--blanco); color: var(--texto);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--rojo); }
+.fila-doble { display: grid; grid-template-columns: 1fr 1.4fr; gap: .7rem; }
+.total-vista {
+    background: var(--blanco); border-radius: 10px; padding: .5rem .8rem;
+    margin-bottom: .8rem; text-align: right;
+}
+.total-vista b { color: var(--rojo); font-size: 1.2rem; }
+
+.btn {
+    border: none; border-radius: 999px; cursor: pointer; font-family: inherit;
+    font-weight: 800; font-size: 1rem;
+}
+.btn-rojo { background: var(--rojo); color: var(--blanco); }
+.btn-grande { width: 100%; padding: .8rem; font-size: 1.1rem; }
+
+/* ---------- Lista de pedidos ---------- */
+.lista-pedidos { list-style: none; display: flex; flex-direction: column; gap: .8rem; }
+.pedido-card {
+    background: var(--blanco); border: 1px solid var(--borde-suave);
+    border-radius: 16px; padding: .9rem 1rem;
+}
+.pedido-cab { display: flex; justify-content: space-between; gap: .5rem; align-items: baseline; }
+.pedido-num { font-weight: 800; color: var(--rojo); font-size: .85rem; white-space: nowrap; }
+.pedido-cliente { font-weight: 800; font-size: 1.05rem; }
+.pedido-detalle { color: var(--gris); font-size: .9rem; }
+.pedido-datos {
+    display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; margin: .3rem 0 .6rem;
+}
+.pedido-total { font-weight: 800; }
+.acciones { display: flex; gap: .5rem; align-items: stretch; }
+
+.btn-pago { flex: 1; padding: .65rem .4rem; border-radius: 12px; }
+.btn-pago.sin {
+    background: var(--rojo); color: var(--blanco);
+}
+.btn-pago.pag {
+    background: var(--verde); color: var(--blanco);
+}
+.btn-borrar {
+    background: transparent; border: 1px solid var(--borde-suave);
+    color: var(--gris); border-radius: 12px; padding: 0 .7rem; cursor: pointer;
+}
+.pedido-card.pagado { opacity: .75; }
+.tarjeta-pagada { color: var(--verde); font-weight: 800; font-size: .85rem; }
+
+/* ---------- Listas simples (costes) ---------- */
+.lista-simple { list-style: none; }
+.lista-simple li {
+    display: flex; justify-content: space-between; align-items: center; gap: .6rem;
+    border-bottom: 1px solid var(--rojo-suave); padding: .5rem .1rem; font-size: .95rem;
+}
+.lista-simple .importe { font-weight: 800; white-space: nowrap; }
+.lista-simple .fecha-categoria { color: var(--gris); font-size: .78rem; display: block; }
+.btn-mini {
+    background: transparent; border: none; color: var(--gris); cursor: pointer;
+    font-size: 1rem; padding: .2rem .4rem;
+}
+
+.vacio { color: var(--gris); text-align: center; padding: 1.5rem .5rem; }
+
+/* ---------- Toast ---------- */
+.toast {
+    position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%);
+    background: var(--texto); color: var(--tiza); border-radius: 999px;
+    padding: .6rem 1.3rem; font-size: .9rem; z-index: 50;
+    animation: aparecer .25s ease; max-width: 90vw; text-align: center;
+}
+@keyframes aparecer { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; } }
+
+/* ---------- Pantallas grandes ---------- */
+@media (min-width: 640px) {
+    .contenido { padding-bottom: 2rem; }
+    .barra-tabs {
+        top: 0; bottom: auto; left: 50%; transform: translateX(-50%);
+        border-radius: 0 0 16px 16px;
+    }
+    .tab-btn { padding: .5rem 1.2rem .45rem; border-top: none; border-bottom: 3px solid transparent; }
+    .tab-btn.activo { border-bottom-color: var(--tiza); }
+    .cuadros { grid-template-columns: repeat(5, 1fr); }
+}

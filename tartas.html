@@ -21,9 +21,10 @@
     <meta name="description" content="Catálogo de tartas artesanales Martarta: fotos, precios y comentarios. Pedidos por WhatsApp.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <link rel="stylesheet" href="css/estilos.css?v=21">
+    <link rel="stylesheet" href="css/estilos.css?v=28">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
 
     <!-- ================== CABECERA / NAVEGACIÓN ================== -->
     <header class="cabecera">
-        <a href="index.html" class="logo"><img class="logo-tarta" src="img/icono-cheesecake.svg" alt=""><span class="logo-linea">Mar<em>tarta</em></span></a>
+        <a href="index.html" class="logo"><img class="logo-img" src="img/logo-martarta.png" alt="Martarta"></a>
         <nav class="nav-principal">
             <a href="index.html">Inicio</a>
             <a href="tartas.html" style="color: var(--rojo); font-weight: 700;">Tartas</a>
@@ -52,7 +53,7 @@
 
     <!-- ================== CABECERA DEL CATÁLOGO ================== -->
     <section class="hero-mini">
-        <h1>Nuestras tartas <img class="icono-titulo" src="img/icono-red-velvet.svg" alt=""></h1>
+        <h1>Nuestras tartas</h1>
         <p>Fotos, precios y comentarios — tal cual salen del horno</p>
         <!-- Filtros del catálogo (los tres primeros filtran, los dos últimos enlazan) -->
         <div class="fichas-cat filtros-cat">
@@ -68,103 +69,53 @@
     <section class="seccion" id="catalogo">
         <div class="lista-productos">
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-queso" data-nombre="Tarta de queso clásica" data-precio="22">
-                <div class="cat-foto"><img src="img/tarta-queso.jpg" alt="Tarta de queso clásica"></div>
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-queso-grande" data-nombre="Tarta de queso" data-precio="26">
+                <div class="cat-foto"><img src="img/queso-grande-1.jpg" alt="Tarta de queso"></div>
                 <div class="lista-info">
-                    <h3>Tarta de queso clásica</h3>
-                    <p class="cat-desc">La de toda la vida: cremosa y al horno.</p>
-                </div>
-                <span class="prod-precio">22 €</span>
-                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
-            </article>
-
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-choco" data-nombre="Tarta de chocolate y avellana" data-precio="26">
-                <div class="cat-foto"><img src="img/tarta-choco.jpg" alt="Tarta de chocolate y avellana"></div>
-                <div class="lista-info">
-                    <h3>Chocolate y avellana</h3>
-                    <p class="cat-desc">Ganache de chocolate y avellana crujiente.</p>
+                    <h3>Tarta de queso</h3>
+                    <p class="cat-desc">La de toda la vida · para 10 personas.</p>
                 </div>
                 <span class="prod-precio">26 €</span>
                 <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="cookies-pack" data-nombre="Pack de cookies surtidas" data-precio="12">
-                <div class="cat-foto"><img src="img/cookies.jpg" alt="Pack de cookies surtidas"></div>
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-queso-imagen" data-nombre="Tarta de queso con imagen comestible y base de galleta" data-precio="36">
+                <div class="cat-foto"><img src="img/tarta-queso-imagen.jpg" alt="Tarta de queso con imagen comestible"></div>
                 <div class="lista-info">
-                    <h3>Pack de cookies</h3>
-                    <p class="cat-desc">6 unidades surtidas de la semana.</p>
+                    <h3>Tarta de queso con imagen comestible</h3>
+                    <p class="cat-desc">Imagen comestible y base de galleta.</p>
                 </div>
-                <span class="prod-precio">12 €</span>
+                <span class="prod-precio">36 €</span>
                 <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="queso-sin-lactosa" data-nombre="Tarta de queso sin lactosa" data-precio="24" data-dieta="lactosa">
-                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-queso-lactosa.svg" alt=""></div>
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-carrete" data-nombre="Tarta con carrete de fotos" data-precio="60">
+                <div class="cat-foto"><img src="img/tarta-carrete-1.jpg" alt="Tarta con carrete de fotos"></div>
                 <div class="lista-info">
-                    <h3>Queso sin lactosa</h3>
-                    <p class="cat-desc">La misma receta, apta para intolerantes.</p>
+                    <h3>Tarta con carrete de fotos</h3>
+                    <p class="cat-desc">Tus fotos impresas en carrete · para 10 personas.</p>
                 </div>
-                <span class="prod-precio">24 €</span>
+                <span class="prod-precio">60 €</span>
                 <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="bizcocho-sin-gluten" data-nombre="Bizcocho sin gluten" data-precio="20" data-dieta="gluten">
-                <div class="cat-foto cat-icono"><span class="dieta dieta-gluten">SIN GLUTEN</span><img src="img/icono-bizcocho-gluten.svg" alt=""></div>
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-personalizada-topping" data-nombre="Tarta personalizada con extra de topping" data-precio="60">
+                <div class="cat-foto"><img src="img/tarta-personalizada-topping.jpg" alt="Tarta personalizada con extra de topping"></div>
                 <div class="lista-info">
-                    <h3>Bizcocho sin gluten</h3>
-                    <p class="cat-desc">Esponjoso y apto para celíacos.</p>
+                    <h3>Tarta personalizada · extra de topping</h3>
+                    <p class="cat-desc">Diseño a tu gusto · para 15 personas.</p>
                 </div>
-                <span class="prod-precio">20 €</span>
+                <span class="prod-precio">60 €</span>
                 <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-zanahoria" data-nombre="Tarta de zanahoria" data-precio="23">
-                <div class="cat-foto cat-icono"><img src="img/icono-zanahoria.svg" alt=""></div>
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-carrot-topping" data-nombre="Carrot cake con topping (extra según el topping)" data-precio="60">
+                <div class="cat-foto"><img src="img/tarta-carrot-topping.jpg" alt="Carrot cake con topping"></div>
                 <div class="lista-info">
-                    <h3>Tarta de zanahoria</h3>
-                    <p class="cat-desc">Nueces, canela y crema de queso.</p>
+                    <h3>Carrot cake con topping</h3>
+                    <p class="cat-desc">Extra según el topping · para 15 personas.</p>
                 </div>
-                <span class="prod-precio">23 €</span>
-                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
-            </article>
-
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-limon" data-nombre="Tarta de limón" data-precio="21" data-dieta="lactosa">
-                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-limon.svg" alt=""></div>
-                <div class="lista-info">
-                    <h3>Tarta de limón</h3>
-                    <p class="cat-desc">Merengue tostado, fresquita.</p>
-                </div>
-                <span class="prod-precio">21 €</span>
-                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
-            </article>
-
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="red-velvet" data-nombre="Red Velvet" data-precio="28">
-                <div class="cat-foto cat-icono"><img src="img/icono-red-velvet.svg" alt=""></div>
-                <div class="lista-info">
-                    <h3>Red Velvet</h3>
-                    <p class="cat-desc">Terciopelo rojo con crema de queso.</p>
-                </div>
-                <span class="prod-precio">28 €</span>
-                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
-            </article>
-
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-manzana" data-nombre="Tarta de manzana" data-precio="19" data-dieta="lactosa">
-                <div class="cat-foto cat-icono"><span class="dieta dieta-lactosa">SIN LACTOSA</span><img src="img/icono-manzana.svg" alt=""></div>
-                <div class="lista-info">
-                    <h3>Tarta de manzana</h3>
-                    <p class="cat-desc">Hojaldre, canela y manzana asada.</p>
-                </div>
-                <span class="prod-precio">19 €</span>
-                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
-            </article>
-
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="vasitos-pack" data-nombre="Postres en vasito (x4)" data-precio="14" data-dieta="gluten">
-                <div class="cat-foto cat-icono"><span class="dieta dieta-gluten">SIN GLUTEN</span><img src="img/icono-vasitos.svg" alt=""></div>
-                <div class="lista-info">
-                    <h3>Postres en vasito</h3>
-                    <p class="cat-desc">Pack de 4, sabor de la semana.</p>
-                </div>
-                <span class="prod-precio">14 €</span>
+                <span class="prod-precio">60 €</span>
                 <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
@@ -327,75 +278,40 @@
 
         /* ================== FICHA DE PRODUCTO (galería + tamaños + cantidad + info) ================== */
         const DETALLES = {
-            'tarta-queso': {
-                larga: 'Tarta de queso cremosa, horneada a baja temperatura con base de galleta casera. Mejor de un día para otro.',
-                galeria: ['img/tarta-queso.jpg', 'img/icono-queso-lactosa.svg', 'img/icono-cheesecake.svg'],
-                tamanos: [ { n: '8 raciones', p: 22 }, { n: '12 raciones', p: 32 } ],
+            'tarta-queso-grande': {
+                larga: 'Tarta de queso cremosa, horneada a baja temperatura con base de galleta casera. Para 10 personas.',
+                galeria: ['img/queso-grande-1.jpg', 'img/queso-grande-2.jpg'],
+                tamanos: [ { n: '10 personas', p: 26 } ],
                 ingredientes: 'Queso crema, huevos, nata, azúcar, galleta maría, mantequilla.',
                 alergenos: 'Leche, huevo, gluten.',
             },
-            'tarta-choco': {
-                larga: 'Bizcocho húmedo de chocolate con ganache brillante y crujiente de avellana. Para chocoadictos.',
-                galeria: ['img/tarta-choco.jpg', 'img/icono-red-velvet.svg', 'img/icono-cheesecake.svg'],
-                tamanos: [ { n: '10 raciones', p: 26 }, { n: '14 raciones', p: 36 } ],
-                ingredientes: 'Chocolate 70%, harina de trigo, huevos, avellanas, azúcar, mantequilla.',
-                alergenos: 'Leche, huevo, gluten, frutos secos (avellana).',
-            },
-            'cookies-pack': {
-                larga: 'Galletas de mantequilla con chips y la sorpresa surtida de la semana. Crujientes fuera, tiernas dentro.',
-                galeria: ['img/cookies.jpg', 'img/icono-vasitos.svg', 'img/icono-bizcocho-gluten.svg'],
-                tamanos: [ { n: 'Pack 6 uds', p: 12 }, { n: 'Pack 12 uds', p: 22 } ],
-                ingredientes: 'Harina de trigo, mantequilla, azúcar moreno, chips de chocolate, huevo.',
-                alergenos: 'Leche, huevo, gluten, soja.',
-            },
-            'queso-sin-lactosa': {
-                larga: 'La misma receta de siempre con ingredientes sin lactosa: nadie nota la diferencia.',
-                galeria: ['img/icono-queso-lactosa.svg', 'img/icono-cheesecake.svg', 'img/icono-limon.svg'],
-                tamanos: [ { n: '8 raciones', p: 24 }, { n: '12 raciones', p: 34 } ],
-                ingredientes: 'Queso sin lactosa, huevos, nata sin lactosa, azúcar, base de galleta.',
-                alergenos: 'Huevo, gluten.',
-            },
-            'bizcocho-sin-gluten': {
-                larga: 'Elaborado con harinas sin gluten y superficie limpia. Esponjoso y apto para celíacos.',
-                galeria: ['img/icono-bizcocho-gluten.svg', 'img/icono-zanahoria.svg', 'img/icono-cheesecake.svg'],
-                tamanos: [ { n: '8 raciones', p: 20 }, { n: '12 raciones', p: 29 } ],
-                ingredientes: 'Mezcla de harinas sin gluten, huevos, azúcar, aceite de girasol.',
-                alergenos: 'Huevo. Sin gluten.',
-            },
-            'tarta-zanahoria': {
-                larga: 'Especiada a fuego lento, con nueces tostadas y cobertura de crema de queso.',
-                galeria: ['img/icono-zanahoria.svg', 'img/icono-bizcocho-gluten.svg', 'img/icono-cheesecake.svg'],
-                tamanos: [ { n: '10 raciones', p: 23 }, { n: '14 raciones', p: 32 } ],
-                ingredientes: 'Zanahoria, harina de trigo, nueces, canela, huevos, queso crema.',
-                alergenos: 'Leche, huevo, gluten, frutos secos (nueces).',
-            },
-            'tarta-limon': {
-                larga: 'Crema de limón con merengue tostado. Fresca, ligera y sin lactosa.',
-                galeria: ['img/icono-limon.svg', 'img/icono-queso-lactosa.svg', 'img/icono-vasitos.svg'],
-                tamanos: [ { n: '8 raciones', p: 21 }, { n: '12 raciones', p: 30 } ],
-                ingredientes: 'Limón, huevos, azúcar, merengue (clara de huevo).',
-                alergenos: 'Huevo. Sin lactosa.',
-            },
-            'red-velvet': {
-                larga: 'Terciopelo rojo con capas de crema de queso. La tarta de las ocasiones importantes.',
-                galeria: ['img/icono-red-velvet.svg', 'img/icono-cheesecake.svg', 'img/icono-queso-lactosa.svg'],
-                tamanos: [ { n: '10 raciones', p: 28 }, { n: '14 raciones', p: 39 } ],
-                ingredientes: 'Harina de trigo, cacao, huevos, queso crema, mantequilla, colorante.',
+            'tarta-queso-imagen': {
+                larga: 'Tarta de queso con imagen comestible (la foto que quieras sobre la tarta) y base de galleta.',
+                galeria: ['img/tarta-queso-imagen.jpg', 'img/queso-grande-1.jpg'],
+                tamanos: [ { n: 'Tarta entera', p: 36 } ],
+                ingredientes: 'Queso, huevos, nata, azúcar, base de galleta, imagen comestible (azúcar).',
                 alergenos: 'Leche, huevo, gluten.',
             },
-            'tarta-manzana': {
-                larga: 'Hojaldre casero, manzana asada con canela y toque de azúcar moreno. Sin lactosa.',
-                galeria: ['img/icono-manzana.svg', 'img/icono-limon.svg', 'img/icono-cheesecake.svg'],
-                tamanos: [ { n: '8 raciones', p: 19 }, { n: '12 raciones', p: 27 } ],
-                ingredientes: 'Manzana, hojaldre (harina de trigo, agua, aceite), canela, azúcar moreno.',
-                alergenos: 'Gluten. Sin lactosa.',
+            'tarta-carrete': {
+                larga: 'Tarta con carrete de fotos impresas alrededor: la tarta estrella de bodas y celebraciones.',
+                galeria: ['img/tarta-carrete-1.jpg', 'img/tarta-carrete-2.jpg'],
+                tamanos: [ { n: '10 personas', p: 60 } ],
+                ingredientes: 'Bizcocho a elegir, relleno a elegir, carrete de fotos impresas.',
+                alergenos: 'Según el bizcocho elegido: pregunta al pedir.',
             },
-            'vasitos-pack': {
-                larga: 'Cuatro vasitos con el postre de la semana (mus, tiramisú, crema… pregunta). Sin gluten.',
-                galeria: ['img/icono-vasitos.svg', 'img/icono-cheesecake.svg', 'img/icono-red-velvet.svg'],
-                tamanos: [ { n: 'Pack 4 vasitos', p: 14 }, { n: 'Pack 8 vasitos', p: 26 } ],
-                ingredientes: 'Según el sabor de la semana: nata, huevo, azúcar, cacao, queso.',
-                alergenos: 'Leche, huevo. Sin gluten.',
+            'tarta-personalizada-topping': {
+                larga: 'Tarta personalizada con extra de topping: diseño, sabor y topping a tu gusto. Para 15 personas.',
+                galeria: ['img/tarta-personalizada-topping.jpg', 'img/tarta-carrot-topping.jpg'],
+                tamanos: [ { n: '15 personas', p: 60 } ],
+                ingredientes: 'Bizcocho y relleno a elegir, topping extra (según topping).',
+                alergenos: 'Según el bizcocho elegido: pregunta al pedir.',
+            },
+            'tarta-carrot-topping': {
+                larga: 'Carrot cake con topping a elegir: el extra se paga según el topping. Tarta grande, para 15 personas.',
+                galeria: ['img/tarta-carrot-topping.jpg', 'img/queso-grande-1.jpg'],
+                tamanos: [ { n: '15 personas', p: 60 } ],
+                ingredientes: 'Zanahoria, harina de trigo, nueces, canela, huevos, queso crema, topping a elegir.',
+                alergenos: 'Leche, huevo, gluten, frutos secos (nueces).',
             },
         };
 

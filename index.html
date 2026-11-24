@@ -13,11 +13,12 @@
     <title>Martarta | Tartas artesanales</title>
     <meta name="description" content="Tartas artesanales hechas con cariño. Pedidos por WhatsApp.">
 
-    <!-- Tipografías: pizarra (Caveat/Patrick Hand) + cuerpo legible (Nunito) -->
+    <!-- Tipografías: caligrafía Marta (Dancing Script) + cuerpo legible (Nunito) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <link rel="stylesheet" href="css/estilos.css?v=21">
+    <link rel="stylesheet" href="css/estilos.css?v=28">
 </head>
 <body>
 
@@ -28,7 +29,7 @@
 
     <!-- ================== CABECERA / NAVEGACIÓN ================== -->
     <header class="cabecera">
-        <a href="#inicio" class="logo"><img class="logo-tarta" src="img/icono-cheesecake.svg" alt=""><span class="logo-linea">Mar<em>tarta</em></span></a>
+        <a href="#inicio" class="logo"><img class="logo-img" src="img/logo-martarta.png" alt="Martarta"></a>
         <nav class="nav-principal">
             <a href="index.html">Inicio</a>
             <a href="tartas.html">Tartas</a>
@@ -56,39 +57,39 @@
             </div>
         </div>
         <div class="hero-dibujo" aria-hidden="true">
-            <img class="tarta-grande" src="img/icono-red-velvet.svg" alt="">
+            <img class="tarta-grande hero-logo-grande" src="img/hero-principal.jpg" alt="">
         </div>
     </section>
 
     <!-- ================== FAVORITAS DEL TALLER ================== -->
     <section class="seccion" id="favoritas">
-        <h2 class="titulo-seccion">Favoritas del taller <img class="icono-titulo" src="img/icono-cheesecake.svg" alt=""></h2>
+        <h2 class="titulo-seccion">Favoritas del taller <img class="icono-titulo" src="img/icono-favoritas.jpg" alt=""></h2>
         <p class="pagos-intro">Las tres que salen cada semana del obrador. Las que nunca fallan.</p>
         <div class="grid-productos">
-            <article class="tarjeta-producto" data-id="tarta-queso" data-nombre="Tarta de queso clásica" data-precio="22">
-                <div class="prod-foto"><img src="img/tarta-queso.jpg" alt="Tarta de queso clásica"></div>
-                <h3>Tarta de queso clásica</h3>
-                <p class="prod-desc">Cremosa, al horno y con base de galleta casera.</p>
-                <div class="prod-pie">
-                    <span class="prod-precio">22 €</span>
-                    <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
-                </div>
-            </article>
-            <article class="tarjeta-producto" data-id="tarta-choco" data-nombre="Tarta de chocolate y avellana" data-precio="26">
-                <div class="prod-foto"><img src="img/tarta-choco.jpg" alt="Tarta de chocolate y avellana"></div>
-                <h3>Chocolate y avellana</h3>
-                <p class="prod-desc">Bizcocho esponjoso con ganache y crujiente de avellana.</p>
+            <article class="tarjeta-producto" data-id="tarta-queso-grande" data-nombre="Tarta de queso" data-precio="26">
+                <div class="prod-foto"><img src="img/queso-grande-1.jpg" alt="Tarta de queso"></div>
+                <h3>Tarta de queso</h3>
+                <p class="prod-desc">La de toda la vida, cremosa y al horno · 10 personas.</p>
                 <div class="prod-pie">
                     <span class="prod-precio">26 €</span>
                     <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
                 </div>
             </article>
-            <article class="tarjeta-producto" data-id="cookies-pack" data-nombre="Pack de cookies surtidas" data-precio="12">
-                <div class="prod-foto"><img src="img/cookies.jpg" alt="Pack de cookies surtidas"></div>
-                <h3>Pack de cookies</h3>
-                <p class="prod-desc">Surtidas, de chololate y mantequilla. Para compartir (o no).</p>
+            <article class="tarjeta-producto" data-id="tarta-queso-imagen" data-nombre="Tarta de queso con imagen comestible y base de galleta" data-precio="36">
+                <div class="prod-foto"><img src="img/tarta-queso-imagen.jpg" alt="Tarta de queso con imagen comestible"></div>
+                <h3>Queso con imagen comestible</h3>
+                <p class="prod-desc">La foto que quieras, impresa sobre la tarta.</p>
                 <div class="prod-pie">
-                    <span class="prod-precio">12 €</span>
+                    <span class="prod-precio">36 €</span>
+                    <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                </div>
+            </article>
+            <article class="tarjeta-producto" data-id="tarta-carrete" data-nombre="Tarta con carrete de fotos" data-precio="60">
+                <div class="prod-foto"><img src="img/tarta-carrete-1.jpg" alt="Tarta con carrete de fotos"></div>
+                <h3>Tarta con carrete de fotos</h3>
+                <p class="prod-desc">Tus fotos en carrete alrededor · 10 personas.</p>
+                <div class="prod-pie">
+                    <span class="prod-precio">60 €</span>
                     <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
                 </div>
             </article>
@@ -132,22 +133,22 @@
         <h2 class="titulo-seccion">¿Qué te apetece hoy?</h2>
         <div class="grid-categorias">
             <a href="tartas.html#cat-queso" class="tarjeta-categoria">
-                <span class="cat-icono">🧀</span>
+                <img class="cat-foto-cat" src="img/cat-queso.jpg" alt="Tartas de queso">
                 <h3>Tartas de queso</h3>
                 <p>Cremosas, al horno, con base crujiente</p>
             </a>
             <a href="tartas.html#cat-bizcocho" class="tarjeta-categoria">
-                <span class="cat-icono">🍫</span>
+                <img class="cat-foto-cat" src="img/cat-bizcocho.jpg" alt="Tartas de bizcocho">
                 <h3>Tartas de bizcocho</h3>
                 <p>Esponjosas y rellenas de buen humor</p>
             </a>
             <a href="tartas.html#cat-personalizadas" class="tarjeta-categoria">
-                <span class="cat-icono">✨</span>
+                <img class="cat-foto-cat" src="img/cat-personalizadas.jpg" alt="Tartas personalizadas">
                 <h3>Personalizadas</h3>
                 <p>Me cuentas tu idea y la horneamos juntos</p>
             </a>
             <a href="tartas.html#cat-dulces" class="tarjeta-categoria">
-                <span class="cat-icono">🍪</span>
+                <img class="cat-foto-cat" src="img/cat-dulces.jpg" alt="Dulces y galletas">
                 <h3>Dulces y galletas</h3>
                 <p>Para picar sin culpa… o con ella</p>
             </a>
@@ -207,7 +208,7 @@
 
     <!-- ================== CÓMO PAGAR ================== -->
     <section class="seccion seccion-pagos" id="pagar">
-        <h2 class="titulo-seccion">Cómo pagar tu pedido 💳</h2>
+        <h2 class="titulo-seccion">Cómo pagar tu pedido</h2>
         <p class="pagos-intro">Fácil y como mejor te venga. Tres formas:</p>
         <div class="grid-pagos">
             <div class="caja-pago">
@@ -237,7 +238,7 @@
 
     <!-- ================== PREGUNTAS FRECUENTES ================== -->
     <section class="seccion" id="faq">
-        <h2 class="titulo-seccion">Dudas rápidas 🤔</h2>
+        <h2 class="titulo-seccion">Dudas rápidas <img class="icono-titulo" src="img/icono-dudas.jpg" alt=""></h2>
         <div class="faq">
             <details class="faq-item">
                 <summary>¿Con cuánta antelación pido mi tarta?</summary>
