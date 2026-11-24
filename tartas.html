@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="icon" type="image/svg+xml" href="img/icono-red-velvet.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ================================================================
-         MARTARTA â€” CatÃ¡logo de tartas (tartas.html)
+         MARTARTA — Catálogo de tartas (tartas.html)
          ------------------------------------------------------------
-         * AquÃ­ viven TODAS las tartas: foto, nombre, comentario
-           y precio. La portada solo enseÃ±a un anticipo y enlaza aquÃ­.
-         * CÃ“MO AÃ‘ADIR UNA TARTA: copia un bloque <article class="tarjeta-producto">
-           y cambia data-id (Ãºnico), data-nombre, data-precio, foto y textos.
-         * CÃ“MO PONER FOTO: sustituye el div "prod-placeholder" por
+         * Aquí viven TODAS las tartas: foto, nombre, comentario
+           y precio. La portada solo enseña un anticipo y enlaza aquí.
+         * CÓMO AÑADIR UNA TARTA: copia un bloque <article class="tarjeta-producto">
+           y cambia data-id (único), data-nombre, data-precio, foto y textos.
+         * CÓMO PONER FOTO: sustituye el div "prod-placeholder" por
            <img src="img/nombre-foto.jpg" alt="Nombre de la tarta">
-         * El botÃ³n Â«âœ¨ ExtrasÂ» abre la ventana de extras (al final del
-           archivo, dentro del modal #extras). Los extras tambiÃ©n van
+         * El botón «✨ Extras» abre la ventana de extras (al final del
+           archivo, dentro del modal #extras). Los extras también van
            al carrito. Edita la lista en el modal.
     ================================================================= -->
     <title>Tartas | Martarta</title>
-    <meta name="description" content="CatÃ¡logo de tartas artesanales Martarta: fotos, precios y comentarios. Pedidos por WhatsApp.">
+    <meta name="description" content="Catálogo de tartas artesanales Martarta: fotos, precios y comentarios. Pedidos por WhatsApp.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -30,18 +30,18 @@
 
     <!-- ================== BARRA DE ANUNCIOS ================== -->
     <div class="barra-anuncios">
-        <span>ðŸŽ‚ Solo online Â· Blanes â€” <strong>pedidos por WhatsApp</strong> (recogida miÃ©â€“dom, 9:00â€“17:00)</span>
+        <span>🎂 Solo online · Blanes — <strong>pedidos por WhatsApp</strong> (recogida mié–dom, 9:00–17:00)</span>
     </div>
 
-    <!-- ================== CABECERA / NAVEGACIÃ“N ================== -->
+    <!-- ================== CABECERA / NAVEGACIÓN ================== -->
     <header class="cabecera">
         <a href="index.html" class="logo"><img class="logo-img" src="img/logo-martarta.png" alt="Martarta"></a>
         <nav class="nav-principal">
             <a href="index.html">Inicio</a>
             <a href="tartas.html" style="color: var(--rojo); font-weight: 700;">Tartas</a>
             <a href="index.html#comic">La obradora</a>
-            <a href="index.html#pagar">CÃ³mo pagar</a>
-            <a href="index.html#sobre-mi">Sobre mÃ­</a>
+            <a href="index.html#pagar">Cómo pagar</a>
+            <a href="index.html#sobre-mi">Sobre mí</a>
             <a href="index.html#opiniones">Opiniones</a>
             <a href="index.html#contacto">Contacto</a>
         </nav>
@@ -51,21 +51,21 @@
         </button>
     </header>
 
-    <!-- ================== CABECERA DEL CATÃLOGO ================== -->
+    <!-- ================== CABECERA DEL CATÁLOGO ================== -->
     <section class="hero-mini">
         <h1>Nuestras tartas</h1>
-        <p>Fotos, precios y comentarios â€” tal cual salen del horno</p>
-        <!-- Filtros del catÃ¡logo (los tres primeros filtran, los dos Ãºltimos enlazan) -->
+        <p>Fotos, precios y comentarios — tal cual salen del horno</p>
+        <!-- Filtros del catálogo (los tres primeros filtran, los dos últimos enlazan) -->
         <div class="fichas-cat filtros-cat">
-            <button class="ficha-cat activa" data-f="todas">ðŸ° Todas</button>
-            <button class="ficha-cat" data-f="gluten">ðŸŒ¾ Sin gluten</button>
-            <button class="ficha-cat" data-f="lactosa">ðŸ¥› Sin lactosa</button>
-            <a class="ficha-cat" href="#personalizada">âœ¨ Personalizada</a>
-            <a class="ficha-cat" href="#extras">âž• Extras</a>
+            <button class="ficha-cat activa" data-f="todas">🍰 Todas</button>
+            <button class="ficha-cat" data-f="gluten">🌾 Sin gluten</button>
+            <button class="ficha-cat" data-f="lactosa">🥛 Sin lactosa</button>
+            <a class="ficha-cat" href="#personalizada">✨ Personalizada</a>
+            <a class="ficha-cat" href="#extras">➕ Extras</a>
         </div>
     </section>
 
-    <!-- ================== CATÃLOGO (lista compacta, la ficha grande se abre al hacer clic) ================== -->
+    <!-- ================== CATÁLOGO (lista compacta, la ficha grande se abre al hacer clic) ================== -->
     <section class="seccion" id="catalogo">
         <div class="lista-productos">
 
@@ -73,10 +73,10 @@
                 <div class="cat-foto"><img src="img/queso-grande-1.jpg" alt="Tarta de queso"></div>
                 <div class="lista-info">
                     <h3>Tarta de queso</h3>
-                    <p class="cat-desc">La de toda la vida Â· para 10 personas.</p>
+                    <p class="cat-desc">La de toda la vida · para 10 personas.</p>
                 </div>
-                <span class="prod-precio">26 â‚¬</span>
-                <button class="boton boton-comprar sticker" title="AÃ±adir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="AÃ±adir"></button>
+                <span class="prod-precio">26 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
             <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-queso-imagen" data-nombre="Tarta de queso con imagen comestible y base de galleta" data-precio="36">
@@ -85,67 +85,67 @@
                     <h3>Tarta de queso con imagen comestible</h3>
                     <p class="cat-desc">Imagen comestible y base de galleta.</p>
                 </div>
-                <span class="prod-precio">36 â‚¬</span>
-                <button class="boton boton-comprar sticker" title="AÃ±adir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="AÃ±adir"></button>
+                <span class="prod-precio">36 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
             <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-carrete" data-nombre="Tarta con carrete de fotos" data-precio="60">
                 <div class="cat-foto"><img src="img/tarta-carrete-1.jpg" alt="Tarta con carrete de fotos"></div>
                 <div class="lista-info">
                     <h3>Tarta con carrete de fotos</h3>
-                    <p class="cat-desc">Tus fotos impresas en carrete Â· para 10 personas.</p>
+                    <p class="cat-desc">Tus fotos impresas en carrete · para 10 personas.</p>
                 </div>
-                <span class="prod-precio">60 â‚¬</span>
-                <button class="boton boton-comprar sticker" title="AÃ±adir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="AÃ±adir"></button>
+                <span class="prod-precio">60 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
             <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-personalizada-topping" data-nombre="Tarta personalizada con extra de topping" data-precio="60">
                 <div class="cat-foto"><img src="img/tarta-personalizada-topping.jpg" alt="Tarta personalizada con extra de topping"></div>
                 <div class="lista-info">
-                    <h3>Tarta personalizada Â· extra de topping</h3>
-                    <p class="cat-desc">DiseÃ±o a tu gusto Â· para 15 personas.</p>
+                    <h3>Tarta personalizada · extra de topping</h3>
+                    <p class="cat-desc">Diseño a tu gusto · para 15 personas.</p>
                 </div>
-                <span class="prod-precio">60 â‚¬</span>
-                <button class="boton boton-comprar sticker" title="AÃ±adir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="AÃ±adir"></button>
+                <span class="prod-precio">60 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
-            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-carrot-topping" data-nombre="Carrot cake con topping (extra segÃºn el topping)" data-precio="60">
+            <article class="tarjeta-producto tarjeta-cat fila-lista" data-id="tarta-carrot-topping" data-nombre="Carrot cake con topping (extra según el topping)" data-precio="60">
                 <div class="cat-foto"><img src="img/tarta-carrot-topping.jpg" alt="Carrot cake con topping"></div>
                 <div class="lista-info">
                     <h3>Carrot cake con topping</h3>
-                    <p class="cat-desc">Extra segÃºn el topping Â· para 15 personas.</p>
+                    <p class="cat-desc">Extra según el topping · para 15 personas.</p>
                 </div>
-                <span class="prod-precio">60 â‚¬</span>
-                <button class="boton boton-comprar sticker" title="AÃ±adir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="AÃ±adir"></button>
+                <span class="prod-precio">60 €</span>
+                <button class="boton boton-comprar sticker" title="Añadir al carrito"><img class="icono-btn" src="img/icono-cesta.svg" alt="Añadir"></button>
             </article>
 
             <!-- Personalizada: a consultar -->
             <div class="banner-personalizada" id="personalizada">
                 <div>
-                    <h3>âœ¨ TÃº la imaginas, yo la horneo</h3>
-                    <p>CumpleaÃ±os, aniversarios, locurasâ€¦ cuÃ©ntame la idea por WhatsApp y te paso precio.</p>
+                    <h3>✨ Tú la imaginas, yo la horneo</h3>
+                    <p>Cumpleaños, aniversarios, locuras… cuéntame la idea por WhatsApp y te paso precio.</p>
                 </div>
-                <a href="https://wa.me/34614896462" class="boton boton-whatsapp sticker" target="_blank">Pedir cita ðŸ’¬</a>
+                <a href="https://wa.me/34614896462" class="boton boton-whatsapp sticker" target="_blank">Pedir cita 💬</a>
             </div>
         </div>
     </section>
 
-    <!-- ================== EXTRAS (secciÃ³n + ventana) ==================
-         Los extras tambiÃ©n se pueden aÃ±adir al carrito. Para aÃ±adir
+    <!-- ================== EXTRAS (sección + ventana) ==================
+         Los extras también se pueden añadir al carrito. Para añadir
          o quitar extras: edita los bloques <div class="extra-item">
          del final (los data-id no se deben repetir). -->
     <section class="seccion seccion-oscura" id="extras">
-        <h2 class="titulo-seccion">âœ¨ Los extras</h2>
+        <h2 class="titulo-seccion">✨ Los extras</h2>
         <p style="text-align:center;color:var(--blanco);max-width:520px;margin:0 auto 1.5rem">
-            AÃ±ade velas, mensajes o detalles a tu pedido desde cualquier tarta
-            (botÃ³n Â«âœ¨ ExtrasÂ») o desde aquÃ­:
+            Añade velas, mensajes o detalles a tu pedido desde cualquier tarta
+            (botón «✨ Extras») o desde aquí:
         </p>
         <div style="text-align:center">
-            <button class="boton boton-principal" id="abrir-extras">Ver extras y aÃ±adir âž•</button>
+            <button class="boton boton-principal" id="abrir-extras">Ver extras y añadir ➕</button>
         </div>
     </section>
 
-    <!-- ================== PIE DE PÃGINA ================== -->
+    <!-- ================== PIE DE PÁGINA ================== -->
     <footer class="pie">
         <div class="pie-contenido">
             <div class="pie-logo">Mar<span>tarta</span></div>
@@ -155,18 +155,18 @@
                 <a href="#">Aviso legal</a>
                 <a href="#">Privacidad</a>
             </nav>
-            <p class="pie-copy">Â© 2025 Martarta â€” Hecho con harina y cariÃ±o</p>
+            <p class="pie-copy">© 2025 Martarta — Hecho con harina y cariño</p>
         </div>
     </footer>
 
-    <!-- ================== FICHA DE PRODUCTO (e-commerce: galerÃ­a + compra + acordeones) ================== -->
+    <!-- ================== FICHA DE PRODUCTO (e-commerce: galería + compra + acordeones) ================== -->
     <div class="detalle-fondo" id="detalle-fondo" hidden></div>
     <div class="detalle-modal" id="detalle-modal" role="dialog" aria-modal="true" hidden>
-        <button class="detalle-cerrar" id="detalle-cerrar" aria-label="Cerrar">âœ•</button>
+        <button class="detalle-cerrar" id="detalle-cerrar" aria-label="Cerrar">✕</button>
         <div class="detalle-izq">
             <div class="detalle-principal">
                 <img id="detalle-img" src="" alt="">
-                <span class="lupa" aria-hidden="true">ðŸ”</span>
+                <span class="lupa" aria-hidden="true">🔍</span>
             </div>
             <div class="detalle-thumbs" id="detalle-thumbs"></div>
         </div>
@@ -176,23 +176,23 @@
             <p class="detalle-larga" id="detalle-larga"></p>
             <p class="detalle-precio-rango" id="detalle-precio"></p>
             <div class="detalle-opciones">
-                <label class="detalle-campo">TamaÃ±o
+                <label class="detalle-campo">Tamaño
                     <select id="detalle-tamano"></select>
                 </label>
                 <div class="detalle-cantidad">
-                    <button type="button" id="det-menos" aria-label="Menos">âˆ’</button>
+                    <button type="button" id="det-menos" aria-label="Menos">−</button>
                     <span id="det-cant">1</span>
-                    <button type="button" id="det-mas" aria-label="MÃ¡s">+</button>
+                    <button type="button" id="det-mas" aria-label="Más">+</button>
                 </div>
             </div>
-            <button class="boton cta-anadir" id="detalle-anadir">AÃ‘ADIR AL CARRITO</button>
+            <button class="boton cta-anadir" id="detalle-anadir">AÑADIR AL CARRITO</button>
             <details class="det-acc">
-                <summary>InformaciÃ³n del producto</summary>
+                <summary>Información del producto</summary>
                 <div id="detalle-info-producto"></div>
             </details>
             <details class="det-acc">
-                <summary>InformaciÃ³n general</summary>
-                <div><strong>* Aviso del obrador:</strong> podemos contener trazas de frutos secos, gluten, soja y sÃ©samo.<br><strong>* ImÃ¡genes ilustrativas:</strong> cada tarta se hace a mano, la tuya serÃ¡ Ãºnica.</div>
+                <summary>Información general</summary>
+                <div><strong>* Aviso del obrador:</strong> podemos contener trazas de frutos secos, gluten, soja y sésamo.<br><strong>* Imágenes ilustrativas:</strong> cada tarta se hace a mano, la tuya será única.</div>
             </details>
         </div>
     </div>
@@ -202,41 +202,41 @@
     <aside class="carrito-panel" id="carrito-panel" aria-label="Carrito de compra">
         <header class="carrito-cabecera">
             <h3>Tu carrito <img class="icono-titulo" src="img/icono-cesta.svg" alt=""></h3>
-            <button class="carrito-cerrar" id="cerrar-carrito" aria-label="Cerrar">âœ•</button>
+            <button class="carrito-cerrar" id="cerrar-carrito" aria-label="Cerrar">✕</button>
         </header>
         <ul class="carrito-lista" id="carrito-lista"></ul>
         <div class="carrito-pie">
-            <p class="carrito-total">Total: <strong id="carrito-total">0 â‚¬</strong></p>
-            <p class="carrito-ayuda">Al confirmar se abrirÃ¡ WhatsApp (o tu correo) con tu pedido ya escrito âœï¸</p>
+            <p class="carrito-total">Total: <strong id="carrito-total">0 €</strong></p>
+            <p class="carrito-ayuda">Al confirmar se abrirá WhatsApp (o tu correo) con tu pedido ya escrito ✍️</p>
             <button class="boton boton-whatsapp boton-ancho" id="confirmar-pedido">Confirmar pedido por WhatsApp</button>
-            <button class="boton boton-email boton-ancho" id="confirmar-email">Confirmar por correo ðŸ“§</button>
-            <button class="boton boton-factura boton-ancho" id="generar-factura">Generar factura ðŸ“„</button>
+            <button class="boton boton-email boton-ancho" id="confirmar-email">Confirmar por correo 📧</button>
+            <button class="boton boton-factura boton-ancho" id="generar-factura">Generar factura 📄</button>
         </div>
     </aside>
 
     <!-- ================== VENTANA DE EXTRAS (modal) ================== -->
     <div class="extras-fondo" id="extras-fondo">
         <div class="extras-caja" role="dialog" aria-label="Extras del pedido">
-            <button class="extras-cerrar" id="cerrar-extras" aria-label="Cerrar extras">âœ•</button>
-            <h3>âœ¨ Extras para tu pedido</h3>
-            <p class="extras-intro">AÃ±Ã¡delos igual que una tarta: van al carrito y se envÃ­an con el pedido.</p>
+            <button class="extras-cerrar" id="cerrar-extras" aria-label="Cerrar extras">✕</button>
+            <h3>✨ Extras para tu pedido</h3>
+            <p class="extras-intro">Añádelos igual que una tarta: van al carrito y se envían con el pedido.</p>
 
-            <!-- ====== LISTA DE EXTRAS: edita aquÃ­ (data-id Ãºnico) ====== -->
+            <!-- ====== LISTA DE EXTRAS: edita aquí (data-id único) ====== -->
             <div class="extra-item" data-id="extra-velas" data-nombre="Extra: velitas de cumple" data-precio="1.5">
-                <div><strong>ðŸ•¯ï¸ Velitas de cumple</strong><br><small>Pack de velitas + cerillas</small></div>
-                <button class="boton boton-comprar">AÃ±adir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                <div><strong>🕯️ Velitas de cumple</strong><br><small>Pack de velitas + cerillas</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
             </div>
             <div class="extra-item" data-id="extra-mensaje" data-nombre="Extra: mensaje personalizado" data-precio="2">
-                <div><strong>ðŸ–Šï¸ Mensaje personalizado</strong><br><small>Escrito a mano en chocolate o fondant</small></div>
-                <button class="boton boton-comprar">AÃ±adir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                <div><strong>🖊️ Mensaje personalizado</strong><br><small>Escrito a mano en chocolate o fondant</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
             </div>
             <div class="extra-item" data-id="extra-fresas" data-nombre="Extra: fresas extra" data-precio="3">
-                <div><strong>ðŸ“ Fresas extra</strong><br><small>MÃ¡s fresas frescas por encima</small></div>
-                <button class="boton boton-comprar">AÃ±adir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                <div><strong>🍓 Fresas extra</strong><br><small>Más fresas frescas por encima</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
             </div>
             <div class="extra-item" data-id="extra-caja" data-nombre="Extra: caja para regalo" data-precio="2.5">
-                <div><strong>ðŸŽ Caja para regalo</strong><br><small>Caja bonita con lazo</small></div>
-                <button class="boton boton-comprar">AÃ±adir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
+                <div><strong>🎁 Caja para regalo</strong><br><small>Caja bonita con lazo</small></div>
+                <button class="boton boton-comprar">Añadir <img class="icono-btn" src="img/icono-cesta.svg" alt=""></button>
             </div>
         </div>
     </div>
@@ -260,11 +260,11 @@
         document.querySelectorAll('.extra-item .boton-comprar').forEach(boton => {
             boton.addEventListener('click', () => {
                 const extra = boton.closest('.extra-item');
-                aÃ±adirAlCarrito(extra.dataset.id, extra.dataset.nombre, Number(extra.dataset.precio));
+                añadirAlCarrito(extra.dataset.id, extra.dataset.nombre, Number(extra.dataset.precio));
                 cerrarExtras();
             });
         });
-        /* Filtros del catÃ¡logo: todas / sin gluten / sin lactosa */
+        /* Filtros del catálogo: todas / sin gluten / sin lactosa */
         document.querySelectorAll('.filtros-cat button[data-f]').forEach(chip => {
             chip.addEventListener('click', () => {
                 document.querySelectorAll('.filtros-cat button').forEach(c => c.classList.remove('activa'));
@@ -276,20 +276,20 @@
             });
         });
 
-        /* ================== FICHA DE PRODUCTO (galerÃ­a + tamaÃ±os + cantidad + info) ================== */
+        /* ================== FICHA DE PRODUCTO (galería + tamaños + cantidad + info) ================== */
         const DETALLES = {
             'tarta-queso-grande': {
                 larga: 'Tarta de queso cremosa, horneada a baja temperatura con base de galleta casera. Para 10 personas.',
                 galeria: ['img/queso-grande-1.jpg', 'img/queso-grande-2.jpg'],
                 tamanos: [ { n: '10 personas', p: 26 } ],
-                ingredientes: 'Queso crema, huevos, nata, azÃºcar, galleta marÃ­a, mantequilla.',
+                ingredientes: 'Queso crema, huevos, nata, azúcar, galleta maría, mantequilla.',
                 alergenos: 'Leche, huevo, gluten.',
             },
             'tarta-queso-imagen': {
                 larga: 'Tarta de queso con imagen comestible (la foto que quieras sobre la tarta) y base de galleta.',
                 galeria: ['img/tarta-queso-imagen.jpg', 'img/queso-grande-1.jpg'],
                 tamanos: [ { n: 'Tarta entera', p: 36 } ],
-                ingredientes: 'Queso, huevos, nata, azÃºcar, base de galleta, imagen comestible (azÃºcar).',
+                ingredientes: 'Queso, huevos, nata, azúcar, base de galleta, imagen comestible (azúcar).',
                 alergenos: 'Leche, huevo, gluten.',
             },
             'tarta-carrete': {
@@ -297,17 +297,17 @@
                 galeria: ['img/tarta-carrete-1.jpg', 'img/tarta-carrete-2.jpg'],
                 tamanos: [ { n: '10 personas', p: 60 } ],
                 ingredientes: 'Bizcocho a elegir, relleno a elegir, carrete de fotos impresas.',
-                alergenos: 'SegÃºn el bizcocho elegido: pregunta al pedir.',
+                alergenos: 'Según el bizcocho elegido: pregunta al pedir.',
             },
             'tarta-personalizada-topping': {
-                larga: 'Tarta personalizada con extra de topping: diseÃ±o, sabor y topping a tu gusto. Para 15 personas.',
+                larga: 'Tarta personalizada con extra de topping: diseño, sabor y topping a tu gusto. Para 15 personas.',
                 galeria: ['img/tarta-personalizada-topping.jpg', 'img/tarta-carrot-topping.jpg'],
                 tamanos: [ { n: '15 personas', p: 60 } ],
-                ingredientes: 'Bizcocho y relleno a elegir, topping extra (segÃºn topping).',
-                alergenos: 'SegÃºn el bizcocho elegido: pregunta al pedir.',
+                ingredientes: 'Bizcocho y relleno a elegir, topping extra (según topping).',
+                alergenos: 'Según el bizcocho elegido: pregunta al pedir.',
             },
             'tarta-carrot-topping': {
-                larga: 'Carrot cake con topping a elegir: el extra se paga segÃºn el topping. Tarta grande, para 15 personas.',
+                larga: 'Carrot cake con topping a elegir: el extra se paga según el topping. Tarta grande, para 15 personas.',
                 galeria: ['img/tarta-carrot-topping.jpg', 'img/queso-grande-1.jpg'],
                 tamanos: [ { n: '15 personas', p: 60 } ],
                 ingredientes: 'Zanahoria, harina de trigo, nueces, canela, huevos, queso crema, topping a elegir.',
@@ -327,14 +327,14 @@
             document.getElementById('detalle-nombre').textContent = nombre;
             document.getElementById('detalle-larga').textContent = d.larga || '';
             const precios = estado.tamanos.map(t => t.p);
-            document.getElementById('detalle-precio').textContent = estado.tamanos.length > 1 ? `${Math.min(...precios)} â‚¬ â€“ ${Math.max(...precios)} â‚¬` : (precios[0] ? precios[0] + ' â‚¬' : '');
+            document.getElementById('detalle-precio').textContent = estado.tamanos.length > 1 ? `${Math.min(...precios)} € – ${Math.max(...precios)} €` : (precios[0] ? precios[0] + ' €' : '');
             const sel = document.getElementById('detalle-tamano');
-            sel.innerHTML = estado.tamanos.map((t, i) => `<option value="${i}">${t.n} â€” ${t.p} â‚¬</option>`).join('');
+            sel.innerHTML = estado.tamanos.map((t, i) => `<option value="${i}">${t.n} — ${t.p} €</option>`).join('');
             document.getElementById('det-cant').textContent = '1';
             document.getElementById('detalle-info-producto').innerHTML =
-                `<strong>Ingredientes:</strong> ${d.ingredientes || 'PregÃºntanos.'}<br>` +
-                `<strong>AlÃ©rgenos:</strong> ${d.alergenos || 'PregÃºntanos.'}<br>` +
-                `<strong>ConservaciÃ³n:</strong> 4 Â°C â€“ 8 Â°C en frigorÃ­fico.`;
+                `<strong>Ingredientes:</strong> ${d.ingredientes || 'Pregúntanos.'}<br>` +
+                `<strong>Alérgenos:</strong> ${d.alergenos || 'Pregúntanos.'}<br>` +
+                `<strong>Conservación:</strong> 4 °C – 8 °C en frigorífico.`;
             pintarGaleria(0);
             modal.hidden = false; fondo.hidden = false;
         }
@@ -365,7 +365,7 @@
         document.getElementById('detalle-anadir').addEventListener('click', () => {
             if (!estado.id) return;
             const t = estado.tamanos[Number(document.getElementById('detalle-tamano').value)] || { n: '', p: 0 };
-            for (let i = 0; i < estado.cant; i++) aÃ±adirAlCarrito(`${estado.id}-${t.n}`, `${estado.nombre} (${t.n})`, t.p);
+            for (let i = 0; i < estado.cant; i++) añadirAlCarrito(`${estado.id}-${t.n}`, `${estado.nombre} (${t.n})`, t.p);
             cerrarDetalle();
         });
     </script>
