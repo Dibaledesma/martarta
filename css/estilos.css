@@ -950,6 +950,30 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .ch-exito-icono { font-size: 3rem; }
 .ch-exito .boton { display: inline-block; margin-top: .8rem; text-decoration: none; }
 @media (max-width: 640px) { .fila-datos, .pago-opciones { grid-template-columns: 1fr; } }
+
+/* ================== CAJETILLA DEL JEFE DE CALIDAD (perro) ================== */
+.cajetilla-perro {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: .55rem; padding: 1.1rem;
+    background: var(--rojo-suave);
+    border: 2px dashed var(--rojo);
+    border-radius: 16px;
+    transform: rotate(-2deg);
+    text-align: center;
+}
+.cajetilla-perro img {
+    width: 120px; height: 120px; object-fit: cover;
+    border-radius: 50%; border: 4px solid #fff;
+    box-shadow: 0 6px 14px rgba(63,29,29,.25);
+}
+.cajetilla-perro figcaption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem; font-weight: 700; color: var(--texto); line-height: 1.25;
+}
+.cajetilla-perro .mini {
+    display: block; font-family: 'Nunito', sans-serif;
+    font-size: .75rem; font-weight: 400; color: #8a7059;
+}
 @media (max-width: 640px) {
     html { font-size: 14px; }
     body { line-height: 1.6; }
@@ -984,4 +1008,6 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 
     .pie-logo { font-size: 1.5rem; }
     .faq-item summary { font-size: 1rem; }
+    .cajetilla-perro img { width: 96px; height: 96px; }
+    .cajetilla-perro { transform: rotate(-1.5deg); }
 }
