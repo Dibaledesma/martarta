@@ -111,8 +111,14 @@ function pintarFormaPago(metodo) {
 /* ---------- Arranque ---------- */
 (function arranque() {
     let items = [];
-    // Modo demo: factura.html?demo=1 muestra la plantilla con un pedido de ejemplo.
-    if (new URLSearchParams(location.search).has('demo')) {
+    let modoPanel = null;   // ?pedido={...} → viene del panel de Marta
+    const params = new URLSearchParams(location.search);
+    if (params.has('pedido')) {
+        try {
+            modoPanel = JSON.parse(params.get('pedido'));
+            items = modoPanel.items || [];
+        } catch (e) { items = []; }
+    } else if (params.has('demo')) {
         items = [
             { id: 'tarta-queso', nombre: 'Tarta de queso clásica', precio: 22, cantidad: 1 },
             { id: 'cookies-pack', nombre: 'Pack de cookies surtidas', precio: 12, cantidad: 2 },
@@ -141,9 +147,19 @@ function pintarFormaPago(metodo) {
     pintarFormaPago(document.getElementById('forma-pago').value);
 
     document.getElementById('forma-pago').addEventListener('change', (e) => pintarFormaPago(e.target.value));
+    if (modoPanel) {
+        document.getElementById('cliente-nombre').value = modoPanel.cliente || '';
+        document.getElementById('factura-cliente').textContent = modoPanel.cliente || 'Cliente';
+        const pago = String(modoPanel.pago || '').toLowerCase().includes('bizum') ? 'bizum' : 'efectivo';
+        document.getElementById('forma-pago').value = pago;
+        pintarFormaPago(pago);
+    }
     document.getElementById('cliente-nombre').addEventListener('input', (e) => {
         document.getElementById('factura-cliente').textContent = e.target.value.trim() || 'Cliente';
     });
     document.getElementById('imprimir').addEventListener('click', () => window.print());
-    document.getElementById('volver').addEventListener('click', () => { window.location.href = 'tartas.html'; });
+    document.getElementById('volver').addEventListener('click', () => {
+        if (modoPanel) history.back();
+        else window.location.href = 'tartas.html';
+    });
 })();

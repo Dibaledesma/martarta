@@ -174,6 +174,24 @@ function pintarPedidos() {
         btnBorrar.textContent = '🗑';
         btnBorrar.addEventListener('click', () => borrarPedido(p));
 
+        const btnWhats = document.createElement('button');
+        btnWhats.className = 'btn-mini';
+        btnWhats.title = 'Confirmar al cliente por WhatsApp';
+        btnWhats.textContent = '💬';
+        btnWhats.addEventListener('click', () => abrirWhatsAppConfirmacion(p));
+
+        const btnCorreo = document.createElement('button');
+        btnCorreo.className = 'btn-mini';
+        btnCorreo.title = 'Confirmar al cliente por correo';
+        btnCorreo.textContent = '✉️';
+        btnCorreo.addEventListener('click', () => abrirCorreoConfirmacion(p));
+
+        const btnFactura = document.createElement('button');
+        btnFactura.className = 'btn-mini';
+        btnFactura.title = 'Generar factura';
+        btnFactura.textContent = '📄';
+        btnFactura.addEventListener('click', () => abrirFacturaPedido(p));
+
         li.innerHTML = `
             <div class="pedido-cab">
                 <span class="pedido-num">#${p.id}</span>
@@ -191,13 +209,52 @@ function pintarPedidos() {
 
         const acciones = document.createElement('div');
         acciones.className = 'acciones';
-        acciones.append(btnPago, btnBorrar);
+        acciones.append(btnPago, btnWhats, btnCorreo, btnFactura, btnBorrar);
         li.append(acciones);
         lista.append(li);
     }
 }
 
 function sinHTML(t) { return String(t ?? '').replace(/</g, '&lt;'); }
+
+/* ---------- Escribir al cliente (WhatsApp / correo / factura) ---------- */
+function telefonoWA(t) {
+    const d = String(t || '').replace(/\D/g, '');
+    if (!d) return '';
+    if (d.startsWith('34') && d.length === 11) return d;
+    if (d.length === 9) return '34' + d;
+    return d;
+}
+
+function abrirWhatsAppConfirmacion(p) {
+    const tel = telefonoWA(p.contacto);
+    if (!tel) { toast('Este pedido no tiene teléfono 📞'); return; }
+    const msg = `¡Hola! ✅ Soy Marta de Martarta. Tu pedido está CONFIRMADO:\n${p.detalle}\nTotal: ${euros(p.cantidad * p.precio_unitario)}${p.forma_pago ? ` · Pago: ${p.forma_pago}` : ''}\n¡Te espero para la recogida! 🍰`;
+    window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function abrirCorreoConfirmacion(p) {
+    if (!p.correo) { toast('Este pedido no tiene correo 📧'); return; }
+    const cuerpo = `¡Hola! ✅ Tu pedido de Martarta está confirmado:\n${p.detalle}\nTotal: ${euros(p.cantidad * p.precio_unitario)}${p.forma_pago ? `\nForma de pago: ${p.forma_pago}` : ''}\n¡Te espero para la recogida! 🍰`;
+    window.location.href = `mailto:${p.correo}?subject=${encodeURIComponent('Tu pedido Martarta confirmado ✅')}&body=${encodeURIComponent(cuerpo)}`;
+}
+
+function abrirFacturaPedido(p) {
+    let items = [];
+    try {
+        items = p.detalle.split('·').map(tramo => {
+            const m = tramo.trim().match(/^(\d+)\s*×\s*(.+?)\s*\(([\d.,]+)\s*€\)$/);
+            if (m) {
+                const n = Number(m[1]);
+                return { nombre: m[2], cantidad: n, precio: Number(m[3].replace(',', '.')) / n };
+            }
+            return { nombre: tramo.trim(), cantidad: p.cantidad, precio: p.precio_unitario };
+        }).filter(it => it.nombre);
+    } catch (e) { items = []; }
+    if (items.length === 0) items = [{ nombre: p.detalle, cantidad: p.cantidad, precio: p.precio_unitario }];
+    const datos = { items, cliente: p.cliente, pago: p.forma_pago || '' };
+    window.open(`../factura.html?pedido=${encodeURIComponent(JSON.stringify(datos))}`, '_blank');
+}
 
 /* ---------- Solicitudes de la web: aceptar / desistir ---------- */
 async function aceptarSolicitud(p) {
@@ -206,7 +263,8 @@ async function aceptarSolicitud(p) {
     p.estado = 'aceptado';
     pintarPedidos();
     pintarCuentas();
-    toast(`✓ Solicitud de ${p.cliente} aceptada — en marcha`);
+    toast(`✓ Solicitud de ${p.cliente} aceptada`);
+    abrirWhatsAppConfirmacion(p);   // WhatsApp listo con el "confirmado" al cliente
 }
 
 async function desistirSolicitud(p) {

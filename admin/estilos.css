@@ -165,7 +165,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--rojo); }
     display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; margin: .3rem 0 .6rem;
 }
 .pedido-total { font-weight: 800; }
-.acciones { display: flex; gap: .5rem; align-items: stretch; }
+.acciones { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
 
 .btn-pago { flex: 1; padding: .65rem .4rem; border-radius: 12px; }
 .btn-pago.sin {

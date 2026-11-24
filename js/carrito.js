@@ -291,12 +291,11 @@ document.getElementById('confirmar-pedido').addEventListener('click', () => {
     window.location.href = 'checkout.html';
 });
 
-/* Opción 2: abre la app de correo con el pedido ya escrito.
-   Funciona sin cuentas ni servicios: se abre el correo del cliente
-   (Gmail, Outlook, la que tenga) con destino a CORREO_PEDIDOS. */
-document.getElementById('confirmar-email').addEventListener('click', () => {
+/* Opción 2 (opcional): abre la app de correo con el pedido ya escrito.
+   Solo si la página tiene el botón (futuras páginas alternativas). */
+const botonCorreoPedido = document.getElementById('confirmar-email');
+if (botonCorreoPedido) botonCorreoPedido.addEventListener('click', () => {
     if (carrito.length === 0) { avisarCarritoVacio(); return; }
-    registrarPedidoEnPanel();
 
     const cuerpo = redactarMensajePedido().replace(/\n/g, '\r\n');
     const asunto = 'Pedido desde la web 🎂';
@@ -306,8 +305,9 @@ document.getElementById('confirmar-email').addEventListener('click', () => {
         `&body=${encodeURIComponent(cuerpo)}`;
 });
 
-/* Opción 3: genera una factura simplificada del pedido (factura.html). */
-document.getElementById('generar-factura').addEventListener('click', () => {
+/* Opción 3 (opcional): factura simplificada del pedido (factura.html). */
+const botonFactura = document.getElementById('generar-factura');
+if (botonFactura) botonFactura.addEventListener('click', () => {
     if (carrito.length === 0) { avisarCarritoVacio(); return; }
     localStorage.setItem('martarta-factura', JSON.stringify(carrito));
     window.location.href = 'factura.html';

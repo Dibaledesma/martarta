@@ -39,7 +39,7 @@
             <a href="index.html#contacto">Contacto</a>
         </nav>
 
-        <!-- Botón carrito (lo controla js/carrito.js?v=2) -->
+        <!-- Botón carrito (lo controla js/carrito.js?v=3) -->
         <button class="boton-carrito" id="abrir-carrito" aria-label="Abrir carrito">
             <img class="icono-cesta" src="img/icono-cesta.svg" alt="Carrito"> <span class="contador" id="contador-carrito">0</span>
         </button>
@@ -205,7 +205,7 @@
             </div>
         </div>
         <!-- 💳 Preparado para el futuro: cuando tengas cuenta de Stripe,
-             se activa el pago con tarjeta (instrucciones en js/carrito.js?v=2) -->
+             se activa el pago con tarjeta (instrucciones en js/carrito.js?v=3) -->
     </section>
 
     <!-- ================== PREGUNTAS FRECUENTES ================== -->
@@ -257,7 +257,7 @@
                 <p>Déjame tu email y te aviso de novedades y tartas de temporada.</p>
                 <!-- Formulario que envía un correo real (servicio gratuito FormSubmit,
                      sin cuentas ni servidor). El correo de destino se configura en
-                     js/carrito.js?v=2 (CORREO_PEDIDOS). El PRIMER envío llega al correo
+                     js/carrito.js?v=3 (CORREO_PEDIDOS). El PRIMER envío llega al correo
                      de Marta pidiendo confirmar la activación: se hace UNA vez. -->
                 <form class="form-email" method="POST" action="#">
                     <input type="email" name="email" placeholder="tu@email.com" required>
@@ -298,12 +298,10 @@
             <p class="carrito-total">Total: <strong id="carrito-total">0 €</strong></p>
             <p class="carrito-ayuda">Al confirmar se abrirá WhatsApp (o tu correo) con tu pedido ya escrito ✍️</p>
             <button class="boton boton-whatsapp boton-ancho" id="confirmar-pedido">Tramitar pedido &rarr;</button>
-            <button class="boton boton-email boton-ancho" id="confirmar-email">Confirmar por correo 📧</button>
-            <button class="boton boton-factura boton-ancho" id="generar-factura">Generar factura 📄</button>
         </div>
     </aside>
 
-    <script src="js/carrito.js?v=2"></script>
+    <script src="js/carrito.js?v=3"></script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>
