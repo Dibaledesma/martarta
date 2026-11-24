@@ -993,6 +993,7 @@ img.icono-titulo { background: var(--rojo-suave); border-radius: 12px; padding: 
     body { line-height: 1.6; }
 
     .barra-anuncios { font-size: .8rem; padding: .35rem .6rem; }
+    .barra-anuncios span { flex-direction: column; gap: .2rem; }
     .cabecera { position: static; padding: .5rem 4vw; gap: .5rem; }
     .logo-img { height: 68px; }
     .logo { font-size: 1.4rem; }
