@@ -612,6 +612,7 @@ img { max-width: 100%; display: block; }
     box-shadow: 8px 10px 0 rgba(63, 29, 29, .75);
 }
 
+.pago-icono img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
 .pago-icono {
     width: 66px;
     height: 66px;
