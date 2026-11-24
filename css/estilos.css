@@ -983,18 +983,20 @@ img.icono-titulo { background: var(--rojo-suave); border-radius: 12px; padding: 
     html { font-size: 16px; }   /* móvil con cuerpo: letras grandes, no encogidas */
     body { line-height: 1.6; }
 
-    .barra-anuncios { font-size: .95rem; }
-    .logo-img { height: 92px; }
-    .logo { font-size: 1.6rem; }
-    .nav-principal { gap: .8rem; }
-    .nav-principal a { font-size: 1.15rem; }
+    .barra-anuncios { font-size: .8rem; padding: .35rem .6rem; }
+    .cabecera { position: static; padding: .5rem 4vw; gap: .5rem; }
+    .logo-img { height: 68px; }
+    .logo { font-size: 1.4rem; }
+    .nav-principal { gap: .5rem; }
+    .nav-principal a { font-size: .95rem; }
     .boton-carrito { font-size: 1.05rem; }
 
-    .hero { padding: 2.2rem 5vw; }
+    .hero { padding: 1.6rem 5vw; }
     .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
     .hero-sub { font-size: 1.05rem; }
-    .hero-logo-grande { width: 92vw !important; max-width: 340px; }
+    .hero-logo-grande { width: 92vw !important; max-width: 260px; }
     .hero-dibujo .tarta-grande { width: min(200px, 60vw); }
+    .seccion { padding: 2.2rem 5vw; }
 
     /* Iconos y adornos con píxeles fijos: reducir a mano */
     .icono-titulo { height: 28px; }
