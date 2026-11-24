@@ -927,9 +927,29 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .demo h1 { color: #5E1A32; }
 .demo-nota { font-size: 0.85rem; color: #777; }
 
-/* ================== MÓVIL: letras y elementos a tamaño de pantalla ==================
-   Base en 14px: TODOS los tamaños en rem de la web bajan solos (~12%).
-   Aquí abajo solo se tocan los que están en píxeles fijos y no escalan. */
+/* ================== PÁGINA DE COMPRA (checkout.html) ================== */
+.oculto { display: none !important; }
+.checkout { max-width: 720px; }
+.tarjeta-checkout { background: var(--rojo-suave); border: 2px dashed var(--borde-suave); border-radius: 16px; padding: 1.2rem; margin-bottom: 1.4rem; }
+.tarjeta-checkout h2 { margin-bottom: .7rem; }
+.lista-checkout { list-style: none; }
+.lista-checkout li { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; border-bottom: 1px dashed var(--borde-suave); }
+.total-checkout { text-align: right; font-size: 1.2rem; margin: .6rem 0 0; }
+.nota-checkout { font-size: .85rem; color: #8a7059; margin-top: .4rem; }
+.fila-datos { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+#form-checkout label { display: block; font-weight: 600; margin-bottom: .7rem; font-family: 'Nunito', sans-serif; }
+#form-checkout input, #form-checkout textarea { width: 100%; margin-top: .25rem; padding: .55rem .7rem; border: 1px solid var(--borde-suave); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; background: #fff; color: var(--texto); }
+.pago-opciones { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: 1rem; }
+.pago-opcion { position: relative; display: block; }
+.pago-opcion input { position: absolute; opacity: 0; }
+.pago-tarjeta { display: flex; flex-direction: column; align-items: center; gap: .2rem; padding: .8rem .5rem; background: #fff; border: 2px solid var(--borde-suave); border-radius: 14px; font-weight: 700; cursor: pointer; text-align: center; font-size: 1.05rem; }
+.pago-tarjeta span { font-weight: 400; font-size: .78rem; color: #8a7059; }
+.pago-opcion input:checked + .pago-tarjeta { border-color: var(--rojo); background: #fff8ef; box-shadow: 0 0 0 2px var(--rojo) inset; }
+.ch-error { color: #b00020; font-size: .9rem; margin-top: .5rem; }
+.ch-exito { text-align: center; background: #e8f4e9; border: 2px solid #2e7d32; }
+.ch-exito-icono { font-size: 3rem; }
+.ch-exito .boton { display: inline-block; margin-top: .8rem; text-decoration: none; }
+@media (max-width: 640px) { .fila-datos, .pago-opciones { grid-template-columns: 1fr; } }
 @media (max-width: 640px) {
     html { font-size: 14px; }
     body { line-height: 1.6; }

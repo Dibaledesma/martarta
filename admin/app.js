@@ -111,13 +111,53 @@ async function cargarCostes() {
 function pintarPedidos() {
     const lista = $('lista-pedidos');
     lista.innerHTML = '';
-    $('pedidos-vacio').classList.toggle('oculto', pedidos.length > 0);
 
-    const pendienteTotal = pedidos.filter(p => !p.pagado).reduce((s, p) => s + p.cantidad * p.precio_unitario, 0);
+    /* Solicitudes de la web (aún sin aceptar) arriba del todo */
+    const solicitudes = pedidos.filter(p => p.estado === 'solicitud');
+    const normales = pedidos.filter(p => p.estado !== 'solicitud');
+
+    $('pedidos-vacio').classList.toggle('oculto', normales.length > 0 || solicitudes.length > 0);
+
+    const pendienteTotal = normales.filter(p => !p.pagado).reduce((s, p) => s + p.cantidad * p.precio_unitario, 0);
     $('rap-pendiente').textContent = euros(pendienteTotal);
-    $('rap-num').textContent = pedidos.length;
+    $('rap-num').textContent = normales.length;
 
-    for (const p of pedidos) {
+    for (const p of solicitudes) {
+        const li = document.createElement('li');
+        li.className = 'pedido-card solicitud';
+        li.innerHTML = `
+            <div class="pedido-cab">
+                <span class="pedido-num">✉️ solicitud</span>
+                <span class="pedido-cliente">${sinHTML(p.cliente)}</span>
+            </div>
+            <div class="pedido-detalle">${sinHTML(p.detalle)}</div>
+            <div class="pedido-datos">
+                <span class="pedido-total">${euros(p.cantidad * p.precio_unitario)}</span>
+                ${p.forma_pago ? `<span class="badge-pago">${sinHTML(p.forma_pago)}</span>` : ''}
+                ${p.contacto ? `<span>📞 ${sinHTML(p.contacto)}</span>` : ''}
+                ${p.correo ? `<span>📧 ${sinHTML(p.correo)}</span>` : ''}
+            </div>
+            ${p.notas ? `<div class="pedido-detalle">📝 ${sinHTML(p.notas)}</div>` : ''}`;
+
+        const acciones = document.createElement('div');
+        acciones.className = 'acciones';
+
+        const btnAceptar = document.createElement('button');
+        btnAceptar.className = 'btn btn-aceptar';
+        btnAceptar.textContent = '✓ Aceptar pedido';
+        btnAceptar.addEventListener('click', () => aceptarSolicitud(p));
+
+        const btnDesistir = document.createElement('button');
+        btnDesistir.className = 'btn-desistir';
+        btnDesistir.textContent = '✗ Desistir';
+        btnDesistir.addEventListener('click', () => desistirSolicitud(p));
+
+        acciones.append(btnAceptar, btnDesistir);
+        li.append(acciones);
+        lista.append(li);
+    }
+
+    for (const p of normales) {
         const li = document.createElement('li');
         li.className = 'pedido-card' + (p.pagado ? ' pagado' : '');
 
@@ -159,6 +199,26 @@ function pintarPedidos() {
 
 function sinHTML(t) { return String(t ?? '').replace(/</g, '&lt;'); }
 
+/* ---------- Solicitudes de la web: aceptar / desistir ---------- */
+async function aceptarSolicitud(p) {
+    const { error } = await sb.from('pedidos').update({ estado: 'aceptado' }).eq('id', p.id);
+    if (error) { toast('No se pudo aceptar: ' + error.message); return; }
+    p.estado = 'aceptado';
+    pintarPedidos();
+    pintarCuentas();
+    toast(`✓ Solicitud de ${p.cliente} aceptada — en marcha`);
+}
+
+async function desistirSolicitud(p) {
+    if (!confirm(`¿Desistir de la solicitud de ${p.cliente}?\nSe borrará de la lista.`)) return;
+    const { error } = await sb.from('pedidos').delete().eq('id', p.id);
+    if (error) { toast('No se pudo borrar: ' + error.message); return; }
+    pedidos = pedidos.filter(x => x.id !== p.id);
+    pintarPedidos();
+    pintarCuentas();
+    toast('Solicitud desistida y borrada');
+}
+
 /* ---------- Pedidos: acciones ---------- */
 async function alternarPagado(p) {
     const { error } = await sb.from('pedidos')
@@ -199,7 +259,8 @@ $('form-pedido').addEventListener('submit', async e => {
         cantidad: Number($('ped-cantidad').value) || 1,
         precio_unitario: Number($('ped-precio').value) || 0,
         fecha_entrega: $('ped-entrega').value || null,
-        notas: $('ped-notas').value.trim()
+        notas: $('ped-notas').value.trim(),
+        estado: 'aceptado'
     };
     const { data, error } = await sb.from('pedidos').insert(nuevo).select().single();
     if (error) { toast('No se pudo registrar: ' + error.message); return; }
@@ -269,7 +330,7 @@ $('cuentas-mes').addEventListener('change', pintarCuentas);
 function pintarCuentas() {
     const mes = $('cuentas-mes').value || mesActual();
 
-    const delMes = pedidos.filter(p => (p.creado_en || '').slice(0, 7) === mes);
+    const delMes = pedidos.filter(p => p.estado !== 'solicitud' && (p.creado_en || '').slice(0, 7) === mes);
     const costesMes = costes.filter(c => (c.fecha || '').slice(0, 7) === mes);
 
     const vendido  = delMes.reduce((s, p) => s + p.cantidad * p.precio_unitario, 0);

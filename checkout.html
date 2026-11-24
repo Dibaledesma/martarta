@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ==================================================================
+      MARTARTA — Página de compra (checkout)
+      El cliente rellena sus datos + forma de pago y envía la solicitud,
+      que cae directamente en el panel de Marta (base de datos Supabase).
+    ================================================================= -->
+    <title>Tu pedido | Martarta</title>
+    <meta name="description" content="Tramita tu pedido de tartas artesanales Martarta: datos, forma de pago y solicitud directa.">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="stylesheet" href="css/estilos.css?v=30">
+</head>
+<body>
+
+    <!-- ================== BARRA DE ANUNCIOS ================== -->
+    <div class="barra-anuncios">
+        <span>🎂 Solo online · Blanes — <strong>recogida mié–dom, 9:00–17:00</strong></span>
+    </div>
+
+    <!-- ================== CABECERA ================== -->
+    <header class="cabecera">
+        <a href="index.html" class="logo"><img class="logo-img" src="img/logo-martarta.png" alt="Martarta"></a>
+        <nav class="nav-principal">
+            <a href="index.html">Inicio</a>
+            <a href="tartas.html">Tartas</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero-mini">
+        <h1>Tu pedido 🧺</h1>
+        <p>Rellena tus datos y envía la solicitud — Marta te escribe para confirmarla</p>
+    </section>
+
+    <main class="seccion checkout">
+
+        <!-- Resumen del carrito (lo rellena el script de abajo) -->
+        <div class="tarjeta-checkout">
+            <h2>Tu compra</h2>
+            <ul id="resumen-lista" class="lista-checkout"></ul>
+            <p class="total-checkout">Total: <strong id="resumen-total">0 €</strong></p>
+            <p class="nota-checkout">Marta confirma disponibilidad y fecha de recogida por WhatsApp o correo.</p>
+        </div>
+
+        <!-- Formulario de datos -->
+        <form id="form-checkout" class="tarjeta-checkout">
+            <h2>Tus datos</h2>
+            <div class="fila-datos">
+                <label>Nombre *
+                    <input type="text" id="ch-nombre" required autocomplete="given-name">
+                </label>
+                <label>Apellido *
+                    <input type="text" id="ch-apellido" required autocomplete="family-name">
+                </label>
+            </div>
+            <div class="fila-datos">
+                <label>Teléfono *
+                    <input type="tel" id="ch-telefono" required autocomplete="tel" placeholder="6xx xxx xxx">
+                </label>
+                <label>Correo *
+                    <input type="email" id="ch-correo" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+                </label>
+            </div>
+            <label>Observaciones del pastel
+                <textarea id="ch-notas" rows="3" placeholder="Dedicatoria, tamaño, alérgenos, día que la quieres…"></textarea>
+            </label>
+
+            <h2>Forma de pago</h2>
+            <div class="pago-opciones">
+                <label class="pago-opcion">
+                    <input type="radio" name="pago" value="Bizum" required>
+                    <span class="pago-tarjeta">📱 Bizum<span>Pagas al recoger la confirmación</span></span>
+                </label>
+                <label class="pago-opcion">
+                    <input type="radio" name="pago" value="Efectivo">
+                    <span class="pago-tarjeta">💶 Efectivo<span>Al recoger tu pedido</span></span>
+                </label>
+            </div>
+
+            <button type="submit" class="boton boton-principal boton-ancho" id="ch-enviar">Enviar solicitud 🎂</button>
+            <p id="ch-error" class="ch-error oculto"></p>
+        </form>
+
+        <!-- Pantalla de éxito (oculta hasta enviar) -->
+        <div id="ch-exito" class="tarjeta-checkout ch-exito oculto">
+            <div class="ch-exito-icono">✅</div>
+            <h2>¡Solicitud enviada!</h2>
+            <p>Tu pedido ya está en la obradora. Marta te escribirá por <strong>WhatsApp</strong> o <strong>correo</strong> para confirmar fecha y recogida. 🧁</p>
+            <a href="index.html" class="boton boton-principal">Volver al inicio</a>
+        </div>
+
+    </main>
+
+    <!-- ================== PIE ================== -->
+    <footer class="pie">
+        <div class="pie-contenido">
+            <div class="pie-logo">Mar<span>tarta</span></div>
+            <nav class="pie-nav">
+                <a href="index.html">Inicio</a>
+                <a href="https://www.instagram.com/martartalatemporal" target="_blank" rel="noopener">Instagram</a>
+                <a href="#">Aviso legal</a>
+                <a href="#">Privacidad</a>
+            </nav>
+            <p class="pie-copy">© 2025 Martarta — Hecho con harina y cariño</p>
+        </div>
+    </footer>
+
+    <script>
+    /* ---------- Enviar la solicitud al panel de Marta ---------- */
+    'use strict';
+    const SUPABASE_URL      = 'https://qjxwaqqvmjjzxrsvlgms.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_9BE5Iuqg3R1ebbkzEaJqwQ_wQOdnICc';
+
+    const carrito = JSON.parse(localStorage.getItem('martarta-carrito') || '[]');
+    const $ = id => document.getElementById(id);
+    const euros = n => (Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2 }) + ' €';
+
+    /* Resumen del carrito */
+    let total = 0;
+    carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${item.cantidad} × ${item.nombre}</span><strong>${item.precio * item.cantidad} €</strong>`;
+        $('resumen-lista').appendChild(li);
+    });
+    $('resumen-total').textContent = euros(total);
+
+    if (carrito.length === 0) {
+        $('form-checkout').classList.add('oculto');
+        document.querySelector('.nota-checkout').innerHTML =
+            'Tu carrito está vacío. <a href="tartas.html">Elige alguna tarta primero 🍰</a>';
+    }
+
+    /* Envío */
+    $('form-checkout').addEventListener('submit', async e => {
+        e.preventDefault();
+        const error = $('ch-error');
+        error.classList.add('oculto');
+        const boton = $('ch-enviar');
+        boton.disabled = true;
+        boton.textContent = 'Enviando…';
+
+        const detalle = carrito.map(i => `${i.cantidad} × ${i.nombre} (${i.precio * i.cantidad} €)`).join(' · ');
+        const pago = document.querySelector('input[name="pago"]:checked');
+
+        try {
+            const resp = await fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+                method: 'POST',
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'Content-Type': 'application/json',
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                    cliente: `${$('ch-nombre').value.trim()} ${$('ch-apellido').value.trim()}`.trim(),
+                    contacto: $('ch-telefono').value.trim(),
+                    correo: $('ch-correo').value.trim(),
+                    detalle: detalle,
+                    cantidad: 1,
+                    precio_unitario: total,
+                    notas: $('ch-notas').value.trim(),
+                    forma_pago: pago ? pago.value : '',
+                    estado: 'solicitud'
+                })
+            });
+            if (!resp.ok) throw new Error('Error ' + resp.status);
+
+            localStorage.removeItem('martarta-carrito');
+            document.querySelector('.tarjeta-checkout').style.display = 'none';
+            $('form-checkout').classList.add('oculto');
+            $('ch-exito').classList.remove('oculto');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+            error.textContent = 'No se pudo enviar la solicitud. Prueba otra vez en un momento, o pídelo por WhatsApp.';
+            error.classList.remove('oculto');
+            boton.disabled = false;
+            boton.textContent = 'Enviar solicitud 🎂';
+        }
+    });
+    </script>
+</body>
+</html>

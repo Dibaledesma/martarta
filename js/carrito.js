@@ -284,16 +284,11 @@ function registrarPedidoEnPanel() {
     }).catch(() => {}); // si fallara, el pedido igualmente llega por WhatsApp/correo
 }
 
-/* Opción 1: WhatsApp */
+/* Opción 1: tramitar el pedido en la página de compra (checkout.html):
+   el cliente rellena sus datos y la solicitud cae sola en el panel. */
 document.getElementById('confirmar-pedido').addEventListener('click', () => {
     if (carrito.length === 0) { avisarCarritoVacio(); return; }
-    registrarPedidoEnPanel();
-
-    // encodeURIComponent convierte el texto a formato URL seguro
-    window.open(
-        `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(redactarMensajePedido())}`,
-        '_blank'
-    );
+    window.location.href = 'checkout.html';
 });
 
 /* Opción 2: abre la app de correo con el pedido ya escrito.
