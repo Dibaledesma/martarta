@@ -249,9 +249,45 @@ function avisarCarritoVacio() {
     alert('Tu carrito está vacío. ¡Añade alguna tarta primero! 🧺');
 }
 
+/* ---------- Registro automático en el panel de Marta (base de datos) ----------
+   Además de abrir WhatsApp/correo, el pedido queda apuntado SOLO en el panel.
+   Los visitantes solo tienen permiso de ENVIAR (insert), nunca leer ni borrar. */
+const SUPABASE_URL      = 'https://qjxwaqqvmjjzxrsvlgms.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_9BE5Iuqg3R1ebbkzEaJqwQ_wQOdnICc';
+
+function registrarPedidoEnPanel() {
+    if (carrito.length === 0) return;
+
+    let total = 0;
+    const detalle = carrito.map(item => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        return `${item.cantidad} × ${item.nombre} (${subtotal} €)`;
+    }).join(' · ');
+
+    fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+        method: 'POST',
+        headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+            cliente: 'Pedido web',
+            contacto: '',
+            detalle: detalle,
+            cantidad: 1,
+            precio_unitario: total,
+            notas: 'Enviado desde la web por el cliente'
+        })
+    }).catch(() => {}); // si fallara, el pedido igualmente llega por WhatsApp/correo
+}
+
 /* Opción 1: WhatsApp */
 document.getElementById('confirmar-pedido').addEventListener('click', () => {
     if (carrito.length === 0) { avisarCarritoVacio(); return; }
+    registrarPedidoEnPanel();
 
     // encodeURIComponent convierte el texto a formato URL seguro
     window.open(
@@ -265,6 +301,7 @@ document.getElementById('confirmar-pedido').addEventListener('click', () => {
    (Gmail, Outlook, la que tenga) con destino a CORREO_PEDIDOS. */
 document.getElementById('confirmar-email').addEventListener('click', () => {
     if (carrito.length === 0) { avisarCarritoVacio(); return; }
+    registrarPedidoEnPanel();
 
     const cuerpo = redactarMensajePedido().replace(/\n/g, '\r\n');
     const asunto = 'Pedido desde la web 🎂';

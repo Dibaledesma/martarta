@@ -40,7 +40,7 @@
             <a href="index.html#contacto">Contacto</a>
         </nav>
 
-        <!-- Botón carrito (lo controla js/carrito.js) -->
+        <!-- Botón carrito (lo controla js/carrito.js?v=1) -->
         <button class="boton-carrito" id="abrir-carrito" aria-label="Abrir carrito">
             <img class="icono-cesta" src="img/icono-cesta.svg" alt="Carrito"> <span class="contador" id="contador-carrito">0</span>
         </button>
@@ -233,7 +233,7 @@
             </div>
         </div>
         <!-- 💳 Preparado para el futuro: cuando tengas cuenta de Stripe,
-             se activa el pago con tarjeta (instrucciones en js/carrito.js) -->
+             se activa el pago con tarjeta (instrucciones en js/carrito.js?v=1) -->
     </section>
 
     <!-- ================== PREGUNTAS FRECUENTES ================== -->
@@ -285,7 +285,7 @@
                 <p>Déjame tu email y te aviso de novedades y tartas de temporada.</p>
                 <!-- Formulario que envía un correo real (servicio gratuito FormSubmit,
                      sin cuentas ni servidor). El correo de destino se configura en
-                     js/carrito.js (CORREO_PEDIDOS). El PRIMER envío llega al correo
+                     js/carrito.js?v=1 (CORREO_PEDIDOS). El PRIMER envío llega al correo
                      de Marta pidiendo confirmar la activación: se hace UNA vez. -->
                 <form class="form-email" method="POST" action="#">
                     <input type="email" name="email" placeholder="tu@email.com" required>
@@ -331,7 +331,7 @@
         </div>
     </aside>
 
-    <script src="js/carrito.js"></script>
+    <script src="js/carrito.js?v=1"></script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>
