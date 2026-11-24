@@ -951,6 +951,11 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .ch-exito .boton { display: inline-block; margin-top: .8rem; text-decoration: none; }
 @media (max-width: 640px) { .fila-datos, .pago-opciones { grid-template-columns: 1fr; } }
 
+/* ================== ICONOS: chip de fondo (lo blanco se ve) y centrado ================== */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; text-decoration: none; }
+img.icono-btn  { background: var(--rojo-suave); border-radius: 10px; padding: 2px; box-sizing: content-box; }
+img.icono-titulo { background: var(--rojo-suave); border-radius: 12px; padding: 3px; box-sizing: content-box; }
+
 /* ================== CAJETILLA DEL JEFE DE CALIDAD (perro) ================== */
 .cajetilla-perro {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
