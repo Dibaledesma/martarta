@@ -926,3 +926,42 @@ button.ficha-cat { cursor: pointer; font: inherit; }
 .demo { max-width: 560px; margin: 4rem auto; background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
 .demo h1 { color: #5E1A32; }
 .demo-nota { font-size: 0.85rem; color: #777; }
+
+/* ================== MÓVIL: letras y elementos a tamaño de pantalla ==================
+   Base en 14px: TODOS los tamaños en rem de la web bajan solos (~12%).
+   Aquí abajo solo se tocan los que están en píxeles fijos y no escalan. */
+@media (max-width: 640px) {
+    html { font-size: 14px; }
+    body { line-height: 1.6; }
+
+    .barra-anuncios { font-size: .8rem; }
+    .logo-img { height: 56px; }
+    .logo { font-size: 1.4rem; }
+    .nav-principal { gap: .7rem; }
+    .nav-principal a { font-size: 1rem; }
+    .boton-carrito { font-size: 1.05rem; }
+
+    .hero { padding: 2.2rem 5vw; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+    .hero-sub { font-size: 1.05rem; }
+    .hero-logo-grande { width: 92vw !important; max-width: 340px; }
+    .hero-dibujo .tarta-grande { width: min(200px, 60vw); }
+
+    /* Iconos y adornos con píxeles fijos: reducir a mano */
+    .icono-titulo { height: 28px; }
+    .banda-surtido img { width: 52px; }
+    .boton-carrito .icono-cesta { height: 26px; }
+    .logo .logo-tarta { height: 14px; }
+
+    .sobre-mi-foto { font-size: 4rem; }
+    .prod-placeholder { font-size: 2.4rem; }
+    .cat-icono { font-size: 2.2rem; }
+
+    /* Ficha de producto: menos aire en pantalla pequeña */
+    .detalle-modal { padding: 1rem .9rem; gap: .8rem; }
+    .detalle-info h3 { font-size: 1.4rem; }
+    .detalle-pie .prod-precio { font-size: 1.2rem; }
+
+    .pie-logo { font-size: 1.5rem; }
+    .faq-item summary { font-size: 1rem; }
+}
