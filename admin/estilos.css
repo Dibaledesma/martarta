@@ -196,6 +196,16 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--rojo); }
 
 .vacio { color: var(--gris); text-align: center; padding: 1.5rem .5rem; }
 
+/* ---------- Vistas de Cuentas (mes / trimestres / anual) ---------- */
+.cuentas-vistas { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: .8rem; }
+.chips-vista { display: flex; gap: .35rem; flex-wrap: wrap; }
+.chip-vista {
+    background: var(--blanco); border: 1px solid var(--borde-suave); color: var(--texto);
+    border-radius: 999px; padding: .3rem .75rem; cursor: pointer;
+    font-family: 'Nunito', 'Segoe UI', sans-serif; font-size: .85rem; font-weight: 600;
+}
+.chip-vista.activo { background: var(--rojo); color: var(--blanco); border-color: var(--rojo); }
+
 /* ---------- Solicitudes de la web ---------- */
 .pedido-card.solicitud { border: 2px dashed var(--rojo); background: #fffdf5; }
 .btn-aceptar { background: var(--verde); color: var(--blanco); flex: 1; padding: .65rem .4rem; border-radius: 12px; font-weight: 800; }

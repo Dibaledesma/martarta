@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" href="estilos.css?v=4">
+    <link rel="stylesheet" href="estilos.css?v=5">
 </head>
 <body>
 
@@ -93,9 +93,19 @@
             <!-- ---------- CUENTAS ---------- -->
             <section id="tab-cuentas" class="tab oculto">
                 <h2>Cuentas</h2>
-                <label class="selector-mes">Mes
-                    <input type="month" id="cuentas-mes">
-                </label>
+                <div class="cuentas-vistas">
+                    <label class="selector-mes">Mes
+                        <input type="month" id="cuentas-mes">
+                    </label>
+                    <div class="chips-vista">
+                        <button type="button" class="chip-vista activo" data-v="mes">Mensual</button>
+                        <button type="button" class="chip-vista" data-v="T1">T1</button>
+                        <button type="button" class="chip-vista" data-v="T2">T2</button>
+                        <button type="button" class="chip-vista" data-v="T3">T3</button>
+                        <button type="button" class="chip-vista" data-v="T4">T4</button>
+                        <button type="button" class="chip-vista" data-v="anual">Anual</button>
+                    </div>
+                </div>
                 <div class="cuadros">
                     <div class="cuadro"><span class="cifra" id="cu-vendido">—</span><span class="etiqueta">vendido</span></div>
                     <div class="cuadro cu-verde"><span class="cifra" id="cu-cobrado">—</span><span class="etiqueta">cobrado</span></div>
@@ -103,7 +113,7 @@
                     <div class="cuadro"><span class="cifra" id="cu-costes">—</span><span class="etiqueta">costes</span></div>
                     <div class="cuadro cu-verde"><span class="cifra" id="cu-beneficio">—</span><span class="etiqueta">cobrado − costes</span></div>
                 </div>
-                <h3>Costes del mes</h3>
+                <h3 id="titulo-costes-vista">Costes del mes</h3>
                 <ul id="lista-costes-mes" class="lista-simple"></ul>
                 <p id="costes-mes-vacio" class="vacio oculto">Sin costes apuntados este mes.</p>
             </section>
@@ -151,6 +161,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="config.js"></script>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>

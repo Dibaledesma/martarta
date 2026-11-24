@@ -323,15 +323,36 @@ function pintarCostes() {
     }
 }
 
-/* ---------- Cuentas (contabilidad por mes) ---------- */
+/* ---------- Cuentas (contabilidad por mes / trimestre / año) ---------- */
 $('cuentas-mes').value = mesActual();
 $('cuentas-mes').addEventListener('change', pintarCuentas);
 
-function pintarCuentas() {
-    const mes = $('cuentas-mes').value || mesActual();
+let vistaCuentas = 'mes';   // 'mes' | 'T1'..'T4' | 'anual'
+document.querySelectorAll('.chip-vista').forEach(b => {
+    b.addEventListener('click', () => {
+        vistaCuentas = b.dataset.v;
+        document.querySelectorAll('.chip-vista').forEach(x => x.classList.toggle('activo', x === b));
+        pintarCuentas();
+    });
+});
 
-    const delMes = pedidos.filter(p => p.estado !== 'solicitud' && (p.creado_en || '').slice(0, 7) === mes);
-    const costesMes = costes.filter(c => (c.fecha || '').slice(0, 7) === mes);
+function rangoCuentas() {
+    const ref = $('cuentas-mes').value || mesActual();   // 'YYYY-MM'
+    const y = Number(ref.slice(0, 4));
+    if (vistaCuentas === 'mes')    return [`${ref}-01`, `${ref}-31`, 'Costes del mes'];
+    if (vistaCuentas === 'anual') return [`${y}-01-01`, `${y}-12-31`, `Costes del año ${y}`];
+    const t = Number(vistaCuentas.slice(1));              // 1..4
+    const desde = String((t - 1) * 3 + 1).padStart(2, '0');
+    const hasta = String(t * 3).padStart(2, '0');
+    return [`${y}-${desde}-01`, `${y}-${hasta}-31`, `Costes del T${t} ${y}`];
+}
+
+function pintarCuentas() {
+    const [desde, hasta, etiquetaCostes] = rangoCuentas();
+    const enRango = fecha => { const f = (fecha || '').slice(0, 10); return f >= desde && f <= hasta; };
+
+    const delMes = pedidos.filter(p => p.estado !== 'solicitud' && enRango(p.creado_en));
+    const costesMes = costes.filter(c => enRango(c.fecha));
 
     const vendido  = delMes.reduce((s, p) => s + p.cantidad * p.precio_unitario, 0);
     const cobrado  = delMes.filter(p => p.pagado).reduce((s, p) => s + p.cantidad * p.precio_unitario, 0);
@@ -345,6 +366,7 @@ function pintarCuentas() {
 
     const listaMes = $('lista-costes-mes');
     listaMes.innerHTML = '';
+    $('titulo-costes-vista').textContent = etiquetaCostes;
     $('costes-mes-vacio').classList.toggle('oculto', costesMes.length > 0);
     for (const c of costesMes) {
         const li = document.createElement('li');
